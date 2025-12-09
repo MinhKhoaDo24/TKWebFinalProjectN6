@@ -1,0 +1,653 @@
+[
+  {
+    "id": 1,
+    "title": "No Time to Die",
+    "slug": "no-time-to-die",
+    "original_title": "No Time to Die",
+    "description": "No Time To Die theo chân James Bond rời bỏ cuộc sống nghỉ hưu để truy tìm một kẻ phản diện sở hữu công nghệ sinh học cực kỳ nguy hiểm. Nhiệm vụ mới kéo anh vào những bí mật từ quá khứ của Madeleine.",
+    "poster_url": "https://cdn.europosters.eu/image/750/109817.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/000000/FFF?text=No+Time+To+Die+Banner",
+    "trailer_url": "https://www.youtube.com/watch?v=BIhNsAtPbPI",
+    "genres": ["Hành động", "Tâm lý"],
+    "release_date": "2021-10-01",
+    "status": "ended",
+    "vote_average": 7.5,
+    "details": {
+      "duration_minutes": 163,
+      "age_rating": "16+",
+      "country": "Mỹ",
+      "language": "Tiếng Anh, Tiếng Việt",
+      "producer": "Universal Pictures"
+    },
+    "credits": {
+      "director": "Cary Joji Fukunaga",
+      "cast": ["Daniel Craig", "Rami Malek", "Naomie Harris"]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Thử Thách Thần Chết 2",
+    "slug": "thu-thach-than-chet-2",
+    "original_title": "Along with the Gods: The Last 49 Days",
+    "description": "Sau thành công vang dội của phần 1, Thử Thách Thần Chết 2 trở lại. Hành trình giúp đỡ linh hồn tốt được đầu thai của các vệ thần lần này sẽ diễn ra như thế nào? Chuyện phim khai thác những bí ẩn trong quá khứ.",
+    "poster_url": "https://cdn.galaxycine.vn/media/2020/9/23/mv5bzdq0yte2ztitn2mwzc00zjvkltgwotetytczmtrkntjmmdmzxkeyxkfqcgdeqxvynzqzndm3nti--v1-sy1000-cr0-0-698-1000-al-_1600852794188.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/000000/FFF?text=Thu+Thach+Than+Chet+2",
+    "trailer_url": "https://www.youtube.com/watch?v=7ecYoSvGoGs",
+    "genres": ["Hành động", "Giả tưởng"],
+    "release_date": "2018-08-01",
+    "status": "ended",
+    "vote_average": 8.1,
+    "details": {
+      "duration_minutes": 138,
+      "age_rating": "17+",
+      "country": "Hàn Quốc",
+      "language": "Tiếng Việt, Tiếng Anh, Tiếng Hàn",
+      "producer": "Lotte Entertainment"
+    },
+    "credits": {
+      "director": "Kim Yong-Hwa",
+      "cast": ["Ju Ji-Hoon", "Kim Hyang Gi", "Ma Dong Seok"]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Mission: Impossible – The Final Reckoning",
+    "slug": "mission-impossible-final-reckoning",
+    "original_title": "Mission: Impossible – The Final Reckoning",
+    "description": "Hành trình cuối cùng của Ethan Hunt chống lại một AI nguy hiểm — chứa pha hành động kịch tính, mạo hiểm cao, hứa hẹn kết thúc hoành tráng cho loạt phim.",
+    "poster_url": "https://deadline.com/wp-content/uploads/2025/04/Mi8_DOM_2025x3000_Online_Character_Poster_TCruiseHanging_R1.jpg?w=800",
+    "landscape_poster_url": "https://placehold.co/1280x720/000000/FFF?text=Mission+Impossible+8",
+    "trailer_url": "https://www.youtube.com/watch?v=fsQgc9pCyDU",
+    "genres": ["Hành động", "Phiêu lưu"],
+    "release_date": "2025-05-23",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 170,
+      "age_rating": "16+",
+      "country": "Mỹ",
+      "language": "Tiếng Anh, Tiếng Việt",
+      "producer": "Paramount Pictures"
+    },
+    "credits": {
+      "director": "Christopher McQuarrie",
+      "cast": [
+        "Tom Cruise",
+        "Simon Pegg",
+        "Hayley Atwell",
+        "Vanessa Kirby",
+        "Pom Klementieff"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "title": "Materialists",
+    "slug": "materialists",
+    "original_title": "Materialists",
+    "description": "Phim kể câu chuyện về môi trường hẹn hò sang trọng ở New York — một matchmaker lỡ bước giữa người cũ và người mới, tạo ra tam giác tình cảm phức tạp.",
+    "poster_url": "https://i.ebayimg.com/images/g/poAAAeSw-VRoBT3x/s-l1200.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/E91E63/FFF?text=Materialists",
+    "trailer_url": "https://www.youtube.com/watch?v=mUQtfChJ7n8",
+    "genres": ["Lãng mạn", "Chính kịch"],
+    "release_date": "2025-06-01",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 117,
+      "age_rating": "13+",
+      "country": "Mỹ",
+      "language": "Tiếng Anh, Tiếng Việt",
+      "producer": "Killer Films & 2AM"
+    },
+    "credits": {
+      "director": "Celine Song",
+      "cast": ["Dakota Johnson", "Chris Evans", "Pedro Pascal"]
+    }
+  },
+  {
+    "id": 5,
+    "title": "The Amateur",
+    "slug": "the-amateur",
+    "original_title": "The Amateur",
+    "description": "Một điệp viên CIA — nhân vật chính do Charlie Heller (Rami Malek đóng) — bước vào hành trình trả thù, săn lùng kẻ giết vợ mình. Phim pha lẫn yếu tố gián điệp, hành động & tâm lý căng thẳng.",
+    "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxSMONOywiS_M5Fptup7z-wANFKQVVnNO-Q&s",
+    "landscape_poster_url": "https://placehold.co/1280x720/333/FFF?text=The+Amateur",
+    "trailer_url": "https://www.youtube.com/watch?v=Y2i1m-FK4Jg",
+    "genres": ["Hành động", "Giật gân"],
+    "release_date": "2025-04-11",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 124,
+      "age_rating": "16+",
+      "country": "Mỹ",
+      "language": "Tiếng Anh",
+      "producer": "20th Century Studios"
+    },
+    "credits": {
+      "director": "James Hawes",
+      "cast": [
+        "Rami Malek",
+        "Rachel Brosnahan",
+        "Caitríona Balfe",
+        "Laurence Fishburne"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "title": "Eleanor the Great",
+    "slug": "eleanor-the-great",
+    "original_title": "Eleanor the Great",
+    "description": "Phim kể chuyện một phụ nữ 94 tuổi bất ngờ kết bạn với một sinh viên 19 tuổi ở New York — tạo nên một tình bạn bất ngờ, ấm áp và xúc động.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BZmJlMzQwM2MtZjZkNy00OTA3LTk1YzYtNzllNWE2MjVhZjU1XkEyXkFqcGc@._V1_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/FFC107/000?text=Eleanor+The+Great",
+    "trailer_url": "https://www.youtube.com/watch?v=wZ6l2ue--KA",
+    "genres": ["Hài hước", "Chính kịch"],
+    "release_date": "2025-07-20",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 98,
+      "age_rating": "P",
+      "country": "Mỹ",
+      "language": "Tiếng Anh",
+      "producer": "Pinky Promise"
+    },
+    "credits": {
+      "director": "Scarlett Johansson",
+      "cast": [
+        "June Squibb",
+        "Erin Kellyman",
+        "Jessica Hecht",
+        "Chiwetel Ejiofor"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "title": "Avatar: Fire and Ash",
+    "slug": "avatar-fire-and-ash",
+    "original_title": "Avatar: Fire and Ash",
+    "description": "Phần tiếp theo của saga trên hành tinh Pandora — giới thiệu tộc Na’vi mới (“Ash People”), với bối cảnh núi lửa và xung đột căng thẳng; hứa hẹn là bom tấn lớn cuối năm 2025.",
+    "poster_url": "https://i.ebayimg.com/images/g/mBMAAeSwk6xoeF5f/s-l400.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/0000FF/FFF?text=Avatar+Fire+and+Ash",
+    "trailer_url": "https://www.youtube.com/watch?v=nb_fFj_0rq8",
+    "genres": ["Hành động", "Phiêu lưu", "Viễn tưởng"],
+    "release_date": "2025-12-19",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 197,
+      "age_rating": "18+",
+      "country": "Mỹ",
+      "language": "Tiếng Anh",
+      "producer": "Lightstorm Entertainment & 20th Century Studios"
+    },
+    "credits": {
+      "director": "James Cameron",
+      "cast": [
+        "Sam Worthington",
+        "Zoe Saldana",
+        "Sigourney Weaver",
+        "Kate Winslet"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "title": "Captain America: Brave New World",
+    "slug": "captain-america-brave-new-world",
+    "original_title": "Captain America: Brave New World",
+    "description": "Sam Wilson tiếp tục vai Captain America — phim hứa hẹn nhiều pha hành động, chính trị và xung đột nội bộ, với kẻ phản diện “Red Hulk” (Tổng thống mới).",
+    "poster_url": "https://media.themoviedb.org/t/p/w440_and_h660_face/5w1iHCw9CK6YrTm6NEU1p2sQf11.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/002366/FFF?text=Captain+America",
+    "trailer_url": "https://www.youtube.com/watch?v=1pHDWnXmK7Y",
+    "genres": ["Siêu anh hùng", "Hành động"],
+    "release_date": "2025-02-14",
+    "status": "now_showing",
+    "vote_average": 8.5,
+    "details": {
+      "duration_minutes": 120,
+      "age_rating": "13+",
+      "country": "Mỹ",
+      "language": "Tiếng Anh",
+      "producer": "Marvel Studios"
+    },
+    "credits": {
+      "director": "Julius Onah",
+      "cast": ["Anthony Mackie", "Harrison Ford", "Shira Haas", "Danny Ramirez"]
+    }
+  },
+  {
+    "id": 9,
+    "title": "Anaconda",
+    "slug": "anaconda-2025",
+    "original_title": "Anaconda",
+    "description": "Bản “meta-reboot” của phim rắn khổng lồ năm 1997: hai nhân vật chính đi làm phim không chuyên tại Amazon, vô tình gặp rắn khổng lồ thật — từ hài hước chuyển sang kinh hoàng.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BMTNlMTk1YTItOWYxNi00ZWIzLTkyOWEtNTJmMzk4NmIyN2NmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/006400/FFF?text=Anaconda",
+    "trailer_url": "https://www.youtube.com/watch?v=az8M5Mai0X4",
+    "genres": ["Hành động", "Hài", "Hài kinh dị"],
+    "release_date": "2025-08-01",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 99,
+      "age_rating": "P",
+      "country": "Mỹ",
+      "language": "Tiếng Anh",
+      "producer": "Columbia Pictures"
+    },
+    "credits": {
+      "director": "Tom Gormican",
+      "cast": ["Paul Rudd", "Jack Black", "Steve Zahn", "Thandiwe Newton"]
+    }
+  },
+  {
+    "id": 10,
+    "title": "Lilo & Stitch",
+    "slug": "lilo-and-stitch-live-action",
+    "original_title": "Lilo & Stitch",
+    "description": "Bản live-action remake của tác phẩm hoạt hình kinh điển — kể lại cuộc gặp gỡ giữa cô bé Lilo và “Stitch” (Experiment 626), với định dạng hiện đại, CGI & bối cảnh mới.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYmFmZjM1ZTEtYzQ5ZS00MTRmLTkzMDktYWMxNTg2NGE3YjY4XkEyXkFqcGc@._V1_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/00BFFF/FFF?text=Lilo+and+Stitch",
+    "trailer_url": "https://www.youtube.com/watch?v=VWqJifMMgZE",
+    "genres": ["Viễn tưởng", "Hài", "Gia đình", "Hoạt hình"],
+    "release_date": "2025-05-23",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 108,
+      "age_rating": "P",
+      "country": "Mỹ - Anh",
+      "language": "Tiếng Anh",
+      "producer": "Walt Disney Pictures & Rideback"
+    },
+    "credits": {
+      "director": "Dean Fleischer Camp",
+      "cast": [
+        "Sydney Elizebeth Agudong",
+        "Billy Magnussen",
+        "Hannah Waddingham",
+        "Maia Kealoha"
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "title": "Zootopia 2",
+    "slug": "zootopia-2",
+    "original_title": "Zootopia 2",
+    "description": "Zootopia 2 tiếp tục câu chuyện của thỏ cảnh sát Judy và cáo Nick khi họ đối mặt một vụ án mới đe dọa sự hòa hợp giữa các loài. Hai người phải hợp tác truy tìm âm mưu gây chia rẽ thành phố.",
+    "poster_url": "https://media.themoviedb.org/t/p/w220_and_h330_face/dAJAUq3WO5w5QUK2YLJTqxTfxio.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/FF9800/FFF?text=Zootopia+2",
+    "trailer_url": "https://www.youtube.com/watch?v=BjkIOU5PhyQ",
+    "genres": ["Hoạt hình", "Hài", "Gia Đình"],
+    "release_date": "2025-11-26",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 108,
+      "age_rating": "P",
+      "country": "Mỹ",
+      "language": "Tiếng Anh",
+      "producer": "Walt Disney Animation Studios"
+    },
+    "credits": {
+      "director": "Bared Bush & Byron Howard",
+      "cast": ["Ginnifer Goodwin", "Jason Bateman", "Ke Huy Quan", "Shakira"]
+    }
+  },
+  {
+    "id": 12,
+    "title": "Concrete Utopia",
+    "slug": "concrete-utopia",
+    "original_title": "Concrete Utopia",
+    "description": "Sau một trận động đất kinh hoàng, cư dân còn sống sót trong một chung cư phải đấu tranh để giành quyền sinh tồn.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BZjEwOTcwMTgtODVjYi00NWI1LWFmNGItMTEzZWE5YTAzOGJkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/555/FFF?text=Concrete+Utopia",
+    "trailer_url": "https://www.youtube.com/watch?v=yZkMdi3gBfA",
+    "genres": ["Tâm lý", "Thảm họa", "Kịch tính"],
+    "release_date": "2023-08-09",
+    "status": "ended",
+    "vote_average": 7.4,
+    "details": {
+      "duration_minutes": 130,
+      "age_rating": "16+",
+      "country": "Hàn quốc",
+      "language": "Tiếng Hàn",
+      "producer": "Climax Studio"
+    },
+    "credits": {
+      "director": "Um Tae-hwa",
+      "cast": ["Lee Byung-hun", "Park Seo-joon", "Park Bo-young"]
+    }
+  },
+  {
+    "id": 13,
+    "title": "Alienoid 2",
+    "slug": "alienoid-2",
+    "original_title": "Alienoid: Return to the Future",
+    "description": "Cuộc chiến giữa các pháp sư thời cổ đại và lực lượng ngoài hành tinh tiếp tục với quy mô lớn hơn.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNjNkMzcxYjgtZmY4MC00ZWMwLTk1OTQtMmE5NzIxMzU2M2Q0XkEyXkFqcGc@._V1_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/000/FFF?text=Alienoid+2",
+    "trailer_url": "https://www.youtube.com/watch?v=Yuj9YG1srhE",
+    "genres": ["Hành động", "Khoa học viễn tưởng", "Phiêu lưu"],
+    "release_date": "2024-01-10",
+    "status": "ended",
+    "vote_average": 7.2,
+    "details": {
+      "duration_minutes": 122,
+      "age_rating": "13+",
+      "country": "Hàn quốc",
+      "language": "Tiếng Hàn",
+      "producer": "CJ Entertainment"
+    },
+    "credits": {
+      "director": "Choi Dong-hoon",
+      "cast": ["Kim Woo-bin", "Ryu Jun-yeol", "Kim Tae-ri"]
+    }
+  },
+  {
+    "id": 14,
+    "title": "Smugglers",
+    "slug": "smugglers",
+    "original_title": "Smugglers",
+    "description": "Một nhóm phụ nữ sống bằng nghề lặn phải dấn thân vào đường dây buôn lậu để sinh tồn.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYjM4OTIwM2EtMjM3NS00OTIwLTg5NWQtZGE2YTA1MDlmMTUxXkEyXkFqcGc@._V1_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/222/FFF?text=Smugglers",
+    "trailer_url": "https://www.youtube.com/watch?v=1bGZK6Ff8Os",
+    "genres": ["Tội phạm", "Hành động"],
+    "release_date": "2023-07-26",
+    "status": "ended",
+    "vote_average": 7.0,
+    "details": {
+      "duration_minutes": 129,
+      "age_rating": "18+",
+      "country": "Hàn quốc",
+      "language": "Tiếng Hàn",
+      "producer": "Filmmaker R&K"
+    },
+    "credits": {
+      "director": "Ryu Seung-wan",
+      "cast": ["Kim Hye-soo", "Yum Jung-ah", "Zo In-sung"]
+    }
+  },
+  {
+    "id": 15,
+    "title": "The Roundup: Punishment",
+    "slug": "the-roundup-punishment",
+    "original_title": "The Roundup: Punishment",
+    "description": "Thanh tra Ma Seok-do tiếp tục truy lùng một băng nhóm tội phạm quốc tế tàn bạo.",
+    "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJkk3Q5lia06waH8vwym5HleR5VhNQ9ELog&s",
+    "landscape_poster_url": "https://placehold.co/1280x720/000/FFF?text=The+Roundup",
+    "trailer_url": "https://www.youtube.com/watch?v=QHhn2Jk1m0U",
+    "genres": ["Hành động", "Tội phạm"],
+    "release_date": "2024-04-24",
+    "status": "ended",
+    "vote_average": 7.3,
+    "details": {
+      "duration_minutes": 109,
+      "age_rating": "18+",
+      "country": "Hàn quốc",
+      "language": "Tiếng Hàn",
+      "producer": "ABO Entertainment"
+    },
+    "credits": {
+      "director": "Heo Myeong-haeng",
+      "cast": ["Ma Dong-seok", "Kim Moo-yul", "Lee Dong-hwi"]
+    }
+  },
+  {
+    "id": 16,
+    "title": "Exhuma",
+    "slug": "exhuma",
+    "original_title": "Exhuma",
+    "description": "Một nhóm pháp sư và thầy phong thủy khai quật một ngôi mộ kỳ lạ, vô tình giải phóng một thế lực tà ác.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BOTA1OTY1NTYtNDEzZS00OTgyLWI1NWEtNDI5NjBhOTIwNzIyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/333/FFF?text=Exhuma",
+    "trailer_url": "https://www.youtube.com/watch?v=FdyRZ-AdG-E",
+    "genres": ["Kinh dị", "Tâm linh"],
+    "release_date": "2024-02-22",
+    "status": "ended",
+    "vote_average": 7.6,
+    "details": {
+      "duration_minutes": 134,
+      "age_rating": "16+",
+      "country": "Hàn quốc",
+      "language": "Tiếng Hàn",
+      "producer": "Showbox"
+    },
+    "credits": {
+      "director": "Jang Jae-hyun",
+      "cast": ["Choi Min-sik", "Kim Go-eun", "Yoo Hae-jin"]
+    }
+  },
+  {
+    "id": 17,
+    "title": "Mưa Đỏ",
+    "slug": "mua-do",
+    "original_title": "Mưa Đỏ",
+    "description": "Phim kể về 81 ngày đêm bảo vệ Thành cổ Quảng Trị năm 1972 — một giai đoạn bi tráng trong lịch sử Việt Nam, tái hiện khốc liệt của chiến tranh cũng như tinh thần kiên cường, hy sinh của quân và dân ta.",
+    "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR94P03AG0zs3-8BOb2svbBfqSp9rGhZcRYig&s",
+    "landscape_poster_url": "https://placehold.co/1280x720/800000/FFF?text=Mua+Do",
+    "trailer_url": "https://www.youtube.com/watch?v=BD6PoZJdt_M",
+    "genres": ["Chiến tranh", "Lịch Sử", "Hành động"],
+    "release_date": "2025-04-30",
+    "status": "now_showing",
+    "vote_average": 9.2,
+    "details": {
+      "duration_minutes": 124,
+      "age_rating": "13+",
+      "country": "Việt Nam",
+      "language": "Tiếng Việt",
+      "producer": "Nguyễn Trí Viễn"
+    },
+    "credits": {
+      "director": "Đặng Thái Huyền",
+      "cast": ["Đỗ Nhật Hoàng", "Lê Hạ Anh", "Steven Nguyễn", "Phương Nam"]
+    }
+  },
+  {
+    "id": 18,
+    "title": "Bộ tứ báo thủ",
+    "slug": "bo-tu-bao-thu",
+    "original_title": "Bộ tứ báo thủ",
+    "description": "Phim hài – lãng mạn kể về tình bạn, tình yêu giữa các nhân vật trẻ, nhiều tình tiết hài hước và giải trí.",
+    "poster_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/24/Bo_tu_bao_thu_poster.jpg/250px-Bo_tu_bao_thu_poster.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/FFD700/000?text=Bo+Tu+Bao+Thu",
+    "trailer_url": "https://www.youtube.com/watch?v=zKMOgOWn8lQ",
+    "genres": ["Hài", "Lãng mạn"],
+    "release_date": "2025-01-22",
+    "status": "now_showing",
+    "vote_average": 8.0,
+    "details": {
+      "duration_minutes": 133,
+      "age_rating": "16+",
+      "country": "Việt nam",
+      "language": "Tiếng Việt",
+      "producer": "Galaxy Studio"
+    },
+    "credits": {
+      "director": "Trấn Thành",
+      "cast": ["Trấn Thành", "Lê Dương Bảo Lâm", "Lê Giang", "Uyển Ân"]
+    }
+  },
+  {
+    "id": 19,
+    "title": "Thám tử Kiên: Kỳ Án Không Đầu",
+    "slug": "tham-tu-kien-ky-an-khong-dau",
+    "original_title": "Thám tử Kiên",
+    "description": "Một loạt vụ mất tích bí ẩn — thi thể không đầu xuất hiện — thám tử Kiên được mời đến điều tra khiến hé lộ những bí mật rùng rợn.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNTc0MGNjOGMtOTk0Ny00YmY4LTlmNjMtMzI0MzAyNzRkNGQzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/000/FFF?text=Tham+Tu+Kien",
+    "trailer_url": "https://www.youtube.com/watch?v=QiXNbEKF3U0",
+    "genres": ["Kinh dị", "Trinh thám", "Cổ trang"],
+    "release_date": "2025-05-15",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 131,
+      "age_rating": "16+",
+      "country": "Việt nam",
+      "language": "Tiếng Việt",
+      "producer": "November Films, Galaxy Studio"
+    },
+    "credits": {
+      "director": "Victor Vũ",
+      "cast": ["Quốc Huy", "Đinh Ngọc Diệp", "Trần Quốc Anh", "Đoàn Minh Anh"]
+    }
+  },
+  {
+    "id": 20,
+    "title": "Cu Li Không Bao Giờ Khóc",
+    "slug": "cu-li-khong-bao-gio-khoc",
+    "original_title": "Cu Li Không Bao Giờ Khóc",
+    "description": "Phim kể câu chuyện của một phụ nữ trở về quê sau biến cố, đối diện với quá khứ và những hệ lụy trong gia đình.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYzQ2MzRhM2QtMmM5Ni00ZDczLTk5MzQtZjEzNmY5OGQwNmUzXkEyXkFqcGc@._V1_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/888/FFF?text=Cu+Li",
+    "trailer_url": "https://www.youtube.com/watch?v=kMjlJkmt5nk",
+    "genres": ["Chính kịch", "Tâm lý"],
+    "release_date": "2024-11-15",
+    "status": "now_showing",
+    "vote_average": 7.5,
+    "details": {
+      "duration_minutes": 93,
+      "age_rating": "P",
+      "country": "Việt nam",
+      "language": "Tiếng Việt",
+      "producer": "Cadence Studio"
+    },
+    "credits": {
+      "director": "Phạm Ngọc Lân",
+      "cast": ["Minh Châu", "Xuân An", "Hà Phương", "Hoàng Hà"]
+    }
+  },
+  {
+    "id": 21,
+    "title": "Mai",
+    "slug": "mai",
+    "original_title": "Mai",
+    "description": "Câu chuyện cảm động về người phụ nữ sống cùng nỗi đau quá khứ, mở ra hành trình chữa lành và yêu thương.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNzM0MTY2MjEtM2QxNy00ZTg2LTk0MmEtZmVmY2JlNTNlMzBjXkEyXkFqcGc@._V1_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/E91E63/FFF?text=Mai",
+    "trailer_url": "https://www.youtube.com/watch?v=6U0ZDHs4_9s",
+    "genres": ["Tâm lý", "Lãng mạn"],
+    "release_date": "2024-02-10",
+    "status": "ended",
+    "vote_average": 8.0,
+    "details": {
+      "duration_minutes": 126,
+      "age_rating": "16+",
+      "country": "Việt nam",
+      "language": "Tiếng Việt",
+      "producer": "Trấn Thành Town"
+    },
+    "credits": {
+      "director": "Trấn Thành",
+      "cast": ["Phương Anh Đào", "Trấn Thành", "Xuân Lan", "NSND Việt Anh"]
+    }
+  },
+  {
+    "id": 22,
+    "title": "Chị Chị Em Em 2",
+    "slug": "chi-chi-em-em-2",
+    "original_title": "Chị Chị Em Em 2",
+    "description": "Hai mỹ nhân Sài Gòn xưa lao vào vòng xoáy danh vọng và tranh đấu không khoan nhượng.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BYTJlN2E2MjMtZTcxNi00YmQ2LWJkZGMtYzc2NDJlMWViY2QxXkEyXkFqcGc@._V1_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/FF00FF/FFF?text=Chi+Chi+Em+Em+2",
+    "trailer_url": "https://www.youtube.com/watch?v=YmqK2s9U2Dc",
+    "genres": ["Tâm lý", "Tội phạm"],
+    "release_date": "2023-01-22",
+    "status": "ended",
+    "vote_average": 6.8,
+    "details": {
+      "duration_minutes": 118,
+      "age_rating": "18+",
+      "country": "Việt nam",
+      "language": "Tiếng Việt",
+      "producer": "MAR6 Studios"
+    },
+    "credits": {
+      "director": "Vũ Ngọc Đãng",
+      "cast": ["Minh Hằng", "Ngọc Trinh", "Lãnh Thanh"]
+    }
+  },
+  {
+    "id": 23,
+    "title": "Đất Rừng Phương Nam",
+    "slug": "dat-rung-phuong-nam",
+    "original_title": "Đất Rừng Phương Nam",
+    "description": "Hành trình tìm cha đầy cảm xúc của cậu bé An giữa miền Tây thời chiến.",
+    "poster_url": "https://m.media-amazon.com/images/M/MV5BNDllMWM5MjktNmE4MC00MTc3LTk2YjItOGFkNjgyMjhkMjRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "landscape_poster_url": "https://placehold.co/1280x720/8B4513/FFF?text=Dat+Rung+Phuong+Nam",
+    "trailer_url": "https://www.youtube.com/watch?v=Yt3vX6jTchg",
+    "genres": ["Phiêu lưu", "Gia đình"],
+    "release_date": "2023-10-20",
+    "status": "ended",
+    "vote_average": 7.2,
+    "details": {
+      "duration_minutes": 120,
+      "age_rating": "P",
+      "country": "Việt nam",
+      "language": "Tiếng Việt",
+      "producer": "HKFilm"
+    },
+    "credits": {
+      "director": "Nguyễn Quang Dũng",
+      "cast": ["Hồng Ánh", "Đồng Ánh Quỳnh", "Công Ninh", "Trấn Thành"]
+    }
+  },
+  {
+    "id": 24,
+    "title": "Nhà Bà Nữ",
+    "slug": "nha-ba-nu",
+    "original_title": "Nhà Bà Nữ",
+    "description": "Bi kịch và yêu thương trong gia đình ba đời làm nghề bán bún nước.",
+    "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6uCLhZhboGeNYKZC9r8l2drGXkdFqwy8X6Q&s",
+    "landscape_poster_url": "https://placehold.co/1280x720/FF4500/FFF?text=Nha+Ba+Nu",
+    "trailer_url": "https://www.youtube.com/watch?v=1w1j2qXdt4A",
+    "genres": ["Gia đình", "Tâm lý"],
+    "release_date": "2023-01-22",
+    "status": "ended",
+    "vote_average": 7.1,
+    "details": {
+      "duration_minutes": 102,
+      "age_rating": "13+",
+      "country": "Việt nam",
+      "language": "Tiếng Việt",
+      "producer": "Trấn Thành Town"
+    },
+    "credits": {
+      "director": "Trấn Thành",
+      "cast": ["Lê Giang", "Khả Như", "Uyển Ân"]
+    }
+  },
+  {
+    "id": 25,
+    "title": "Tử chiến trên không",
+    "slug": "tu-chien-tren-khong",
+    "original_title": "Tử chiến trên không",
+    "description": "Phim lấy cảm hứng từ các vụ cướp máy bay có thật ở Việt Nam sau 1975, kể lại cuộc đấu tranh sinh tử khi một nhóm không tặc khống chế máy bay dân dụng.",
+    "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgyDDZDt3vQqva2NObI5Z9c4Ii8CEHfuWIfw&s",
+    "landscape_poster_url": "https://placehold.co/1280x720/000/FFF?text=Tu+Chien+Tren+Khong",
+    "trailer_url": "https://www.youtube.com/watch?v=h5zyEqu9O2k",
+    "genres": ["Hành động", "Kịch tính", "Tội phạm"],
+    "release_date": "2025-09-02",
+    "status": "coming_soon",
+    "vote_average": 0,
+    "details": {
+      "duration_minutes": 118,
+      "age_rating": "16+",
+      "country": "Việt nam",
+      "language": "Tiếng Việt",
+      "producer": "Điện ảnh Công an Nhân dân"
+    },
+    "credits": {
+      "director": "Hàm Trần",
+      "cast": ["Thái Hòa", "Kaity Nguyễn", "Thanh Sơn", "Võ Điền Gia Huy"]
+    }
+  }
+]
