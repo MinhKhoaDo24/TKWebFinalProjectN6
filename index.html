@@ -1,9 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="vi">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CinemaVipOK</title>
-  </head>
-  <body></body>
+    <title>CineMax - Carousel Update</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { bgMain: "#121212", bgCard: "#1e1e1e", bgInput: "#2a2a2a", primary: "#8b5cf6" },
+            fontFamily: { sans: ["Outfit", "sans-serif"] },
+            backgroundImage: { "gradient-brand": "linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)" },
+          },
+        },
+      };
+    </script>
+    
+    <style>
+      ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+      .glass-effect { background: rgba(18, 18, 18, 0.8); backdrop-filter: blur(12px); }
+      
+      /* --- CSS CHO CAROUSEL (Ẩn thanh cuộn) --- */
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+      /* --- CSS CHO MINI SIDEBAR --- */
+      .mini-sidebar #sidebar-content { width: 88px !important; }
+      .mini-sidebar .sidebar-text { display: none; }
+      .mini-sidebar .nav-item { justify-content: center; padding-left: 0; padding-right: 0; }
+      .mini-sidebar .sidebar-divider { display: block; }
+      .sidebar-divider { display: none; }
+    </style>
+</head>
+<body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm transition-opacity"></div>
+
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 md:relative transition-all duration-300 w-72 py-4 pl-4">
+        </div>
+
+    <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain transition-all duration-300">
+        
+        <div id="navbar-container"></div>
+
+        <div class="flex-1 overflow-y-auto px-4 md:px-8 scroll-smooth pb-20 md:pb-8">
+             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <div class="col-span-1 lg:col-span-9 space-y-10"> <div id="hero-section" class="w-full h-[450px] bg-[#1e1e1e] rounded-[2rem] animate-pulse"></div>
+                    
+                    <div id="section-now-showing"></div>
+                    <div id="section-coming-soon"></div>
+                </div>
+
+                <div class="col-span-1 lg:col-span-3 space-y-6">
+                    <div class="bg-[#1e1e1e] rounded-3xl p-6 h-full sticky top-0 border border-white/5">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg font-bold">Top Rated</h3>
+                            <i class="fa-solid fa-arrow-right text-gray-500 cursor-pointer hover:text-white"></i>
+                        </div>
+                        <div id="top-rated-list" class="space-y-4">
+                            <div class="h-16 bg-[#2a2a2a] rounded-xl animate-pulse"></div>
+                            <div class="h-16 bg-[#2a2a2a] rounded-xl animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+
+             </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+            // --- 1. LOAD COMPONENTS ---
+            $("#sidebar-container").load("components/sidebar.html");
+
+            $("#navbar-container").load("components/header.html", function() {
+                // Sự kiện Toggle Sidebar
+                $("#toggle-sidebar-btn").click(function() {
+                    const sidebarContainer = $("#sidebar-container");
+                    const overlay = $("#sidebar-overlay");
+                    
+                    if ($(window).width() < 768) {
+                        sidebarContainer.toggleClass("-translate-x-full");
+                        overlay.toggleClass("hidden");
+                    } else {
+                        sidebarContainer.toggleClass("mini-sidebar");
+                        if (sidebarContainer.hasClass("mini-sidebar")) {
+                             sidebarContainer.css("width", "100px");
+                        } else {
+                             sidebarContainer.css("width", "18rem");
+                        }
+                    }
+                });
+            });
+
+            $("#sidebar-overlay").click(function() {
+                $("#sidebar-container").addClass("-translate-x-full");
+                $(this).addClass("hidden");
+            });
+
+            // --- 2. FETCH DATA ---
+            fetch('./data/movies.json')
+            .then(res => res.json())
+            .then(data => {
+                const hero = data.find(m => m.id === 8) || data[0]; // ID 8 là Captain America
+                renderHero(hero);
+                renderRow("#section-now-showing", "Đang Chiếu", data.filter(m => m.status === 'now_showing'));
+                renderRow("#section-coming-soon", "Sắp Chiếu", data.filter(m => m.status === 'coming_soon'));
+                renderTopRated(data);
+            });
+
+            // --- 3. RENDER FUNCTIONS ---
+
+            // A. Banner Chính
+            const renderHero = (m) => {
+                if(!m) return;
+                const img = m.landscape_poster_url && !m.landscape_poster_url.includes('placehold') ? m.landscape_poster_url : m.poster_url;
+                $("#hero-section").removeClass("animate-pulse bg-[#1e1e1e]").html(`
+                    <div class="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer">
+                        <img src="${img}" class="absolute w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/50"></div>
+                        <div class="absolute bottom-10 left-10 max-w-lg z-10">
+                            <span class="px-3 py-1 bg-purple-600/30 border border-purple-500/50 text-purple-300 text-[10px] font-bold uppercase tracking-wider rounded-lg mb-3 inline-block">Spotlight</span>
+                            <h2 class="text-5xl font-bold mb-4 text-white leading-tight drop-shadow-xl">${m.title}</h2>
+                            <p class="text-gray-300 line-clamp-2 mb-6 text-sm drop-shadow-md">${m.description}</p>
+                            <button class="bg-white text-black px-8 py-3.5 rounded-2xl font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105 transition flex items-center gap-2">
+                                <i class="fa-solid fa-play"></i> Xem Ngay
+                            </button>
+                        </div>
+                    </div>
+                `);
+            };
+
+            // B. Carousel Row (Mới cập nhật)
+            const renderRow = (id, title, movies) => {
+                if(!movies.length) return;
+                const scrollId = `scroll-${id.replace('#', '')}`;
+
+                let cardsHtml = '';
+                movies.forEach(m => {
+                    cardsHtml += `
+                        <div class="snap-start w-[160px] flex-shrink-0 cursor-pointer group/card">
+                            <div class="h-[240px] rounded-2xl overflow-hidden bg-gray-800 mb-3 relative border border-white/5 shadow-lg">
+                                <img src="${m.poster_url}" loading="lazy" class="w-full h-full object-cover group-hover/card:scale-110 transition duration-500 opacity-90 group-hover/card:opacity-100">
+                                
+                                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition duration-300 bg-black/20">
+                                    <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition">
+                                        <i class="fa-solid fa-play text-white ml-1"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="font-bold truncate text-sm text-gray-200 group-hover/card:text-purple-400 transition">${m.title}</h4>
+                            <p class="text-xs text-gray-500 mt-1">${m.genres[0]}</p>
+                        </div>`;
+                });
+
+                const html = `
+                    <div class="relative group/slider">
+                        <div class="flex justify-between items-end mb-4 px-1">
+                            <h3 class="text-xl font-bold flex items-center"><span class="w-1.5 h-6 bg-purple-500 rounded-full mr-3"></span>${title}</h3>
+                            <div class="flex gap-2">
+                                <button onclick="document.getElementById('${scrollId}').scrollBy({left: -300, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-white/5 hover:bg-purple-600 flex items-center justify-center transition cursor-pointer">
+                                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                                </button>
+                                <button onclick="document.getElementById('${scrollId}').scrollBy({left: 300, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-white/5 hover:bg-purple-600 flex items-center justify-center transition cursor-pointer">
+                                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <button onclick="document.getElementById('${scrollId}').scrollBy({left: -800, behavior: 'smooth'})" class="absolute left-0 top-0 bottom-0 z-20 w-16 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 flex items-center justify-start pl-2 hover:w-20 cursor-pointer">
+                                <i class="fa-solid fa-chevron-left text-3xl text-white/80 hover:text-white drop-shadow-lg transform active:scale-90 transition"></i>
+                            </button>
+
+                            <div id="${scrollId}" class="flex space-x-5 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-4 px-1">
+                                ${cardsHtml}
+                            </div>
+
+                            <button onclick="document.getElementById('${scrollId}').scrollBy({left: 800, behavior: 'smooth'})" class="absolute right-0 top-0 bottom-0 z-20 w-16 bg-gradient-to-l from-black/80 to-transparent opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 flex items-center justify-end pr-2 hover:w-20 cursor-pointer">
+                                <i class="fa-solid fa-chevron-right text-3xl text-white/80 hover:text-white drop-shadow-lg transform active:scale-90 transition"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                $(id).html(html);
+            };
+
+            // C. Top Rated Sidebar
+            const renderTopRated = (movies) => {
+                 let html = "";
+                 movies.sort((a,b) => b.vote_average - a.vote_average).slice(0,5).forEach((m, i) => {
+                     // Style cho Top 1, 2, 3
+                     let rankStyle = "text-gray-600 font-bold text-xl";
+                     if(i===0) rankStyle = "text-yellow-400 font-black text-2xl drop-shadow-md";
+                     if(i===1) rankStyle = "text-gray-300 font-bold text-xl";
+                     if(i===2) rankStyle = "text-orange-400 font-bold text-xl";
+
+                     html += `
+                        <div class="flex items-center gap-4 p-3 hover:bg-white/5 rounded-2xl cursor-pointer transition border border-transparent hover:border-white/5 group">
+                            <span class="${rankStyle} w-6 text-center italic">${i+1}</span>
+                            <img src="${m.poster_url}" class="w-12 h-16 rounded-lg object-cover bg-gray-800 shadow-md group-hover:scale-105 transition">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-sm font-bold truncate text-white group-hover:text-purple-400 transition">${m.title}</h4>
+                                <div class="flex items-center mt-1 space-x-1.5">
+                                    <i class="fa-solid fa-star text-yellow-500 text-[10px]"></i>
+                                    <span class="text-xs text-gray-400 font-bold">${m.vote_average}</span>
+                                    <span class="text-[10px] text-gray-600">• ${m.genres[0]}</span>
+                                </div>
+                            </div>
+                        </div>
+                     `
+                 });
+                 $("#top-rated-list").html(html);
+            }
+        });
+    </script>
+</body>
 </html>

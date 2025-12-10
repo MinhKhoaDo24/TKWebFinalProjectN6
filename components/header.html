@@ -1,0 +1,35 @@
+
+    <header class="h-20 flex items-center justify-between px-8 glass-effect sticky top-0 z-30 w-full mb-6 rounded-b-2xl border-b border-white/5">
+    
+    <div class="flex items-center gap-4">
+        <button id="toggle-sidebar-btn" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-gray-400 hover:text-white hover:bg-purple-600 hover:shadow-lg hover:shadow-purple-500/30 transition-all active:scale-95">
+            <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+
+        <div class="hidden md:flex bg-black/30 p-1 rounded-xl border border-white/5">
+            <a href="#" class="px-5 py-2 rounded-lg bg-[#2a2a2a] text-white text-sm font-medium shadow-md transition-all">Movies</a>
+            <a href="#" class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all">Series</a>
+            <a href="#" class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all">TV Shows</a>
+        </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <div class="relative hidden sm:block group">
+            <input type="text" placeholder="Tìm kiếm..." class="bg-[#2a2a2a] text-sm text-gray-300 pl-10 pr-4 py-2.5 rounded-xl w-64 focus:w-72 focus:ring-1 focus:ring-purple-500 transition-all duration-300 outline-none border border-transparent focus:border-purple-500/50" />
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-500 group-hover:text-white transition-colors"></i>
+        </div>
+
+        <button class="w-10 h-10 rounded-xl bg-[#2a2a2a] flex items-center justify-center text-gray-400 hover:text-white hover:bg-purple-600 transition-all relative">
+            <i class="fa-regular fa-bell"></i>
+            <span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-[#1e1e1e]"></span>
+        </button>
+
+        <div class="flex items-center gap-3 pl-4 border-l border-white/10 cursor-pointer">
+            <div class="text-right hidden md:block">
+                <div class="text-sm font-bold text-white">Minh Hoang</div>
+                <div class="text-[10px] font-bold text-purple-400 uppercase tracking-wider">Premium</div>
+            </div>
+            <img src="https://i.pravatar.cc/150?img=11" class="w-10 h-10 rounded-xl border-2 border-purple-500/30">
+        </div>
+    </div>
+</header>
