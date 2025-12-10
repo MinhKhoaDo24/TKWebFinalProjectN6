@@ -1,67 +1,83 @@
-<aside id="sidebar-content" class="h-full flex flex-col bg-[#1e1e1e] shadow-2xl transition-all duration-300 w-full overflow-hidden border-r border-white/5 md:border-none md:rounded-r-3xl">
+<aside id="sidebar-content" class="h-full flex flex-col bg-[#141414] border-r border-white/5 shadow-2xl transition-all duration-300 w-full overflow-hidden md:rounded-r-[30px] relative z-50">
     
-    <div class="h-20 flex items-center justify-center md:justify-start px-0 md:px-6 shrink-0 cursor-pointer overflow-hidden whitespace-nowrap" onclick="window.location.reload()">
-        <div class="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center shadow-lg shadow-purple-500/30 shrink-0 transition-transform hover:scale-110">
+    <div class="h-24 flex items-center justify-center md:justify-start px-0 md:px-7 shrink-0 cursor-pointer overflow-hidden whitespace-nowrap group" onclick="window.location.reload()">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-lg shadow-purple-500/20 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
             <i class="fa-solid fa-play text-white text-sm"></i>
         </div>
-        <h1 class="text-2xl font-bold tracking-tight ml-3 opacity-100 transition-opacity duration-300 sidebar-text">
-            Cine<span class="text-purple-400">Max</span>
+        <h1 class="text-2xl font-bold tracking-tight ml-3 opacity-100 transition-opacity duration-300 sidebar-text text-white">
+            Cine<span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Max</span>
         </h1>
     </div>
 
-    <nav class="flex-1 overflow-y-auto px-3 py-6 space-y-8 custom-scrollbar">
+    <nav class="flex-1 overflow-y-auto px-4 py-4 space-y-8 custom-scrollbar">
+        
         <div>
+            <h3 class="sidebar-text text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 px-4 truncate">Menu</h3>
             <ul class="space-y-2">
                 <li>
-                    <a href="#" class="nav-item active flex items-center h-12 px-3 rounded-xl transition-all group hover:bg-white/10 text-gray-400 hover:text-white">
-                        <i class="fa-solid fa-compass w-6 text-xl text-center group-hover:text-purple-400 transition-colors"></i>
-                        <span class="font-medium ml-3 sidebar-text whitespace-nowrap">Khám Phá</span>
+                    <a href="#" class="nav-item active flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm">
+                        <i class="fa-solid fa-compass w-5 text-lg text-center transition-colors"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Khám Phá</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#trending" class="nav-item flex items-center h-12 px-3 rounded-xl transition-all group hover:bg-white/10 text-gray-400 hover:text-white">
-                        <i class="fa-regular fa-star w-6 text-xl text-center group-hover:text-purple-400 transition-colors"></i>
-                        <span class="font-medium ml-3 sidebar-text whitespace-nowrap">Top Rated</span>
+                    <a href="#trending" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-regular fa-star w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Top Rated</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#coming" class="nav-item flex items-center h-12 px-3 rounded-xl transition-all group hover:bg-white/10 text-gray-400 hover:text-white">
-                        <i class="fa-regular fa-clock w-6 text-xl text-center group-hover:text-purple-400 transition-colors"></i>
-                        <span class="font-medium ml-3 sidebar-text whitespace-nowrap">Sắp Chiếu</span>
+                    <a href="#coming" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-regular fa-clock w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Sắp Chiếu</span>
                     </a>
                 </li>
             </ul>
         </div>
 
         <div>
-            <h3 class="sidebar-text text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-3 px-3 truncate">Thư Viện</h3>
-            <div class="w-8 h-px bg-white/10 mx-auto mb-3 sidebar-divider"></div>
+            <h3 class="sidebar-text text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 px-4 truncate">Thư Viện</h3>
+            <div class="w-6 h-[2px] bg-white/10 mx-auto mb-4 sidebar-divider rounded-full"></div> 
             
             <ul class="space-y-2">
                 <li>
-                    <a href="#" class="nav-item flex items-center h-12 px-3 rounded-xl transition-all group hover:bg-white/10 text-gray-400 hover:text-white">
-                        <i class="fa-solid fa-clock-rotate-left w-6 text-xl text-center group-hover:text-purple-400 transition-colors"></i>
-                        <span class="font-medium ml-3 sidebar-text whitespace-nowrap">Gần Đây</span>
+                    <a href="#" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-solid fa-clock-rotate-left w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Gần Đây</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-item flex items-center h-12 px-3 rounded-xl transition-all group hover:bg-white/10 text-gray-400 hover:text-white">
-                        <i class="fa-regular fa-heart w-6 text-xl text-center group-hover:text-purple-400 transition-colors"></i>
-                        <span class="font-medium ml-3 sidebar-text whitespace-nowrap">Yêu Thích</span>
+                    <a href="#" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-regular fa-heart w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Yêu Thích</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-solid fa-download w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Đã Tải</span>
                     </a>
                 </li>
             </ul>
         </div>
 
-        <div class="mt-auto">
+        <div class="mt-8 pt-8 border-t border-white/5">
              <ul class="space-y-2">
                 <li>
-                    <a href="#" class="nav-item flex items-center h-12 px-3 rounded-xl transition-all group hover:bg-white/10 text-gray-400 hover:text-white">
-                        <i class="fa-solid fa-gear w-6 text-xl text-center group-hover:text-purple-400 transition-colors"></i>
-                        <span class="font-medium ml-3 sidebar-text whitespace-nowrap">Cài Đặt</span>
+                    <a href="#" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-solid fa-gear w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Cài Đặt</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-solid fa-right-from-bracket w-5 text-lg text-center transition-colors group-hover:text-red-500"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap group-hover:text-red-400">Đăng Xuất</span>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
+    
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-purple-900/10 to-transparent pointer-events-none"></div>
 </aside>

@@ -11,7 +11,7 @@
     "genres": ["Hành động", "Tâm lý"],
     "release_date": "2021-10-01",
     "status": "Đang Chiếu",
-    "vote_average": 7.5,
+    "vote_average": 9.0,
     "details": {
       "duration_minutes": 163,
       "age_rating": "16+",
@@ -466,7 +466,7 @@
     "details": {
       "duration_minutes": 133,
       "age_rating": "16+",
-      "country": "Việt nam",
+      "country": "Việt Nam",
       "language": "Tiếng Việt",
       "producer": "Galaxy Studio"
     },
@@ -491,7 +491,7 @@
     "details": {
       "duration_minutes": 131,
       "age_rating": "16+",
-      "country": "Việt nam",
+      "country": "Việt Nam",
       "language": "Tiếng Việt",
       "producer": "November Films, Galaxy Studio"
     },
@@ -516,7 +516,7 @@
     "details": {
       "duration_minutes": 93,
       "age_rating": "P",
-      "country": "Việt nam",
+      "country": "Việt Nam",
       "language": "Tiếng Việt",
       "producer": "Cadence Studio"
     },
@@ -541,7 +541,7 @@
     "details": {
       "duration_minutes": 126,
       "age_rating": "16+",
-      "country": "Việt nam",
+      "country": "Việt Nam",
       "language": "Tiếng Việt",
       "producer": "Trấn Thành Town"
     },
@@ -566,7 +566,7 @@
     "details": {
       "duration_minutes": 118,
       "age_rating": "18+",
-      "country": "Việt nam",
+      "country": "Việt Nam",
       "language": "Tiếng Việt",
       "producer": "MAR6 Studios"
     },
@@ -591,7 +591,7 @@
     "details": {
       "duration_minutes": 120,
       "age_rating": "P",
-      "country": "Việt nam",
+      "country": "Việt Nam",
       "language": "Tiếng Việt",
       "producer": "HKFilm"
     },
@@ -616,7 +616,7 @@
     "details": {
       "duration_minutes": 102,
       "age_rating": "13+",
-      "country": "Việt nam",
+      "country": "Việt Nam",
       "language": "Tiếng Việt",
       "producer": "Trấn Thành Town"
     },
@@ -641,7 +641,7 @@
     "details": {
       "duration_minutes": 118,
       "age_rating": "16+",
-      "country": "Việt nam",
+      "country": "Việt Nam",
       "language": "Tiếng Việt",
       "producer": "Điện ảnh Công an Nhân dân"
     },

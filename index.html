@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineMax - Final Dashboard</title>
+    <title>CineMax - Cinematic Banner</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -22,59 +22,108 @@
     </script>
     
     <style>
-      /* Thanh cuộn đẹp */
+      /* --- GLOBAL --- */
       ::-webkit-scrollbar { width: 6px; } 
-      ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
-      .glass-effect { background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-      
-      /* Ẩn thanh cuộn cho Carousel */
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; border: 2px solid #121212; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      .glass-effect { background: rgba(18, 18, 18, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-      /* Logic Mini Sidebar (Khi container cha có class .mini-sidebar) */
+      /* --- SIDEBAR STYLES --- */
+      .nav-item.active {
+          background: linear-gradient(90deg, #8b5cf6 0%, #7c3aed 100%);
+          color: white;
+          box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+      }
+      .nav-item.active i { color: white !important; }
+
+      /* --- TOP RATED ITEM STYLES --- */
+      .top-rated-item { transition: all 0.3s ease; border: 1px solid transparent; }
+      .top-rated-item:hover {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(255, 255, 255, 0.1);
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5);
+      }
+      .rank-1 { color: #fbbf24; text-shadow: 0 0 15px rgba(251, 191, 36, 0.6); font-size: 1.5rem; }
+      .rank-2 { color: #e5e7eb; text-shadow: 0 0 10px rgba(229, 231, 235, 0.5); font-size: 1.25rem; }
+      .rank-3 { color: #fdba74; text-shadow: 0 0 10px rgba(253, 186, 116, 0.5); font-size: 1.25rem; }
+
+      /* --- MINI SIDEBAR --- */
       .mini-sidebar #sidebar-content { width: 88px !important; }
       .mini-sidebar .sidebar-text { display: none; opacity: 0; }
-      .mini-sidebar .nav-item { justify-content: center; padding-left: 0; padding-right: 0; }
-      .mini-sidebar .sidebar-divider { display: block; } 
-      .sidebar-divider { display: none; }
+      .mini-sidebar .nav-item { justify-content: center; padding: 0; width: 48px; margin: 0 auto; border-radius: 14px; }
+      .mini-sidebar .sidebar-divider { display: block; } .sidebar-divider { display: none; }
+      .mini-sidebar h3 { display: none; } .mini-sidebar .mt-8 { margin-top: 1rem; border-top: none; }
+
+      /* --- HERO ANIMATION --- */
+      .hero-content > * { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+      .hero-slide.active .hero-content > * { opacity: 1; transform: translateY(0); }
+      .hero-slide.active .hero-content > *:nth-child(1) { transition-delay: 0.2s; }
+      .hero-slide.active .hero-content > *:nth-child(2) { transition-delay: 0.4s; }
+      .hero-slide.active .hero-content > *:nth-child(3) { transition-delay: 0.5s; }
+      .hero-slide.active .hero-content > *:nth-child(4) { transition-delay: 0.6s; }
+      .hero-slide.active .hero-content > *:nth-child(5) { transition-delay: 0.8s; }
     </style>
 </head>
 <body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
 
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm transition-opacity"></div>
 
-    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 md:relative transition-all duration-300 w-72 py-4 pl-4">
-        </div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 md:relative transition-all duration-300 w-72 py-4 pl-4"></div>
 
     <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain transition-all duration-300">
         
         <div id="navbar-container"></div>
 
         <div class="flex-1 overflow-y-auto px-4 md:px-8 scroll-smooth pb-20 md:pb-8">
+             
+             <div class="w-full mb-10 mt-2">
+                 <div id="hero-section" class="w-full h-[500px] bg-[#1e1e1e] rounded-[2.5rem] animate-pulse shadow-2xl"></div>
+             </div>
+
              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <div class="col-span-1 lg:col-span-9 space-y-10"> 
-                    <div id="hero-section" class="w-full h-[450px] bg-[#1e1e1e] rounded-[2rem] animate-pulse"></div>
+                <div class="col-span-1 lg:col-span-9 space-y-12"> 
+                    
                     <div id="section-now-showing"></div>
                     <div id="section-coming-soon"></div>
+
+                    <div id="section-vietnam"></div>
+                    <div id="section-us"></div>
+                    <div id="section-korea"></div>
                 </div>
 
-                <div class="col-span-1 lg:col-span-3 space-y-6">
-                    <div class="bg-[#1e1e1e] rounded-3xl p-6 h-full sticky top-0 border border-white/5">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="text-lg font-bold">Top Rated</h3>
-                            <i class="fa-solid fa-arrow-right text-gray-500 cursor-pointer hover:text-white"></i>
+                <div class="col-span-1 lg:col-span-3">
+                    <div class="bg-[#141414] rounded-[30px] p-6 h-full border border-white/5 shadow-2xl flex flex-col sticky top-0" style="min-height: 500px;">
+                        
+                        <div class="flex justify-between items-center mb-6 px-2">
+                            <h3 class="text-[13px] font-bold uppercase tracking-[0.2em] text-gray-400">Bảng Xếp Hạng</h3>
+                            <i class="fa-solid fa-arrow-right-long text-purple-500 cursor-pointer hover:translate-x-1 transition-transform"></i>
                         </div>
-                        <div id="top-rated-list" class="space-y-4">
-                            <div class="h-16 bg-[#2a2a2a] rounded-xl animate-pulse"></div>
-                            <div class="h-16 bg-[#2a2a2a] rounded-xl animate-pulse"></div>
+                        
+                        <div id="top-rated-list" class="space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1" style= "max-h-[calc(100vh-200px)];">
+                            <div class="h-20 bg-[#1e1e1e] rounded-2xl animate-pulse"></div>
+                            <div class="h-20 bg-[#1e1e1e] rounded-2xl animate-pulse"></div>
+                            <div class="h-20 bg-[#1e1e1e] rounded-2xl animate-pulse"></div>
                         </div>
+
                     </div>
                 </div>
 
              </div>
         </div>
     </main>
+
+    <div id="trailer-modal" class="fixed inset-0 z-[100] bg-black/90 hidden flex items-center justify-center p-4 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <div class="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 scale-95 transition-transform duration-300 transform" id="trailer-content">
+            <button id="close-trailer" class="absolute top-4 right-4 z-20 w-10 h-10 bg-black/50 hover:bg-red-600 rounded-full text-white flex items-center justify-center transition backdrop-blur-md border border-white/10 cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <iframe id="trailer-iframe" class="w-full h-full" src="" title="Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="scripts/loadheaderfooter.js"></script>

@@ -5,10 +5,32 @@
             <i class="fa-solid fa-bars text-lg"></i>
         </button>
 
-        <div class="hidden md:flex bg-black/30 p-1 rounded-xl border border-white/5">
-            <a href="#" class="px-5 py-2 rounded-lg bg-[#2a2a2a] text-white text-sm font-medium shadow-md transition-all">Movies</a>
-            <a href="#" class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all">Series</a>
-            <a href="#" class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all">TV Shows</a>
+        <div class="hidden md:flex bg-black/30 p-1 rounded-xl border border-white/5 items-center">
+            <a href="#" class="px-5 py-2 rounded-lg bg-[#2a2a2a] text-white text-sm font-medium shadow-md transition-all">Phim</a>
+            
+            <div class="relative group h-full">
+                <button class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1 h-full">
+                    Thể loại <i class="fa-solid fa-chevron-down text-[10px] pt-0.5 ml-1 transition-transform group-hover:rotate-180"></i>
+                </button>
+                <div class="absolute top-full left-0 mt-2 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+                    <div id="header-genres-list" class="max-h-64 overflow-y-auto custom-scrollbar p-1 grid grid-cols-1 gap-0.5">
+                        <div class="px-4 py-3 text-xs text-gray-500 text-center">Đang tải...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group h-full">
+                <button class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1 h-full">
+                    Quốc gia <i class="fa-solid fa-chevron-down text-[10px] pt-0.5 ml-1 transition-transform group-hover:rotate-180"></i>
+                </button>
+                <div class="absolute top-full left-0 mt-2 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+                    <div id="header-countries-list" class="max-h-64 overflow-y-auto custom-scrollbar p-1 grid grid-cols-1 gap-0.5">
+                        <div class="px-4 py-3 text-xs text-gray-500 text-center">Đang tải...</div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all">Diễn viên</a>
         </div>
     </div>
 
