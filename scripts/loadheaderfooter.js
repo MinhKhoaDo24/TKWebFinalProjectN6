@@ -1,156 +1,165 @@
-// FILE: js/main.js
-
 $(document).ready(function () {
     
-    // =========================================
-    // 1. KẾT NỐI GIAO DIỆN (LOAD COMPONENTS)
-    // =========================================
+    // ===========================================
+    // 1. COMPONENT LOADING & UI LOGIC
+    // ===========================================
 
-    // A. Load Sidebar vào khung bên trái
+    // Load Sidebar
     $("#sidebar-container").load("components/sidebar.html");
 
-    // B. Load Header vào khung bên trên & Gắn sự kiện nút bấm
-    // Lưu ý: Phải đợi Header load xong mới tìm được nút #toggle-sidebar-btn
+    // Load Header & Gắn sự kiện nút Toggle
     $("#navbar-container").load("components/header.html", function() {
         
-        // --- LOGIC BẬT/TẮT SIDEBAR ---
         $("#toggle-sidebar-btn").click(function() {
             const sidebarContainer = $("#sidebar-container");
             const overlay = $("#sidebar-overlay");
             
-            // Trường hợp 1: Mobile (Màn hình nhỏ < 768px)
+            // Logic cho Mobile (< 768px)
             if ($(window).width() < 768) {
-                // Trượt ra / Trượt vào
                 sidebarContainer.toggleClass("-translate-x-full");
                 overlay.toggleClass("hidden");
             } 
-            // Trường hợp 2: Desktop (Màn hình lớn)
+            // Logic cho Desktop (>= 768px)
             else {
-                // Thêm/Xóa class 'mini-sidebar' để CSS xử lý việc ẩn chữ
                 sidebarContainer.toggleClass("mini-sidebar");
                 
-                // Xử lý độ rộng của khung chứa (Container)
+                // Thu nhỏ container chứa để main content tự giãn ra
                 if (sidebarContainer.hasClass("mini-sidebar")) {
-                     // Thu nhỏ lại vừa khít icon (khoảng 88px - 100px)
-                     sidebarContainer.css("width", "100px"); 
+                     sidebarContainer.css("width", "100px"); // Thu nhỏ còn 100px
                 } else {
-                     // Mở rộng ra kích thước ban đầu (w-72 ~ 18rem)
-                     sidebarContainer.css("width", "18rem"); 
+                     sidebarContainer.css("width", "18rem"); // Mở rộng 18rem (~288px)
                 }
             }
         });
     });
 
-    // C. Xử lý đóng menu khi click vào vùng tối (Overlay) trên Mobile
+    // Sự kiện đóng menu mobile khi bấm ra ngoài
     $("#sidebar-overlay").click(function() {
         $("#sidebar-container").addClass("-translate-x-full");
         $(this).addClass("hidden");
     });
 
 
-    // =========================================
-    // 2. LẤY DỮ LIỆU PHIM (DATA FETCHING)
-    // =========================================
+    // ===========================================
+    // 2. DATA FETCHING & RENDERING
+    // ===========================================
 
     fetch('./data/movies.json')
     .then(res => {
-        if (!res.ok) throw new Error("Không tìm thấy file data/movies.json");
+        if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
     })
     .then(data => {
-        // Lấy phim ID=8 (Captain America) làm banner, nếu không có lấy phim đầu tiên
+        // Lấy banner (ưu tiên ID=8)
         const hero = data.find(m => m.id === 8) || data[0];
-        
-        // Vẽ giao diện
         renderHero(hero);
-        renderRow("#section-now-showing", "Đang Chiếu", data.filter(m => m.status === 'now_showing'));
-        renderRow("#section-coming-soon", "Sắp Chiếu", data.filter(m => m.status === 'coming_soon'));
+        
+        // --- SỬA LỖI Ở ĐÂY: Dùng đúng từ khóa trong JSON ---
+        const phimDangChieu = data.filter(m => m.status === 'Đang Chiếu');
+        const phimSapChieu = data.filter(m => m.status === 'Sắp Chiếu');
+
+        // Vẽ danh sách phim (Carousel)
+        renderCarouselRow("#section-now-showing", "Đang Chiếu", phimDangChieu);
+        renderCarouselRow("#section-coming-soon", "Sắp Chiếu", phimSapChieu);
+        
+        // Vẽ Top Rated
         renderTopRated(data);
     })
     .catch(err => {
         console.error("Lỗi:", err);
-        // Hiển thị thông báo nếu không chạy server
-        $("#hero-section").html(`
-            <div class="h-64 flex items-center justify-center text-red-400 bg-gray-800 rounded-2xl border border-red-500/30">
-                <p>⚠️ Lỗi: Hãy chạy bằng <b>Live Server</b> để tải được dữ liệu JSON.</p>
-            </div>
-        `);
+        $("#hero-section").html("<div class='p-8 text-red-500 bg-gray-800 rounded-xl text-center'>Vui lòng chạy Live Server để tải dữ liệu phim.</div>");
     });
 
-    // =========================================
-    // 3. CÁC HÀM VẼ HTML (RENDER FUNCTIONS)
-    // =========================================
-    
-    // Vẽ Banner chính
+
+    // ===========================================
+    // 3. RENDER FUNCTIONS
+    // ===========================================
+
     const renderHero = (m) => {
         if(!m) return;
         const img = m.landscape_poster_url && !m.landscape_poster_url.includes('placehold') ? m.landscape_poster_url : m.poster_url;
         
-        $("#hero-section").removeClass("animate-pulse bg-[#1e1e1e] h-[450px]").html(`
-            <div class="relative w-full h-[400px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer">
+        $("#hero-section").removeClass("animate-pulse bg-[#1e1e1e]").html(`
+            <div class="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer">
                 <img src="${img}" class="absolute w-full h-full object-cover transition duration-700 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/60"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent"></div>
-                
-                <div class="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-lg z-10 pr-4">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/50"></div>
+                <div class="absolute bottom-10 left-10 max-w-lg z-10">
                     <span class="px-3 py-1 bg-purple-600/30 border border-purple-500/50 text-purple-300 text-[10px] font-bold uppercase tracking-wider rounded-lg mb-3 inline-block">Spotlight</span>
-                    <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-tight drop-shadow-lg">${m.title}</h2>
-                    <p class="text-gray-300 line-clamp-2 mb-6 text-sm leading-relaxed">${m.description}</p>
-                    <div class="flex gap-4">
-                        <button class="bg-white text-black px-6 py-3 md:px-8 md:py-3.5 rounded-2xl font-bold shadow-lg hover:scale-105 transition flex items-center gap-2 text-sm md:text-base">
-                            <i class="fa-solid fa-play"></i> Xem Ngay
-                        </button>
-                        <button class="bg-white/10 backdrop-blur-md text-white px-6 py-3.5 rounded-2xl font-bold hover:bg-white/20 transition flex items-center gap-2 border border-white/10">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </div>
+                    <h2 class="text-5xl font-bold mb-4 text-white leading-tight drop-shadow-xl">${m.title}</h2>
+                    <p class="text-gray-300 line-clamp-2 mb-6 text-sm drop-shadow-md">${m.description}</p>
+                    <button class="bg-white text-black px-8 py-3.5 rounded-2xl font-bold hover:scale-105 transition flex items-center gap-2">
+                        <i class="fa-solid fa-play"></i> Xem Ngay
+                    </button>
                 </div>
             </div>
         `).hide().fadeIn(500);
     };
 
-    // Vẽ danh sách phim ngang
-    const renderRow = (id, title, movies) => {
-        if(!movies.length) return;
-        let html = `<h3 class="text-lg md:text-xl font-bold mb-4 flex items-center text-white"><span class="w-1.5 h-6 bg-purple-500 rounded-full mr-3"></span>${title}</h3><div class="flex space-x-4 md:space-x-5 overflow-x-auto hide-scroll pb-4 scroll-smooth">`;
+    // Hàm vẽ Carousel (Kèm nút bấm)
+    const renderCarouselRow = (id, title, movies) => {
+        if(!movies || movies.length === 0) return; // Kiểm tra kỹ hơn
+        const scrollId = `scroll-${id.replace('#', '')}`;
+
+        let cardsHtml = '';
         movies.forEach(m => {
-            html += `
-                <div class="w-[140px] md:w-[160px] flex-shrink-0 cursor-pointer group">
-                    <div class="h-[210px] md:h-[240px] rounded-2xl overflow-hidden bg-gray-800 mb-3 relative border border-white/5 shadow-lg">
-                        <img src="${m.poster_url}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-90 group-hover:opacity-100">
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition"><i class="fa-solid fa-play text-white ml-1"></i></div>
+            cardsHtml += `
+                <div class="snap-start w-[160px] flex-shrink-0 cursor-pointer group/card">
+                    <div class="h-[240px] rounded-2xl overflow-hidden bg-gray-800 mb-3 relative border border-white/5 shadow-lg">
+                        <img src="${m.poster_url}" loading="lazy" class="w-full h-full object-cover group-hover/card:scale-110 transition duration-500 opacity-90 group-hover/card:opacity-100">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition duration-300 bg-black/20">
+                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition"><i class="fa-solid fa-play text-white ml-1"></i></div>
                         </div>
                     </div>
-                    <h4 class="font-bold truncate text-sm text-gray-200 group-hover:text-purple-400 transition">${m.title}</h4>
+                    <h4 class="font-bold truncate text-sm text-gray-200 group-hover/card:text-purple-400 transition">${m.title}</h4>
                     <p class="text-xs text-gray-500 mt-1">${m.genres[0]}</p>
                 </div>`;
         });
-        html += `</div>`;
+
+        const html = `
+            <div class="relative group/slider">
+                <div class="flex justify-between items-end mb-4 px-1">
+                    <h3 class="text-xl font-bold flex items-center"><span class="w-1.5 h-6 bg-purple-500 rounded-full mr-3"></span>${title}</h3>
+                    <div class="flex gap-2">
+                        <button onclick="document.getElementById('${scrollId}').scrollBy({left: -300, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-white/5 hover:bg-purple-600 flex items-center justify-center transition cursor-pointer"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                        <button onclick="document.getElementById('${scrollId}').scrollBy({left: 300, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-white/5 hover:bg-purple-600 flex items-center justify-center transition cursor-pointer"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <button onclick="document.getElementById('${scrollId}').scrollBy({left: -800, behavior: 'smooth'})" class="absolute left-0 top-0 bottom-0 z-20 w-16 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 flex items-center justify-start pl-2 hover:w-20 cursor-pointer">
+                        <i class="fa-solid fa-chevron-left text-3xl text-white/80 hover:text-white"></i>
+                    </button>
+
+                    <div id="${scrollId}" class="flex space-x-5 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory md:snap-none py-4 px-1">
+                        ${cardsHtml}
+                    </div>
+
+                    <button onclick="document.getElementById('${scrollId}').scrollBy({left: 800, behavior: 'smooth'})" class="absolute right-0 top-0 bottom-0 z-20 w-16 bg-gradient-to-l from-black/80 to-transparent opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 flex items-center justify-end pr-2 hover:w-20 cursor-pointer">
+                        <i class="fa-solid fa-chevron-right text-3xl text-white/80 hover:text-white"></i>
+                    </button>
+                </div>
+            </div>
+        `;
         $(id).html(html);
     };
 
-    // Vẽ danh sách Top Rated bên phải
     const renderTopRated = (movies) => {
          let html = "";
-         // Sắp xếp theo điểm vote và lấy 5 phim đầu
          movies.sort((a,b) => b.vote_average - a.vote_average).slice(0,5).forEach((m, i) => {
-             let colorClass = "text-gray-500";
-             if(i===0) colorClass = "text-yellow-400 scale-110"; 
-             if(i===1) colorClass = "text-gray-300";
-             if(i===2) colorClass = "text-orange-400";
+             let rankStyle = "text-gray-600 font-bold text-xl";
+             if(i===0) rankStyle = "text-yellow-400 font-black text-2xl drop-shadow-md";
+             if(i===1) rankStyle = "text-gray-300 font-bold text-xl";
+             if(i===2) rankStyle = "text-orange-400 font-bold text-xl";
 
              html += `
                 <div class="flex items-center gap-4 p-3 hover:bg-white/5 rounded-2xl cursor-pointer transition border border-transparent hover:border-white/5 group">
-                    <span class="font-bold ${colorClass} text-xl w-6 text-center italic transition-transform">${i+1}</span>
-                    <img src="${m.poster_url}" class="w-12 h-16 rounded-lg object-cover bg-gray-800 shadow-md">
+                    <span class="${rankStyle} w-6 text-center italic">${i+1}</span>
+                    <img src="${m.poster_url}" class="w-12 h-16 rounded-lg object-cover bg-gray-800 shadow-md group-hover:scale-105 transition">
                     <div class="flex-1 min-w-0">
                         <h4 class="text-sm font-bold truncate text-white group-hover:text-purple-400 transition">${m.title}</h4>
-                        <div class="flex items-center mt-1 space-x-2">
-                            <div class="flex text-yellow-500 text-[10px]">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
+                        <div class="flex items-center mt-1 space-x-1.5">
+                            <i class="fa-solid fa-star text-yellow-500 text-[10px]"></i>
                             <span class="text-xs text-gray-400 font-bold">${m.vote_average}</span>
+                            <span class="text-[10px] text-gray-600">• ${m.genres[0]}</span>
                         </div>
                     </div>
                 </div>
