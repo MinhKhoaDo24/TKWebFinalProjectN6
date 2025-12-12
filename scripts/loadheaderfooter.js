@@ -13,8 +13,6 @@ $(document).ready(function () {
 
     // B. Load Header & Gắn sự kiện
     $("#navbar-container").load("components/header.html", function() {
-        
-        // Sự kiện Toggle Sidebar
         $("#toggle-sidebar-btn").click(function() {
             const sidebarContainer = $("#sidebar-container");
             const overlay = $("#sidebar-overlay");
@@ -31,14 +29,16 @@ $(document).ready(function () {
             }
         });
 
-        // Điền dữ liệu vào Dropdown (Thể loại & Quốc gia)
         if (globalMoviesData.length > 0) {
             populateGenres(globalMoviesData);
             populateCountries(globalMoviesData);
         }
     });
 
-    // C. Đóng menu mobile
+    // C. [MỚI] Load Footer
+    $("#footer-container").load("components/footer.html");
+
+    // D. Đóng menu mobile
     $("#sidebar-overlay").click(function() {
         $("#sidebar-container").addClass("-translate-x-full");
         $(this).addClass("hidden");
@@ -62,7 +62,7 @@ $(document).ready(function () {
         renderCarouselRow("#section-now-showing", "Đang Chiếu", data.filter(m => m.status === 'Đang Chiếu'));
         renderCarouselRow("#section-coming-soon", "Sắp Chiếu", data.filter(m => m.status === 'Sắp Chiếu'));
         
-        // 2.3. Render Phim Theo Quốc Gia (Demo)
+        // 2.3. Render Phim Theo Quốc Gia
         const filterByCountry = (keyword) => {
             return data.filter(m => m.details && m.details.country && m.details.country.toLowerCase().includes(keyword.toLowerCase()));
         };
@@ -73,7 +73,7 @@ $(document).ready(function () {
         // 2.4. Render Top Rated
         renderTopRated(data);
 
-        // 2.5. Render Dropdown Header
+        // 2.5. Render Dropdown
         if ($("#header-genres-list").length > 0) {
             populateGenres(data);
             populateCountries(data);
@@ -109,7 +109,6 @@ $(document).ready(function () {
                     <img src="${img}" class="absolute w-full h-full object-cover object-top">
                     <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/80 via-40% to-transparent"></div>
                     <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
-                    
                     <div class="hero-content absolute bottom-12 left-6 md:top-auto md:bottom-16 md:left-12 max-w-xl z-20 pr-4 flex flex-col justify-end h-full md:h-auto pb-4 md:pb-0">
                         <div class="flex items-center gap-3 mb-3">
                             <span class="px-2.5 py-0.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-[10px] font-bold uppercase tracking-wider rounded shadow-lg shadow-purple-500/20">${m.genres[0]}</span>
@@ -135,7 +134,6 @@ $(document).ready(function () {
 
         container.html(`<div class="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl group border border-white/5 bg-[#121212]">${slidesHtml}<div class="absolute bottom-8 right-8 z-30 flex space-x-1.5">${dotsHtml}</div></div>`);
 
-        // Slider Logic
         let currentIndex = 0;
         const showSlide = (index) => {
             const slides = container.find('.hero-slide');
@@ -150,18 +148,12 @@ $(document).ready(function () {
             if(heroSliderInterval) clearInterval(heroSliderInterval);
             heroSliderInterval = setInterval(() => showSlide((currentIndex + 1) % movies.length), 6000);
         };
-        container.find('.hero-dot').click(function() {
-            clearInterval(heroSliderInterval);
-            showSlide($(this).data('index'));
-            startAutoPlay();
-        });
+        container.find('.hero-dot').click(function() { clearInterval(heroSliderInterval); showSlide($(this).data('index')); startAutoPlay(); });
         container.hover(() => clearInterval(heroSliderInterval), startAutoPlay);
         startAutoPlay();
     };
 
-    // --- B. RENDER GENRES & COUNTRIES (HEADER) ---
-    
-    // Hàm render Thể loại
+    // --- B. RENDER GENRES & COUNTRIES ---
     const populateGenres = (movies) => {
         const allGenres = movies.flatMap(movie => movie.genres);
         const uniqueGenres = [...new Set(allGenres)].sort();
@@ -169,31 +161,19 @@ $(document).ready(function () {
         uniqueGenres.forEach(genre => html += `<a href="#" class="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-purple-600 rounded-lg transition-colors truncate">${genre}</a>`);
         $("#header-genres-list").html(html);
     };
-
-    // Hàm render Quốc gia (MỚI)
     const populateCountries = (movies) => {
-        // Lấy tất cả quốc gia, tách chuỗi nếu có dấu phẩy hoặc gạch ngang (VD: "Mỹ - Anh")
         const allCountries = [];
         movies.forEach(m => {
             if(m.details && m.details.country) {
-                // Tách theo dấu phẩy hoặc dấu gạch ngang
                 const splitCountries = m.details.country.split(/[,-]/).map(s => s.trim());
                 allCountries.push(...splitCountries);
             }
         });
-        
-        // Lọc trùng và sắp xếp
         const uniqueCountries = [...new Set(allCountries)].sort();
-        
         let html = '';
-        uniqueCountries.forEach(c => {
-            if(c) {
-                html += `<a href="#" class="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-purple-600 rounded-lg transition-colors truncate">${c}</a>`;
-            }
-        });
+        uniqueCountries.forEach(c => { if(c) html += `<a href="#" class="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-purple-600 rounded-lg transition-colors truncate">${c}</a>`; });
         $("#header-countries-list").html(html);
     };
-
 
     // --- C. RENDER CAROUSEL ROW ---
     const renderCarouselRow = (id, title, movies) => {
@@ -202,33 +182,30 @@ $(document).ready(function () {
         let cardsHtml = '';
         movies.forEach(m => {
             cardsHtml += `
-                <div class="snap-start w-[160px] flex-shrink-0 cursor-pointer group/card">
-                    <div class="h-[240px] rounded-2xl overflow-hidden bg-gray-800 mb-3 relative border border-white/5 shadow-lg">
+                <div class="snap-start w-[140px] md:w-[150px] lg:w-[calc(25%-16px)] flex-shrink-0 cursor-pointer group/card transition-all duration-300">
+                    <div class="aspect-[2/3] w-full rounded-2xl overflow-hidden bg-gray-800 mb-3 relative border border-white/5 shadow-lg">
                         <img src="${m.poster_url}" loading="lazy" class="w-full h-full object-cover group-hover/card:scale-110 transition duration-500 opacity-90 group-hover/card:opacity-100">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition duration-300 bg-black/20">
-                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition"><i class="fa-solid fa-play text-white ml-1"></i></div>
+                            <div class="w-14 h-14 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition"><i class="fa-solid fa-play text-white text-lg ml-1"></i></div>
                         </div>
                     </div>
-                    <h4 class="font-bold truncate text-sm text-gray-200 group-hover/card:text-purple-400 transition">${m.title}</h4>
-                    <p class="text-xs text-gray-500 mt-1">${m.genres[0]}</p>
+                    <h4 class="font-bold truncate text-base text-gray-200 group-hover/card:text-purple-400 transition">${m.title}</h4>
+                    <p class="text-sm text-gray-500 mt-1">${m.genres[0]}</p>
                 </div>`;
         });
         const html = `
             <div class="relative group/slider mb-10">
                 <div class="flex justify-between items-end mb-4 px-1">
                     <h3 class="text-xl font-bold flex items-center"><span class="w-1.5 h-6 bg-purple-500 rounded-full mr-3"></span>${title}</h3>
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 opacity-50 group-hover/slider:opacity-100 transition-opacity duration-300">
                         <button onclick="document.getElementById('${scrollId}').scrollBy({left: -300, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-white/5 hover:bg-purple-600 flex items-center justify-center transition cursor-pointer"><i class="fa-solid fa-chevron-left text-xs"></i></button>
                         <button onclick="document.getElementById('${scrollId}').scrollBy({left: 300, behavior: 'smooth'})" class="w-8 h-8 rounded-full bg-white/5 hover:bg-purple-600 flex items-center justify-center transition cursor-pointer"><i class="fa-solid fa-chevron-right text-xs"></i></button>
                     </div>
                 </div>
                 <div class="relative">
-                    <button onclick="document.getElementById('${scrollId}').scrollBy({left: -800, behavior: 'smooth'})" class="absolute left-0 top-0 bottom-0 z-20 w-16 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 flex items-center justify-start pl-2 hover:w-20 cursor-pointer"><i class="fa-solid fa-chevron-left text-3xl text-white/80 hover:text-white"></i></button>
                     <div id="${scrollId}" class="flex space-x-5 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory md:snap-none py-4 px-1">${cardsHtml}</div>
-                    <button onclick="document.getElementById('${scrollId}').scrollBy({left: 800, behavior: 'smooth'})" class="absolute right-0 top-0 bottom-0 z-20 w-16 bg-gradient-to-l from-black/80 to-transparent opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 flex items-center justify-end pr-2 hover:w-20 cursor-pointer"><i class="fa-solid fa-chevron-right text-3xl text-white/80 hover:text-white"></i></button>
                 </div>
-            </div>
-        `;
+            </div>`;
         $(id).html(html);
     };
 
@@ -254,27 +231,12 @@ $(document).ready(function () {
     };
 
     // --- 4. TRAILER POPUP ---
-    const getYoutubeId = (url) => {
-        if(!url) return null;
-        const match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/);
-        return (match && match[2].length === 11) ? match[2] : null;
-    }
+    const getYoutubeId = (url) => { if(!url) return null; const match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/); return (match && match[2].length === 11) ? match[2] : null; }
     $(document).on('click', '.btn-watch-trailer', function() {
         const trailerUrl = $(this).data('trailer');
         const videoId = getYoutubeId(trailerUrl);
-        if (videoId) {
-            $("#trailer-iframe").attr('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
-            $("#trailer-modal").removeClass('hidden').animate({ opacity: 1 }, 200);
-            $("#trailer-content").removeClass('scale-95').addClass('scale-100');
-        } else { alert("Trailer không khả dụng!"); }
+        if (videoId) { $("#trailer-iframe").attr('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`); $("#trailer-modal").removeClass('hidden').animate({ opacity: 1 }, 200); $("#trailer-content").removeClass('scale-95').addClass('scale-100'); } else { alert("Trailer không khả dụng!"); }
     });
-    const closeTrailer = () => {
-        $("#trailer-modal").animate({ opacity: 0 }, 200, function() {
-            $(this).addClass('hidden');
-            $("#trailer-iframe").attr('src', '');
-            $("#trailer-content").removeClass('scale-100').addClass('scale-95');
-        });
-    };
-    $("#close-trailer").click(closeTrailer);
-    $("#trailer-modal").click(function(e) { if (e.target === this) closeTrailer(); });
+    const closeTrailer = () => { $("#trailer-modal").animate({ opacity: 0 }, 200, function() { $(this).addClass('hidden'); $("#trailer-iframe").attr('src', ''); $("#trailer-content").removeClass('scale-100').addClass('scale-95'); }); };
+    $("#close-trailer").click(closeTrailer); $("#trailer-modal").click(function(e) { if (e.target === this) closeTrailer(); });
 });
