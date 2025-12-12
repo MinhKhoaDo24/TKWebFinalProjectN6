@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết phim - Jujutsu Kaisen 0</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/movie_detail.css">
+</head>
+<body>
+
+    <div class="movie-banner-section">
+        <div id="banner-bg" class="banner-bg" style="background-image: url('');"></div>
+        <div class="banner-overlay"></div>
+        <button id="play-btn" class="play-btn"><i class="fas fa-play"></i></button>
+    </div>
+
+    <div class="main-container">
+        
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img id="poster-img" src="" alt="Poster">
+            </div>
+
+            <div class="movie-info">
+                <h1 id="movie-title" class="title">—</h1>
+
+                <div class="meta">
+                    <span id="age-badge" class="badge">—</span>
+                    <span><i class="far fa-clock"></i> <span id="duration">—</span></span>
+                    <span><i class="fas fa-calendar-alt"></i> <span id="release-date">—</span></span>
+                </div>
+
+                <div class="movie-details-grid">
+                    <div class="detail-item">
+                        <span class="label">Đạo diễn:</span>
+                        <span id="director" class="value">—</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Quốc gia:</span>
+                        <span id="country" class="value">—</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Nhà sản xuất:</span>
+                        <span id="producer" class="value">—</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Thể loại:</span>
+                        <span id="genres" class="value">—</span>
+                    </div>
+                </div>
+
+                <div class="rating">
+                    <i class="fas fa-star text-yellow"></i> <span id="vote-average">—</span> <span id="votes" class="votes">(—)</span>
+                </div>
+
+                <div class="buttons">
+                    <button id="btn-booking" class="btn-booking">MUA VÉ NGAY</button>
+                </div>
+            </div>
+        </div>
+        <div class="content-layout">
+            
+            <div class="left-content">
+                <h2 class="section-title">Nội Dung Phim</h2>
+                <div id="synopsis" class="synopsis-text">
+    <p>Trong bối cảnh một thị trấn ven sông vốn yên bình, <strong>Mưa Đỏ</strong> mở đầu bằng hàng loạt vụ mất tích bí ẩn xảy ra ngay trước mùa mưa bão. Người dân hoang mang khi những cơn mưa đầu mùa kéo dài bất thường, kèm theo những vệt nước đỏ như máu loang dần trên khắp con phố.</p>
+    <p>Trung úy An – một điều tra viên trẻ nhưng quyết liệt – được điều động trở về quê nhà để hỗ trợ phá án. Khi bắt tay vào điều tra, An phát hiện các vụ án đều liên quan đến một bí mật đen tối từng bị chôn vùi suốt hơn 20 năm. Cùng lúc đó, Linh, một cô gái sống sót duy nhất từ vụ hỏa hoạn năm xưa, bắt đầu xuất hiện trong các giấc mơ kỳ lạ của An.</p>
+    <p>Càng đến gần sự thật, An càng phải đối mặt với những mối quan hệ phức tạp của chính gia đình mình. Mùa mưa ngày một nặng hạt, và sắc đỏ bí ẩn kia dường như là lời cảnh báo cho một thảm kịch sắp xảy ra.</p>
+    <div class="highlights">
+        <strong>Điểm nhấn ấn tượng:</strong>
+        <ul>
+            <li><i class="fas fa-check-circle"></i> Không khí căng thẳng, u tối, đậm chất thriller Việt Nam</li>
+            <li><i class="fas fa-check-circle"></i> Các nút thắt (plot twist) liên tục xuất hiện</li>
+            <li><i class="fas fa-check-circle"></i> Tâm lý nhân vật được khai thác sâu sắc</li>
+            <li><i class="fas fa-check-circle"></i> Âm thanh – hình ảnh rờn rợn và nghẹt thở</li>
+        </ul>
+    </div>
+</div>
+
+                <div class="showtime-section">
+                    <h2 class="section-title">Lịch Chiếu</h2>
+                    <div class="date-tabs">
+                        <div class="date-item active">
+                            <span>Hôm nay</span>
+                            <strong>12/10</strong>
+                        </div>
+                        <div class="date-item">
+                            <span>Thứ 2</span>
+                            <strong>13/10</strong>
+                        </div>
+                        <div class="date-item">
+                            <span>Thứ 3</span>
+                            <strong>14/10</strong>
+                        </div>
+                    </div>
+                    <div class="time-slots">
+                        <span class="time">09:30</span>
+                        <span class="time">11:45</span>
+                        <span class="time">14:20</span>
+                        <span class="time">19:00</span>
+                        <span class="time">21:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                <h2 class="section-title">Diễn Viên</h2>
+                
+                <div id="actor-list" class="actor-list">
+                    <div class="actor-card">
+                        <img src="https://image.tmdb.org/t/p/w200/dyVkf9p0zF574b5kXp6d0J6N7W.jpg" alt="Actor">
+                        <div class="actor-info">
+                            <h4>Megumi Ogata</h4>
+                            <p>Yuta (Voice)</p>
+                        </div>
+                    </div>
+
+                    <div class="actor-card">
+                        <img src="https://image.tmdb.org/t/p/w200/kHP2cM0t46d6q3tq3J4d4d4d.jpg" alt="Actor">
+                        <div class="actor-info">
+                            <h4>Kana Hanazawa</h4>
+                            <p>Rika (Voice)</p>
+                        </div>
+                    </div>
+
+                    <div class="actor-card">
+                        <img src="https://image.tmdb.org/t/p/w200/jZcJD4GN9H9H9H9H9H9H9H9H.jpg" alt="Actor">
+                        <div class="actor-info">
+                            <h4>Yuichi Nakamura</h4>
+                            <p>Gojo (Voice)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</div>
+
+    <script src="scripts/movie_detail.js"></script>
+    </body>
+</html>
+</html>
