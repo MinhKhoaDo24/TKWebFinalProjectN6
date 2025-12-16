@@ -1,36 +1,77 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/register.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng nhập</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="overlay"></div>
-    <div class="signup-container">
-        <form action="#" method="POST"> 
-            <h2>Đăng nhập tài khoản của bạn</h2>
-            <div class="input-group">
-                <label for="username-email">Tên đăng nhập</label>
-                <input type="text" id="username-email" placeholder="Tên đăng nhập/Email" required> 
-            </div>
+<body class="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+      style="background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/c81956f1-5750-454c-9b3c-7a4d990d3d06/web/VN-en-20251208-TRIFECTA-perspective_a74ea74f-8e83-4da0-b94d-1a763a257cb1_small.jpg');">
 
-            <div class="input-group">
-                <label for="password">Mật khẩu</label>
-                <div class="password-container">
-                    <input type="password" id="password" placeholder="Mật khẩu" required>
-                    <span class="password-toggle">👁️</span> 
-                </div>
-            </div>
-            
-            <input type="submit" class="btn-signup" value="Đăng nhập">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
 
-        </form>
+  <!-- Login container -->
+  <div class="relative bg-black/95 backdrop-blur-md w-full max-w-md p-8 rounded-2xl shadow-xl">
+    
+    <form action="#" method="POST" class="space-y-5">
+      <h2 class="text-2xl font-semibold text-center text-white mb-6">
+        Đăng nhập tài khoản của bạn
+      </h2>
 
-        <div class="login-link">
-            Chưa có có tài khoản ?  <a href="#">Đăng nhập</a>
+      <!-- Username -->
+      <div>
+        <label for="username-email" class="block text-sm font-medium text-white mb-1">
+          Tên đăng nhập
+        </label>
+        <input
+          type="text"
+          id="username-email"
+          placeholder="Tên đăng nhập / Email"
+          required
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-white mb-1">
+          Mật khẩu
+        </label>
+        <div class="relative">
+          <input
+            type="password"
+            id="password"
+            placeholder="Mật khẩu"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+          />
+          <span
+            class="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500">
+            👁️
+          </span>
         </div>
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition">
+        Đăng nhập
+      </button>
+    </form>
+
+    <!-- Register link -->
+    <div class="mt-6 text-center text-sm text-gray-600">
+      Chưa có tài khoản?
+      <a href="#" class="text-purple-600 hover:underline font-medium">
+        Đăng ký
+      </a>
     </div>
+  </div>
+
 </body>
 </html>
