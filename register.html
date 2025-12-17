@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="css/register.css">
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="css/register.css"> 
 </head>
 <body>
     <div class="overlay"></div>
     <div class="signup-container">
-        <form action="#" method="POST"> 
+        <form id="register-form"> 
             <h2>Đăng ký tài khoản của bạn</h2>
             <div class="input-group">
                 <label for="username-email">Tên đăng nhập</label>
-                <input type="text" id="username-email" placeholder="Tên đăng nhập/Email" required> 
+                <input type="text" id="username-email" placeholder="Tên đăng nhập" required> 
             </div>
 
             <div class="input-group">
@@ -38,12 +38,35 @@
             </div>
             
             <input type="submit" class="btn-signup" value="Đăng ký">
-
         </form>
 
         <div class="login-link">
-            Đã có tài khoản ?  <a href="#">Đăng nhập</a>
+            Đã có tài khoản ?  <a href="login.html">Đăng nhập</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username-email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert("Mật khẩu nhập lại không khớp!");
+                return;
+            }
+
+            if(username) {
+                // Giả lập đăng ký thành công -> Tự động đăng nhập luôn
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', username);
+                
+                alert("Đăng ký thành công!");
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -9,25 +9,25 @@
         </h1>
     </div>
 
-    <nav class="flex-1 overflow-y-auto px-4 py-4 space-y-8 custom-scrollbar">
+    <nav class="flex-1 overflow-y-auto px-4 py-4 space-y-4 custom-scrollbar">
         
         <div>
             <h3 class="sidebar-text text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 px-4 truncate">Menu</h3>
             <ul class="space-y-2">
                 <li>
                     <a href="#" class="nav-item active flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm">
-                        <i class="fa-solid fa-compass w-5 text-lg text-center transition-colors"></i>
-                        <span class="ml-3 sidebar-text whitespace-nowrap">Khám Phá</span>
+                        <i class="fa-solid fa-fire w-5 text-lg text-center transition-colors"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Trending</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#trending" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
-                        <i class="fa-regular fa-star w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
-                        <span class="ml-3 sidebar-text whitespace-nowrap">Top Rated</span>
+                    <a href="#section-now-showing" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-solid fa-film w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Đang Chiếu</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#coming" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                    <a href="#section-coming-soon" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
                         <i class="fa-regular fa-clock w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
                         <span class="ml-3 sidebar-text whitespace-nowrap">Sắp Chiếu</span>
                     </a>
@@ -35,8 +35,40 @@
             </ul>
         </div>
 
+        <div class="block md:hidden border-t border-white/5 pt-4 mt-2">
+            
+            <div class="mb-4">
+                <button class="mobile-accordion-btn w-full flex items-center justify-between h-11 px-4 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-all group">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-layer-group w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 font-medium text-sm">Thể Loại</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                
+                <div id="sidebar-mobile-genres" class="hidden grid grid-cols-2 gap-y-4 gap-x-3 px-4 py-4 bg-white/5 rounded-xl mt-2 mx-2 border border-white/5">
+                    <span class="text-xs text-gray-500">Đang tải...</span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <button class="mobile-accordion-btn w-full flex items-center justify-between h-11 px-4 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-all group">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-earth-americas w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 font-medium text-sm">Quốc Gia</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                </button>
+                
+                <div id="sidebar-mobile-countries" class="hidden grid grid-cols-2 gap-y-4 gap-x-3 px-4 py-4 bg-white/5 rounded-xl mt-2 mx-2 border border-white/5">
+                    <span class="text-xs text-gray-500">Đang tải...</span>
+                </div>
+            </div>
+
+        </div>
+
         <div>
-            <h3 class="sidebar-text text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 px-4 truncate">Thư Viện</h3>
+            <h3 class="sidebar-text text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 px-4 truncate mt-2">Thư Viện</h3>
             <div class="w-6 h-[2px] bg-white/10 mx-auto mb-4 sidebar-divider rounded-full"></div> 
             
             <ul class="space-y-2">
@@ -52,16 +84,10 @@
                         <span class="ml-3 sidebar-text whitespace-nowrap">Yêu Thích</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
-                        <i class="fa-solid fa-download w-5 text-lg text-center transition-colors group-hover:text-purple-400"></i>
-                        <span class="ml-3 sidebar-text whitespace-nowrap">Đã Tải</span>
-                    </a>
-                </li>
             </ul>
         </div>
 
-        <div class="mt-8 pt-8 border-t border-white/5">
+        <div class="mt-4 pt-4 border-t border-white/5">
              <ul class="space-y-2">
                 <li>
                     <a href="#" class="nav-item flex items-center h-11 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
