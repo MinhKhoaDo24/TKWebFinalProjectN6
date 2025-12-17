@@ -276,7 +276,7 @@
     "poster_url": "https://m.media-amazon.com/images/M/MV5BYmFmZjM1ZTEtYzQ5ZS00MTRmLTkzMDktYWMxNTg2NGE3YjY4XkEyXkFqcGc@._V1_.jpg",
     "landscape_poster_url": "https://placehold.co/1280x720/00BFFF/FFF?text=Lilo+and+Stitch",
     "trailer_url": "https://www.youtube.com/watch?v=VWqJifMMgZE",
-    "genres": ["Viễn tưởng", "Hài", "Gia đình", "Hoạt hình"],
+    "genres": ["Viễn tưởng", "Hài hước", "Gia đình", "Hoạt hình"],
     "release_date": "2025-05-23",
     "status": "Sắp Chiếu",
     "vote_average": 0,
@@ -306,7 +306,7 @@
     "poster_url": "https://media.themoviedb.org/t/p/w220_and_h330_face/dAJAUq3WO5w5QUK2YLJTqxTfxio.jpg",
     "landscape_poster_url": "https://placehold.co/1280x720/FF9800/FFF?text=Zootopia+2",
     "trailer_url": "https://www.youtube.com/watch?v=BjkIOU5PhyQ",
-    "genres": ["Hoạt hình", "Hài", "Gia đình"],
+    "genres": ["Hoạt hình", "Hài hước", "Gia đình"],
     "release_date": "2025-11-26",
     "status": "Sắp Chiếu",
     "vote_average": 0,
@@ -338,7 +338,7 @@
     "details": {
       "duration_minutes": 130,
       "age_rating": "16+",
-      "country": "Hàn quốc",
+      "country": "Hàn Quốc",
       "language": "Tiếng Hàn",
       "producer": "Climax Studio"
     },
@@ -363,7 +363,7 @@
     "details": {
       "duration_minutes": 122,
       "age_rating": "13+",
-      "country": "Hàn quốc",
+      "country": "Hàn Quốc",
       "language": "Tiếng Hàn",
       "producer": "CJ Entertainment"
     },
@@ -388,7 +388,7 @@
     "details": {
       "duration_minutes": 129,
       "age_rating": "18+",
-      "country": "Hàn quốc",
+      "country": "Hàn Quốc",
       "language": "Tiếng Hàn",
       "producer": "Filmmaker R&K"
     },
@@ -413,7 +413,7 @@
     "details": {
       "duration_minutes": 109,
       "age_rating": "18+",
-      "country": "Hàn quốc",
+      "country": "Hàn Quốc",
       "language": "Tiếng Hàn",
       "producer": "ABO Entertainment"
     },
@@ -438,7 +438,7 @@
     "details": {
       "duration_minutes": 134,
       "age_rating": "16+",
-      "country": "Hàn quốc",
+      "country": "Hàn Quốc",
       "language": "Tiếng Hàn",
       "producer": "Showbox"
     },
@@ -481,7 +481,7 @@
     "poster_url": "https://upload.wikimedia.org/wikipedia/vi/thumb/2/24/Bo_tu_bao_thu_poster.jpg/250px-Bo_tu_bao_thu_poster.jpg",
     "landscape_poster_url": "https://placehold.co/1280x720/FFD700/000?text=Bo+Tu+Bao+Thu",
     "trailer_url": "https://www.youtube.com/watch?v=zKMOgOWn8lQ",
-    "genres": ["Hài", "Lãng mạn"],
+    "genres": ["Hài hước", "Lãng mạn"],
     "release_date": "2025-01-22",
     "status": "Đang Chiếu",
     "vote_average": 8.0,
