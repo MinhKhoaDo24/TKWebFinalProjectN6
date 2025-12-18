@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xem Phim - CineMax</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bgMain: "#121212",
+              bgCard: "#1e1e1e",
+              bgInput: "#2a2a2a",
+              primary: "#8b5cf6",
+              secondary: "#d946ef",
+            },
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+              heading: ["Oswald", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      .video-glow { box-shadow: 0 0 60px rgba(139, 92, 246, 0.15); }
+      .star-rating:hover { color: #fbbf24; cursor: pointer; }
+      
+      /* Sidebar Styles (Copy từ index để đảm bảo hiển thị đúng) */
+      .mini-sidebar #sidebar-content { width: 88px !important; }
+      .mini-sidebar .sidebar-text { display: none; opacity: 0; }
+      .mini-sidebar .nav-item { justify-content: center; padding: 0; width: 48px; margin: 0 auto; border-radius: 14px; }
+      .mini-sidebar .sidebar-divider { display: block; }
+      .sidebar-divider { display: none; }
+      .mini-sidebar h3 { display: none; }
+      .mini-sidebar .mt-8 { margin-top: 1rem; border-top: none; }
+    </style>
+  </head>
+  
+  <body class="bg-bgMain text-gray-200 font-sans h-screen flex overflow-hidden">
+    
+    <!-- <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm transition-opacity"></div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 md:relative transition-all duration-300 w-72 py-4 pl-4"></div> -->
+
+    <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain transition-all duration-300">
+        
+        <div id="navbar-container" class="z-40"></div>
+
+        <div class="flex-1 overflow-y-auto px-0 scroll-smooth relative custom-scrollbar">
+            
+            <div class="w-full bg-black relative py-6">
+                <div class="w-full max-w-[1400px] mx-auto flex items-center justify-center px-4 md:px-8 z-10">
+                    <div class="w-full aspect-video bg-[#0a0a0a] rounded-xl overflow-hidden shadow-2xl video-glow border border-white/5 relative">
+                        
+                        <div class="absolute inset-0 flex items-center justify-center z-0">
+                            <i class="fa-solid fa-circle-notch fa-spin text-4xl text-white/20"></i>
+                        </div>
+                        <iframe id="video-frame" class="relative z-10 w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 py-8 max-w-7xl pb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <div class="lg:col-span-8 flex flex-col gap-6">
+                        <h1 id="movie-title" class="text-4xl md:text-5xl font-bold text-white font-heading leading-tight tracking-wide">...</h1>
+                        
+                        <div class="flex flex-wrap items-center gap-4 text-sm font-medium">
+                            <div class="flex items-center gap-1 bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded">
+                                <i class="fa-solid fa-star text-xs"></i> 
+                                <span id="vote-average" class="font-bold">--</span>
+                            </div>
+                            <span id="release-year" class="px-2 py-0.5 bg-[#2a2a2a] rounded text-white border border-white/10">----</span>
+                            <div class="flex items-center gap-1.5 text-gray-400">
+                                <i class="far fa-clock text-primary"></i> <span id="duration">-- phút</span>
+                            </div>
+                            <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                            <span id="country" class="text-gray-400">--</span>
+                        </div>
+
+                        <div id="genres-list" class="flex flex-wrap gap-2"></div>
+
+                        <div class="mt-4">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-1 h-6 bg-purple-500 rounded-full"></div>
+                                <h3 class="text-lg font-bold text-white font-heading">Tóm Tắt</h3>
+                            </div>
+                            <div class="bg-[#1a1a1a] p-6 rounded-xl border border-white/5">
+                                <p id="movie-desc" class="text-gray-300 leading-7 text-justify"></p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-white/10 pt-8 mt-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-xl font-bold text-white font-heading border-l-4 border-secondary pl-3">Bình Luận</h3>
+                            </div>
+                            <div class="bg-[#1e1e1e] p-5 rounded-2xl border border-white/10 mb-8">
+                                <div class="flex gap-4">
+                                    <img src="https://ui-avatars.com/api/?name=User&background=random" class="w-10 h-10 rounded-full">
+                                    <div class="flex-1">
+                                        <textarea placeholder="Viết bình luận..." class="w-full bg-[#121212] text-white p-3 rounded-xl border border-white/5 focus:outline-none text-sm min-h-[80px] mb-3"></textarea>
+                                        <div class="flex justify-end">
+                                            <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-bold py-2 px-6 rounded-lg">Gửi</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4">
+                        <h3 class="text-2xl font-bold text-white mb-6 font-heading">Diễn viên</h3>
+                        <div id="watch-actor-list" class="grid grid-cols-3 gap-x-4 gap-y-8"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="footer-container"></div>
+        </div>
+    </main>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/loadheaderfooter.js"></script>
+    <script src="scripts/login_register.js"></script> -->
+
+    <script>
+      // LOGIC LẤY DỮ LIỆU PHIM
+      document.addEventListener("DOMContentLoaded", async () => {
+        const params = new URLSearchParams(window.location.search);
+        const idParam = params.get("id") ? Number(params.get("id")) : null;
+
+        if (!idParam) {
+          window.location.href = "index.html"; 
+          return;
+        }
+
+        try {
+          const res = await fetch("data/movies.json");
+          const movies = await res.json();
+          const movie = movies.find((m) => m.id === idParam);
+
+          if (movie) {
+            document.title = `Xem phim: ${movie.title}`;
+            
+            // --- Điền dữ liệu ---
+            document.getElementById("movie-title").textContent = movie.title;
+            document.getElementById("movie-desc").textContent = movie.description || "Chưa có mô tả.";
+            
+            document.getElementById("vote-average").textContent = movie.vote_average || "0";
+            document.getElementById("release-year").textContent = movie.release_date ? movie.release_date.split('-')[0] : "N/A";
+            document.getElementById("duration").textContent = movie.details?.duration_minutes ? `${movie.details.duration_minutes} phút` : "N/A";
+            document.getElementById("country").textContent = movie.details?.country || "Quốc tế";
+
+            // Render Thể loại
+            const genresContainer = document.getElementById("genres-list");
+            if (movie.genres && movie.genres.length > 0) {
+                genresContainer.innerHTML = movie.genres.map(g => 
+                    `<span class="px-3 py-1 bg-[#222] text-gray-300 text-xs rounded-full border border-white/10 hover:border-primary/50 hover:text-white transition-colors cursor-default">${g}</span>`
+                ).join('');
+            }
+
+            // Render Diễn viên
+            const actorContainer = document.getElementById("watch-actor-list");
+            if (movie.credits && movie.credits.cast && movie.credits.cast.length > 0) {
+                actorContainer.innerHTML = movie.credits.cast.map(name => `
+                    <div class="flex flex-col items-center text-center gap-3 group cursor-pointer">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 bg-[#2a2a2a]">
+                            <img src="https://ui-avatars.com/api/?name=${name}&background=random&color=fff&size=128&bold=true" 
+                                 alt="${name}" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors leading-tight">
+                            ${name}
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                actorContainer.innerHTML = '<p class="text-gray-500 text-sm italic col-span-3 text-center">Đang cập nhật diễn viên.</p>';
+            }
+
+            // Video Player
+            let videoUrl = "";
+            if (movie.embed_url) {
+              videoUrl = movie.embed_url;
+            } else if (movie.trailer_url) {
+              const videoId = movie.trailer_url.split("v=")[1];
+              videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            }
+            const iframe = document.getElementById("video-frame");
+            if(iframe) iframe.src = videoUrl;
+            
+          } else {
+            alert("Không tìm thấy dữ liệu phim!");
+            window.location.href = "index.html";
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      });
+    </script>
+  </body>
+</html>
