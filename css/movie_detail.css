@@ -1,0 +1,244 @@
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+body { background-color: #111; color: #fff; } 
+
+/* 1. BANNER SECTION */
+.movie-banner-section {
+    position: relative;
+    height: 450px; /* Chiều cao banner */
+    overflow: hidden;
+}
+
+.banner-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center center; /* center vertically to align background text with play button */
+    opacity: 0.6; /* Làm tối ảnh nền để nổi bật nội dung */
+    z-index: 0;
+}
+
+.banner-overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 150px;
+    background: linear-gradient(to top, #111, transparent); /* Chuyển màu êm xuống nền */
+    z-index: 1;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+    z-index: 3; /* ensure play button sits above banner and overlay */
+}
+.play-btn:hover { background: #e50914; border-color: #e50914; transform: translate(-50%, -50%) scale(1.1); }
+
+/* 2. MAIN CONTAINER */
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    top: -60px; /* giảm đè lên banner một chút để lộ chữ nền hơn */
+    z-index: 2;
+}
+
+/* 3. HEADER PHIM (Poster + Info) */
+.movie-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.movie-poster img {
+    width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.movie-info {
+    padding-top: 80px; /* Để chữ thẳng hàng với phần dưới poster */
+}
+
+.movie-info .title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.movie-info .meta {
+    display: flex; gap: 20px; color: #ccc; margin-bottom: 15px; font-size: 0.95rem;
+}
+.badge { background: #e50914; padding: 2px 8px; border-radius: 4px; color: white; font-weight: bold; font-size: 0.8rem; }
+.text-yellow { color: #f5c518; }
+
+.btn-booking {
+    margin-top: 20px;
+    padding: 12px 40px;
+    background: #E50914;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.5);
+    transition: all 0.3s ease; 
+}
+/* Thêm hiệu ứng khi di chuột vào (Hover) */
+.btn-booking:hover {
+    background-color: #f40612; /* Đỏ tươi hơn một chút */
+    transform: translateY(-2px); /* Nút bay lên nhẹ */
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.7); /* Bóng đổ đậm hơn */
+}
+/* 4. LAYOUT 2 CỘT (Content + Sidebar) */
+.content-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Cột trái to gấp đôi cột phải */
+    gap: 40px;
+}
+
+.section-title {
+    border-left: 4px solid #e50914;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.synopsis-text {
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+/* Lịch chiếu (Demo styles) */
+.date-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+.date-item {
+    background: #222; padding: 10px 20px; border-radius: 5px; text-align: center; cursor: pointer; border: 1px solid #444;
+}
+.date-item.active { background: #e50914; border-color: #e50914; }
+.time-slots { display: flex; gap: 10px; flex-wrap: wrap; }
+.time { padding: 8px 20px; background: #333; border-radius: 4px; cursor: pointer; border: 1px solid #555; }
+.time:hover { border-color: #e50914; color: #e50914; }
+
+/* 5. SIDEBAR: ACTORS (Cột bên phải) */
+.actor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.actor-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #1a1a1a; /* Nền thẻ diễn viên tối */
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.actor-card:hover {
+    background: #252525;
+    transform: translateX(5px);
+}
+
+.actor-card img {
+    width: 60px; height: 60px;
+    border-radius: 50%; /* Ảnh tròn */
+    object-fit: cover;
+    border: 2px solid #555;
+}
+
+.actor-info h4 { font-size: 1rem; color: #fff; margin-bottom: 4px; }
+.actor-info p { font-size: 0.85rem; color: #888; }
+/* --- CSS CHO PHẦN THÔNG TIN BỔ SUNG --- */
+
+/* Tạo lưới 2 cột để thông tin hiển thị gọn gàng */
+.movie-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia làm 2 cột bằng nhau */
+    gap: 10px 30px; /* Khoảng cách: Hàng 10px, Cột 30px */
+    margin-bottom: 20px; /* Cách phần Rating bên dưới ra một chút */
+    margin-top: 15px; /* Cách phần Meta bên trên */
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(255,255,255,0.1); /* Đường kẻ mờ ngăn cách cho đẹp */
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 15px 0;
+}
+
+/* Định dạng nhãn (VD: Đạo diễn:) màu xám cho đỡ rối mắt */
+.detail-item .label {
+    color: #aaa; 
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+/* Định dạng giá trị (VD: Nhật Bản) màu trắng cho nổi bật */
+.detail-item .value {
+    color: #fff;
+}
+
+/* Responsive: Khi màn hình nhỏ (điện thoại) thì dồn về 1 cột */
+@media (max-width: 768px) {
+    .movie-details-grid {
+        grid-template-columns: 1fr; /* 1 cột duy nhất */
+        gap: 8px;
+    }
+}
+/* --- CSS CHO PHẦN NỘI DUNG PHIM --- */
+.synopsis-text p {
+    margin-bottom: 15px; /* Tạo khoảng cách giữa các đoạn văn */
+    color: #ccc; /* Màu chữ xám nhẹ dễ đọc trên nền đen */
+}
+
+/* Phần điểm nhấn */
+.highlights {
+    background: rgba(255, 255, 255, 0.05); /* Nền mờ nhẹ làm nổi bật khối này */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 3px solid #E50914; /* Đường viền đỏ bên trái tạo điểm nhấn */
+}
+
+.highlights strong {
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.highlights ul {
+    list-style: none; 
+    padding: 0;
+}
+
+.highlights ul li {
+    margin-bottom: 8px;
+    color: #ddd;
+    display: flex; /* Để icon và chữ thẳng hàng */
+    align-items: center;
+    gap: 10px;
+}
+
+.highlights ul li i {
+    color: #E50914; /* Icon dấu tích màu đỏ */
+    font-size: 0.9rem;
+}
