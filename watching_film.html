@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { background-color: #0f172a; color: white; scroll-behavior: smooth; }
-        .movie-card:hover .play-icon { opacity: 1; }
         .aspect-video-container { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .aspect-video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         ::-webkit-scrollbar { width: 8px; }
@@ -20,184 +19,95 @@
 </head>
 <body class="font-sans">
 
-    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur shadow-xl border-b border-slate-800">
-        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent cursor-pointer" onclick="window.location.reload()">
-                GEMINI PHIM
-            </h1>
-            <div class="relative w-full md:w-96">
-                <input type="text" id="searchInput" placeholder="Tìm tên phim hoặc tên gốc..." 
-                    class="w-full bg-slate-800 border border-slate-700 rounded-full py-2 px-5 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-white">
-                <i class="fas fa-search absolute right-4 top-3 text-slate-400"></i>
-            </div>
-        </div>
-    </header>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden backdrop-blur-sm transition-opacity"></div>
 
-    <main class="container mx-auto px-4 py-8">
-        <section id="playerSection" class="hidden mb-12 animate-fadeIn">
-            <div class="bg-black rounded-xl overflow-hidden shadow-2xl ring-1 ring-slate-700">
-                <div class="aspect-video-container" id="videoWrapper"></div>
-                <div class="p-6 bg-slate-900 border-t border-slate-800">
-                    <h2 id="playingTitle" class="text-2xl md:text-3xl font-bold mb-2"></h2>
-                    <div class="flex flex-wrap gap-4 text-sm text-slate-400 mb-4" id="playingMeta"></div>
-                    <p id="playingDesc" class="text-slate-300 leading-relaxed max-w-4xl text-sm md:text-base"></p>
+    <div class="flex min-h-screen">
+        
+        <aside id="sidebar-container" class="fixed inset-y-0 left-0 z-50 w-72 transform -translate-x-full md:translate-x-0 md:static transition-all duration-300 bg-slate-900 border-r border-slate-800">
+            </aside>
+
+        <div class="flex-1 flex flex-col min-w-0">
+            
+            <header id="navbar-container" class="sticky top-0 z-30 bg-slate-900/80 backdrop-blur-md"></header>
+
+            <main class="container mx-auto px-4 py-8">
+                <section id="playerSection" class="hidden mb-12 animate-fadeIn">
+                    <div class="bg-black rounded-xl overflow-hidden shadow-2xl ring-1 ring-slate-700">
+                        <div class="aspect-video-container" id="videoWrapper"></div>
+                        <div class="p-6 bg-slate-900 border-t border-slate-800">
+                            <h2 id="playingTitle" class="text-2xl md:text-3xl font-bold mb-2"></h2>
+                            <div class="flex flex-wrap gap-4 text-sm text-slate-400 mb-4" id="playingMeta"></div>
+                            <p id="playingDesc" class="text-slate-300 leading-relaxed max-w-4xl text-sm md:text-base"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="movieGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                    <div class="col-span-full py-20 text-center text-slate-500">
+                        <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-blue-500 mb-4"></div>
+                        <p>Đang tải dữ liệu từ hệ thống...</p>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <div class="flex flex-wrap gap-2 mb-8" id="genreFilters">
-            </div>
-
-        <div id="movieGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            <div class="col-span-full py-20 text-center text-slate-500">
-                <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-blue-500 mb-4"></div>
-                <p>Đang tải dữ liệu từ hệ thống...</p>
-            </div>
+                <footer id="footer-container" class="mt-20"></footer>
+            </main>
         </div>
-    </main>
+    </div>
 
-    <footer class="border-t border-slate-800 py-10 mt-20 text-center text-slate-500 text-sm">
-        <p>© 2025 Gemini Movie Project. Dữ liệu được tải từ /data/movies.json</p>
-    </footer>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
     <script>
         let moviesData = [];
-
-        // 1. Tải dữ liệu từ file JSON bên ngoài
         async function loadMovies() {
             try {
-                // ĐÃ CẬP NHẬT: Đường dẫn tới thư mục data của bạn
-                const response = await fetch('data/movies.json'); 
-                if (!response.ok) throw new Error('Không tìm thấy file movies.json trong thư mục data');
-                
+                const response = await fetch('./data/movies.json'); 
+                if (!response.ok) throw new Error('Không tìm thấy file movies.json');
                 moviesData = await response.json();
-                
-                initFilters();
                 displayMovies(moviesData);
             } catch (error) {
                 console.error("Lỗi:", error);
-                document.getElementById('movieGrid').innerHTML = `
-                    <div class="col-span-full py-20 text-center text-red-500">
-                        <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
-                        <p class="text-lg font-bold">Lỗi tải dữ liệu!</p>
-                        <p class="text-sm opacity-70 mt-2">${error.message}</p>
-                        <p class="mt-4 text-slate-400 text-xs text-balance">Lưu ý: Bạn phải chạy bằng Live Server (VS Code) hoặc môi trường Web Server để fetch dữ liệu.</p>
-                    </div>`;
+                document.getElementById('movieGrid').innerHTML = `<div class="col-span-full text-center text-red-500">Lỗi tải dữ liệu!</div>`;
             }
         }
 
-        // 2. Hiển thị danh sách phim ra Grid
         function displayMovies(data) {
             const movieGrid = document.getElementById('movieGrid');
             if (data.length === 0) {
-                movieGrid.innerHTML = `<div class="col-span-full text-center py-20 text-slate-500 italic">Không tìm thấy phim phù hợp với yêu cầu của bạn.</div>`;
+                movieGrid.innerHTML = `<div class="col-span-full text-center py-20 text-slate-500 italic">Không có phim.</div>`;
                 return;
             }
-
             movieGrid.innerHTML = data.map(movie => {
-                // Xử lý năm phát hành
                 const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
-                
                 return `
                 <div class="movie-card group cursor-pointer animate-fadeIn" onclick="playMovie(${movie.id})">
                     <div class="relative overflow-hidden rounded-xl bg-slate-800 aspect-[2/3] mb-3 shadow-lg ring-1 ring-white/5 group-hover:ring-blue-500 transition-all">
-                        <img src="${movie.poster_url}" 
-                             alt="${movie.title}" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
-                             onerror="this.src='https://placehold.co/400x600/1e293b/white?text=No+Image'"
-                             loading="lazy">
+                        <img src="${movie.poster_url}" alt="${movie.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x600/1e293b/white?text=No+Image'">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-xl transform scale-90 group-hover:scale-100 transition">
                                 <i class="fas fa-play text-white text-lg ml-1"></i>
                             </div>
                         </div>
-                        <div class="absolute top-2 left-2 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
-                            <i class="fas fa-star text-yellow-500 mr-1"></i>${movie.vote_average || '8.0'}
-                        </div>
-                        <div class="absolute top-2 right-2 ${movie.status === 'Đang Chiếu' ? 'bg-green-600' : 'bg-orange-600'} text-[10px] font-bold px-2 py-1 rounded uppercase">
-                            ${movie.status}
-                        </div>
                     </div>
-                    <h3 class="font-bold text-sm md:text-base line-clamp-1 group-hover:text-blue-400 transition" title="${movie.title}">${movie.title}</h3>
-                    <div class="flex items-center justify-between mt-1 text-slate-400">
-                        <span class="text-xs">${releaseYear}</span>
-                        <span class="text-[10px] border border-slate-700 px-1.5 rounded">${movie.details?.country || 'Quốc tế'}</span>
-                    </div>
-                </div>
-                `;
+                    <h3 class="font-bold text-sm md:text-base line-clamp-1 group-hover:text-blue-400 transition">${movie.title}</h3>
+                </div>`;
             }).join('');
         }
 
-        // 3. Xử lý khi chọn phim
         function playMovie(id) {
             const movie = moviesData.find(m => m.id === id);
-            if (!movie.embed_url) {
-                alert(`Phim "${movie.title}" hiện chưa có bản xem trực tuyến. Vui lòng quay lại sau!`);
-                return;
-            }
-
-            const playerSection = document.getElementById('playerSection');
-            const videoWrapper = document.getElementById('videoWrapper');
-
-            // Hiển thị khung phát
-            playerSection.classList.remove('hidden');
-            videoWrapper.innerHTML = `<iframe src="${movie.embed_url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
-            
-            // Cập nhật thông tin chi tiết bên dưới video
+            if (!movie || !movie.embed_url) return;
+            document.getElementById('playerSection').classList.remove('hidden');
+            document.getElementById('videoWrapper').innerHTML = `<iframe src="${movie.embed_url}" frameborder="0" allowfullscreen></iframe>`;
             document.getElementById('playingTitle').innerText = movie.title;
             document.getElementById('playingDesc').innerText = movie.description;
-            document.getElementById('playingMeta').innerHTML = `
-                <span class="bg-slate-800 px-2 py-1 rounded text-blue-400 font-bold">${movie.status}</span>
-                <span><i class="far fa-calendar-alt mr-1"></i> ${new Date(movie.release_date).toLocaleDateString('vi-VN')}</span>
-                <span><i class="far fa-clock mr-1"></i> ${movie.details?.duration_minutes || '120'} phút</span>
-                <span><i class="fas fa-globe mr-1"></i> ${movie.details?.country || 'N/A'}</span>
-            `;
-
-            // Cuộn lên đầu để xem
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 4. Khởi tạo danh sách thể loại từ dữ liệu thực tế
-        function initFilters() {
-            const genreFilters = document.getElementById('genreFilters');
-            // Lấy danh sách thể loại không lặp lại
-            const allGenres = ['Tất cả', ...new Set(moviesData.flatMap(m => m.genres || []))];
-            
-            genreFilters.innerHTML = allGenres.map(genre => `
-                <button class="genre-btn bg-slate-800 hover:bg-slate-700 px-5 py-2 rounded-full text-xs md:text-sm font-medium transition" 
-                    data-genre="${genre}">
-                    ${genre}
-                </button>
-            `).join('');
-
-            // Sự kiện click cho nút lọc
-            document.querySelectorAll('.genre-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.genre-btn').forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
-                    this.classList.add('bg-blue-600', 'text-white');
-                    
-                    const genre = this.getAttribute('data-genre');
-                    const filtered = genre === 'Tất cả' ? moviesData : moviesData.filter(m => m.genres && m.genres.includes(genre));
-                    displayMovies(filtered);
-                });
-            });
-            
-            // Kích hoạt nút đầu tiên
-            if (genreFilters.firstElementChild) genreFilters.firstElementChild.click();
-        }
-
-        // 5. Tìm kiếm phim theo tên và tên gốc
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase().trim();
-            const filtered = moviesData.filter(m => 
-                m.title.toLowerCase().includes(term) || 
-                (m.original_title && m.original_title.toLowerCase().includes(term))
-            );
-            displayMovies(filtered);
+        $(document).ready(function() {
+            loadMovies();
         });
-
-        // Khởi chạy khi tải trang
-        loadMovies();
     </script>
+
+    <script src="scripts/loadheaderfooter.js"></script>
 </body>
 </html>
