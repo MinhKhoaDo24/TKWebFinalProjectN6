@@ -2,90 +2,71 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Đăng nhập - CineMax</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            colors: {
-              primary: "#8b5cf6",
-              secondary: "#d946ef",
-            },
+            colors: { primary: "#8b5cf6", secondary: "#d946ef" },
             fontFamily: { sans: ["Outfit", "sans-serif"] },
-          
-            }
+            animation: { 'fade-in-up': 'fadeInUp 0.6s ease-out forwards' },
+            keyframes: { 
+                fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+            },
+            screens: { 'xs': '475px' }
           },
-        };
+        },
+      };
     </script>
     <style>
         .glass-panel {
-            background: linear-gradient(
-                135deg, 
-                rgba(255, 255, 255, 0.12), 
-                rgba(255, 255, 255, 0.01) 50%, 
-                rgba(0, 0, 0, 0.1) 100%
-            );
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.01) 50%, rgba(0, 0, 0, 0.1) 100%);
+            backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
             border-top: 1px solid rgba(255, 255, 255, 0.35);
             border-left: 1px solid rgba(255, 255, 255, 0.2);
             border-right: 1px solid rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.7),
-                inset 0 0 20px rgba(255, 255, 255, 0.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.02);
         }
-
         .custom-input {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff; transition: all 0.3s ease; font-size: 0.9rem;
         }
+        @media (max-width: 640px) { .custom-input { font-size: 16px; } }
         .custom-input:focus {
-            background: rgba(0, 0, 0, 0.5);
-            border-color: #8b5cf6;
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+            background: rgba(0, 0, 0, 0.5); border-color: #8b5cf6;
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.25); outline: none;
         }
-        .custom-input::placeholder { color: #6b7280; font-size: 0.85rem; }
+        .bg-static {
+            background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/c81956f1-5750-454c-9b3c-7a4d990d3d06/web/VN-en-20251208-TRIFECTA-perspective_a74ea74f-8e83-4da0-b94d-1a763a257cb1_small.jpg');
+            background-size: cover; background-position: center;
+        }
     </style>
   </head>
   
   <body class="min-h-screen flex flex-col relative overflow-x-hidden font-sans bg-[#0f0f0f] text-white">
     
-    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div class="flex h-full w-[200%] animate-pan-side opacity-40">
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/c81956f1-5750-454c-9b3c-7a4d990d3d06/web/VN-en-20251208-TRIFECTA-perspective_a74ea74f-8e83-4da0-b94d-1a763a257cb1_small.jpg" class="h-full w-1/2 object-cover">
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/c81956f1-5750-454c-9b3c-7a4d990d3d06/web/VN-en-20251208-TRIFECTA-perspective_a74ea74f-8e83-4da0-b94d-1a763a257cb1_small.jpg" class="h-full w-1/2 object-cover">
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/60 to-purple-900/20"></div>
+    <div class="fixed inset-0 z-0 bg-static">
+        <div class="absolute inset-0 bg-[#0f0f0f]/80 bg-gradient-to-t from-[#0f0f0f] via-transparent to-black/40"></div>
     </div>
 
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden transition-opacity"></div>
-    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full transition-all duration-300 w-72"></div>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden transition-opacity"></div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full transition-all duration-300 w-72"></div>
 
     <div id="navbar-container" class="relative z-50 w-full"></div>
 
-    <main class="flex-grow flex items-center justify-center relative z-10 w-full px-4 py-12">
-        
-        <div class="w-full max-w-[360px] p-6 glass-panel rounded-2xl animate-fade-in-up">
+    <main class="flex-grow flex items-center justify-center relative z-10 w-full px-4 py-12 overflow-y-auto">
+        <div class="w-full max-w-[380px] p-6 md:p-8 glass-panel rounded-2xl animate-fade-in-up transition-all duration-300">
             <div class="text-center mb-6">
-                <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 mb-3 shadow-[0_0_20px_rgba(168,85,247,0.5)] border border-white/20">
-                    <i class="fa-solid fa-play text-white text-sm"></i>
+                <div class="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 mb-3 shadow-[0_0_20px_rgba(168,85,247,0.5)] border border-white/20">
+                    <i class="fa-solid fa-play text-white text-base md:text-lg"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-white tracking-wide drop-shadow-md">Đăng Nhập</h2>
+                <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide drop-shadow-md">Đăng Nhập</h2>
                 <p class="text-gray-300 text-xs mt-1 font-medium">Chào mừng bạn quay trở lại</p>
             </div>
 
@@ -95,7 +76,7 @@
                         <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
                             <i class="fa-regular fa-user text-sm"></i>
                         </div>
-                        <input type="text" id="username-email" placeholder="Email hoặc tên đăng nhập" required class="custom-input w-full pl-10 pr-4 py-3 rounded-lg outline-none" />
+                        <input type="text" id="login-username" placeholder="Tên đăng nhập" required class="custom-input w-full pl-10 pr-4 py-2.5 md:py-3 rounded-lg" />
                     </div>
                 </div>
 
@@ -104,17 +85,17 @@
                         <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
                             <i class="fa-solid fa-lock-open text-sm"></i>
                         </div>
-                        <input type="password" id="password" placeholder="Mật khẩu" required class="custom-input w-full pl-10 pr-10 py-3 rounded-lg outline-none" />
-                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-400 hover:text-white transition-colors" onclick="togglePassword('password', this)">
+                        <input type="password" id="login-password" placeholder="Mật khẩu" required class="custom-input w-full pl-10 pr-10 py-2.5 md:py-3 rounded-lg" />
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-400 hover:text-white transition-colors" onclick="togglePassword('login-password', this)">
                             <i class="fa-regular fa-eye text-sm"></i>
                         </div>
                     </div>
                     <div class="text-right">
-                        <a href="#" class="text-[11px] text-gray-400 hover:text-white transition-colors">Quên mật khẩu?</a>
+                        <a href="#" class="text-[10px] md:text-[11px] text-gray-400 hover:text-white transition-colors">Quên mật khẩu?</a>
                     </div>
                 </div>
 
-                <button type="submit" class="w-full py-3 mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-sm font-bold rounded-lg shadow-[0_0_15px_rgba(168,85,247,0.4)] border border-white/10 transform hover:-translate-y-0.5 transition-all duration-300">
+                <button type="submit" class="w-full py-2.5 md:py-3 mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-sm font-bold rounded-lg shadow-[0_0_15px_rgba(168,85,247,0.4)] border border-white/10 transform hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
                     Đăng Nhập
                 </button>
             </form>
@@ -131,9 +112,8 @@
     <div id="footer-container" class="relative z-50 w-full"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/login_register.js"></script>
     <script src="scripts/loadheaderfooter.js"></script>
-
-
     <script>
       function togglePassword(inputId, icon) {
         const input = document.getElementById(inputId);
@@ -146,16 +126,6 @@
           iconElem.classList.replace('fa-eye-slash', 'fa-eye');
         }
       }
-
-      document.getElementById('login-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const username = document.getElementById('username-email').value;
-        if(username) {
-            localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('username', username);
-            window.location.href = 'index.html';
-        }
-      });
     </script>
   </body>
 </html>

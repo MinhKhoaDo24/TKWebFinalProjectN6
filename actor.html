@@ -3,74 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diễn viên</title>
-    <script src="scripts/load_header.js"></script>
+    <title>Diễn viên - CineMax</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bgMain: "#121212",
+              bgCard: "#1e1e1e",
+              bgInput: "#2a2a2a",
+              primary: "#8b5cf6",
+            },
+            fontFamily: { sans: ["Outfit", "sans-serif"] }, // Dùng Outfit cho đẹp
+            backgroundImage: {
+              "gradient-brand": "linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; border: 2px solid #121212; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      
+      .glass-effect {
+        background: rgba(18, 18, 18, 0.85);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      /* CSS hỗ trợ Sidebar Mini (Cần thiết để loadheaderfooter.js hoạt động đúng) */
+      .mini-sidebar #sidebar-content { width: 88px !important; }
+      .mini-sidebar .sidebar-text, .mini-sidebar h3 { display: none; opacity: 0; }
+      .mini-sidebar .nav-item { justify-content: center; padding: 0; width: 48px; margin: 0 auto; border-radius: 14px; }
+      .mini-sidebar .sidebar-divider { display: block; }
+      .sidebar-divider { display: none; }
+      .mini-sidebar .mt-8 { margin-top: 1rem; border-top: none; }
+    </style>
   </head>
 
-  <body class="bg-bgMain text-white h-screen flex overflow-hidden">
-    <div
-      id="sidebar-overlay"
-      class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm transition-opacity"
-    ></div>
+  <body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
+    
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden xl:hidden backdrop-blur-sm transition-opacity"></div>
 
-    <div
-      id="sidebar-container"
-      class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 md:relative transition-all duration-300 w-72 py-4 pl-4"
-    ></div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72"></div>
 
-    <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain">
+    <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain transition-all duration-300">
+      
       <div id="navbar-container"></div>
 
-      <div class="flex-1 overflow-y-auto px-4 md:px-8 pb-20 md:pb-8">
-        <div class="mt-6 mb-6">
+      <div class="flex-1 overflow-y-auto px-4 md:px-8 scroll-smooth pb-0">
+        
+        <div class="mt-6 mb-10">
           <div class="flex items-center justify-between gap-4 flex-wrap">
             <div>
-              <h1 class="text-3xl md:text-4xl font-extrabold">Diễn viên</h1>
-              <p class="text-gray-400 mt-2">
-                Danh sách diễn viên và các phim họ tham gia.
+              <h1 class="text-3xl md:text-4xl font-extrabold flex items-center gap-3">
+                <span class="w-1.5 h-8 bg-gradient-brand rounded-full"></span> Diễn viên
+              </h1>
+              <p class="text-gray-400 mt-2 text-sm ml-5">
+                Danh sách các ngôi sao và những bộ phim họ tham gia.
               </p>
             </div>
 
             <div class="w-full md:w-[420px]">
-              <div class="flex items-center gap-3 bg-bgInput rounded-2xl px-4 py-3 border border-white/5">
+              <div class="flex items-center gap-3 bg-bgInput rounded-2xl px-4 py-3 border border-white/5 focus-within:ring-1 focus-within:ring-primary/50 transition-all shadow-lg">
                 <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
                 <input
                   id="actor-search"
                   type="text"
-                  placeholder="Tìm diễn viên..."
-                  class="w-full bg-transparent outline-none text-white placeholder:text-gray-500"
+                  placeholder="Tìm tên diễn viên..."
+                  class="w-full bg-transparent outline-none text-white placeholder:text-gray-500 text-sm"
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <section class="bg-[#141414] rounded-[30px] p-5 md:p-6 border border-white/5 shadow-2xl">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-[13px] font-bold uppercase tracking-[0.2em] text-gray-400">
-              Tất cả diễn viên
+        <section class="bg-[#141414] rounded-[30px] p-5 md:p-8 border border-white/5 shadow-2xl mb-10">
+          <div class="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
+            <h2 class="text-[13px] font-bold uppercase tracking-[0.2em] text-gray-400 flex items-center gap-2">
+              <i class="fa-solid fa-users text-primary"></i> Tất cả diễn viên
             </h2>
-            <div class="text-gray-400 text-sm">
-              <span id="actor-count">0</span> người
+            <div class="text-gray-400 text-sm bg-white/5 px-3 py-1 rounded-full border border-white/5">
+              <span id="actor-count" class="text-white font-bold">0</span> người
             </div>
           </div>
 
           <div
             id="actors-grid"
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6"
           >
-            <!-- cards render here -->
+            <div class="col-span-full text-center py-20 text-gray-500">Đang tải dữ liệu...</div>
           </div>
-            <div class="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div class="text-sm text-gray-300">
-                Hiển thị <span id="actor-range">0–0</span> / <span id="actor-count">0</span>
-              </div>
 
-              <div id="pagination" class="flex items-center gap-2 flex-wrap"></div>
+          <div class="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-white/5">
+            <div class="text-sm text-gray-400">
+              Hiển thị <span id="actor-range" class="text-white font-medium">0–0</span> / <span id="total-actors" class="text-white font-medium">0</span>
             </div>
-          </section>
+            <div id="pagination" class="flex items-center gap-2 flex-wrap justify-center"></div>
+          </div>
+        </section>
 
-        <div id="footer-container" class="mt-8"></div>
+        <div id="footer-container" class="mt-auto"></div>
       </div>
     </main>
 

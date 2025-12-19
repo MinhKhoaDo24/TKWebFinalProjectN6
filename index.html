@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineMax - Final UI</title>
+    <title>PhimConMeo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -150,10 +150,7 @@
       id="sidebar-overlay"
       class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm transition-opacity"
     ></div>
-    <div
-      id="sidebar-container"
-      class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 md:relative transition-all duration-300 w-72 py-4 pl-4"
-    ></div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72"></div>
 
     <main
       class="flex-1 flex flex-col h-screen relative w-full bg-bgMain transition-all duration-300"
@@ -197,7 +194,6 @@
               <div
                 id="top-rated-list"
                 class="space-y-3 flex-1 overflow-y-auto custom-scrollbar pr-1"
-                style="max-h-[calc(100vh-200px)];"
               >
                 <div class="h-20 bg-[#1e1e1e] rounded-2xl animate-pulse"></div>
                 <div class="h-20 bg-[#1e1e1e] rounded-2xl animate-pulse"></div>
@@ -207,7 +203,7 @@
           </div>
         </div>
 
-        <div id="footer-container"></div>
+        <div id="footer-container" class="mt-5"></div>
       </div>
     </main>
 
@@ -239,5 +235,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="scripts/loadheaderfooter.js"></script>
+    <script src="scripts/login_register.js"></script>
   </body>
 </html>

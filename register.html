@@ -2,151 +2,129 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Đăng Ký - CineMax</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: { primary: "#8b5cf6", secondary: "#d946ef" },
             fontFamily: { sans: ["Outfit", "sans-serif"] },
-            animation: { 'fade-in-up': 'fadeInUp 0.6s ease-out forwards', 'pan-side': 'panSide 60s linear infinite' },
-            keyframes: {
-              fadeInUp: { '0%': { opacity: '0', transform: 'translateY(15px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-              panSide: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }
-            }
+            animation: { 'fade-in-up': 'fadeInUp 0.6s ease-out forwards' },
+            keyframes: { fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } } }
           },
         },
       };
     </script>
-
     <style>
-        /* Hiệu ứng kính mờ sang trọng */
         .glass-panel {
-            background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.7));
-            backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.01) 50%, rgba(0, 0, 0, 0.1) 100%);
+            backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border-top: 1px solid rgba(255, 255, 255, 0.35);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.02);
         }
-        /* Style cho ô input */
         .custom-input {
-            background: rgba(0, 0, 0, 0.4); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            color: #fff; 
-            transition: all 0.3s ease; 
-            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); 
+            color: #fff; transition: all 0.3s ease; font-size: 0.9rem;
         }
+        @media (max-width: 640px) { .custom-input { font-size: 16px; } }
         .custom-input:focus {
-            background: rgba(0, 0, 0, 0.6); 
-            border-color: #d946ef; 
+            background: rgba(0, 0, 0, 0.6); border-color: #d946ef; outline: none;
             box-shadow: 0 0 15px rgba(217, 70, 239, 0.3);
-            outline: none;
         }
-        .custom-input::placeholder { color: #6b7280; font-size: 0.85rem; }
-
-        /* CSS hỗ trợ Sidebar thu nhỏ từ JS */
-        .mini-sidebar #sidebar-content { width: 88px !important; }
-        .mini-sidebar .sidebar-text { display: none; opacity: 0; }
-        .mini-sidebar .nav-item { justify-content: center; padding: 0; width: 48px; margin: 0 auto; border-radius: 14px; }
-        .mini-sidebar h3 { display: none; }
-        .mini-sidebar .sidebar-divider { display: block; }
-        .sidebar-divider { display: none; }
-        .mini-sidebar .mt-8 { margin-top: 1rem; border-top: none; }
+        .bg-static {
+            background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/c81956f1-5750-454c-9b3c-7a4d990d3d06/web/VN-en-20251208-TRIFECTA-perspective_a74ea74f-8e83-4da0-b94d-1a763a257cb1_small.jpg');
+            background-size: cover; background-position: center;
+        }
     </style>
 </head>
 
 <body class="min-h-screen flex flex-col relative font-sans bg-[#0f0f0f] text-white overflow-x-hidden">
     
-    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div class="flex h-full w-[200%] animate-pan-side opacity-30">
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/c81956f1-5750-454c-9b3c-7a4d990d3d06/web/VN-en-20251208-TRIFECTA-perspective_a74ea74f-8e83-4da0-b94d-1a763a257cb1_small.jpg" class="h-full w-1/2 object-cover">
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/c81956f1-5750-454c-9b3c-7a4d990d3d06/web/VN-en-20251208-TRIFECTA-perspective_a74ea74f-8e83-4da0-b94d-1a763a257cb1_small.jpg" class="h-full w-1/2 object-cover">
-        </div>
-        <div class="absolute inset-0 bg-[#0f0f0f]/80"></div>
+    <div class="fixed inset-0 z-0 bg-static">
+        <div class="absolute inset-0 bg-[#0f0f0f]/80 bg-gradient-to-t from-[#0f0f0f] via-transparent to-black/40"></div>
     </div>
-
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden transition-opacity"></div>
-    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 transition-all duration-300 w-72 md:w-[100px]"></div>
     
-    <div id="navbar-container" class="relative z-40 w-full pl-0 md:pl-[100px]"></div>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden transition-opacity"></div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full transition-all duration-300 w-72"></div>
 
-    <main class="flex-grow flex items-center justify-center relative z-10 w-full px-4 py-10 pl-0 md:pl-[100px]">
-        
-        <div class="w-full max-w-[380px] p-8 glass-panel rounded-3xl animate-fade-in-up border-t border-white/20">
-            
-            <div class="text-center mb-6">
-                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 mb-4 shadow-[0_0_25px_rgba(219,39,119,0.4)] border border-white/20">
-                    <i class="fa-solid fa-user-plus text-2xl text-white"></i>
+    <div id="navbar-container" class="relative z-50 w-full"></div>
+
+    <main class="flex-grow flex items-center justify-center relative z-10 w-full px-4 py-8 overflow-y-auto">
+        <div class="w-full max-w-[370px] p-6 md:p-8 glass-panel rounded-2xl animate-fade-in-up transition-all duration-300">
+            <div class="text-center mb-5 md:mb-6">
+                <div class="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 mb-3 shadow-[0_0_20px_rgba(219,39,119,0.4)] border border-white/20">
+                    <i class="fa-solid fa-user-plus text-white text-lg md:text-xl"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-white tracking-wide drop-shadow-sm">Tạo Tài Khoản</h2>
-                <p class="text-gray-400 text-xs mt-2 font-medium">Tham gia cộng đồng phim miễn phí</p>
+                <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide">Tạo Tài Khoản</h2>
+                <p class="text-gray-300 text-[11px] md:text-xs mt-1">Gia nhập thế giới phim ảnh</p>
             </div>
 
-            <form id="register-form" class="space-y-4">
-                
+            <form id="register-form" class="space-y-3 md:space-y-3.5">
                 <div class="space-y-1">
-                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Tên hiển thị</label>
+                    <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Tên hiển thị</label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500"><i class="fa-regular fa-id-badge"></i></div>
-                        <input type="text" id="username-email" placeholder="Ví dụ: CineLover99" required class="custom-input w-full pl-11 pr-4 py-3 rounded-xl" />
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500"><i class="fa-regular fa-id-badge text-xs"></i></div>
+                        <input type="text" id="reg-username" placeholder="Ví dụ: CineLover99" required class="custom-input w-full pl-9 pr-3 py-2.5 rounded-lg" />
                     </div>
                 </div>
 
                 <div class="space-y-1">
-                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Email</label>
+                    <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Email</label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500"><i class="fa-regular fa-envelope"></i></div>
-                        <input type="email" id="email" placeholder="name@example.com" required class="custom-input w-full pl-11 pr-4 py-3 rounded-xl" />
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500"><i class="fa-regular fa-envelope text-xs"></i></div>
+                        <input type="email" id="reg-email" placeholder="name@example.com" required class="custom-input w-full pl-9 pr-3 py-2.5 rounded-lg" />
                     </div>
                 </div>
 
                 <div class="space-y-1">
-                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Mật khẩu</label>
+                    <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Mật khẩu</label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500"><i class="fa-solid fa-lock"></i></div>
-                        <input type="password" id="password" placeholder="Tối thiểu 6 ký tự" required class="custom-input w-full pl-11 pr-11 py-3 rounded-xl" />
-                        <div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer text-gray-500 hover:text-white transition-colors" onclick="togglePassword('password', this)">
-                            <i class="fa-regular fa-eye"></i>
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500"><i class="fa-solid fa-lock text-xs"></i></div>
+                        <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự" required class="custom-input w-full pl-9 pr-9 py-2.5 rounded-lg" />
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-500 hover:text-white" onclick="togglePassword('reg-password', this)">
+                            <i class="fa-regular fa-eye text-xs"></i>
                         </div>
                     </div>
                 </div>
 
                 <div class="space-y-1">
-                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wider ml-1">Nhập lại mật khẩu</label>
+                    <label class="text-[10px] font-bold text-gray-400 uppercase ml-1">Nhập lại mật khẩu</label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500"><i class="fa-solid fa-shield-halved"></i></div>
-                        <input type="password" id="confirm-password" placeholder="Xác nhận mật khẩu" required class="custom-input w-full pl-11 pr-11 py-3 rounded-xl" />
-                        <div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer text-gray-500 hover:text-white transition-colors" onclick="togglePassword('confirm-password', this)">
-                            <i class="fa-regular fa-eye"></i>
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500"><i class="fa-solid fa-shield-halved text-xs"></i></div>
+                        <input type="password" id="reg-confirm" placeholder="Xác nhận mật khẩu" required class="custom-input w-full pl-9 pr-9 py-2.5 rounded-lg" />
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-gray-500 hover:text-white" onclick="togglePassword('reg-confirm', this)">
+                            <i class="fa-regular fa-eye text-xs"></i>
                         </div>
                     </div>
                 </div>
                 
-                <button type="submit" class="w-full py-3.5 mt-2 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold rounded-xl shadow-lg shadow-pink-500/30 border border-white/10 transform hover:scale-[1.02] active:scale-95 transition-all duration-300">
+                <button type="submit" class="w-full py-2.5 md:py-3 mt-2 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white text-sm font-bold rounded-lg shadow-lg shadow-pink-500/30 border border-white/10 transform hover:scale-[1.02] active:scale-95 transition-all duration-300">
                     Đăng Ký Ngay
                 </button>
             </form>
 
-            <div class="mt-6 text-center pt-5 border-t border-white/10">
-                <p class="text-gray-400 text-sm">
+            <div class="mt-5 text-center pt-4 border-t border-white/10">
+                <p class="text-gray-400 text-xs">
                     Đã có tài khoản? 
-                    <a href="login.html" class="text-white font-bold hover:text-secondary transition-colors ml-1 underline decoration-secondary decoration-2 underline-offset-4">Đăng nhập</a>
+                    <a href="login.html" class="text-white font-bold hover:text-secondary transition-colors ml-1">Đăng nhập</a>
                 </p>
             </div>
         </div>
     </main>
 
-    <div id="footer-container" class="relative z-40 w-full pl-0 md:pl-[100px]"></div>
+    <div id="footer-container" class="relative z-50 w-full"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="scripts/loadheaderfooter.js"></script> <script src="scripts/login_register.js"></script>
-
+    <script src="scripts/login_register.js"></script>
+    <script src="scripts/loadheaderfooter.js"></script>
     <script>
-        // Logic ẩn hiện mật khẩu
         function togglePassword(inputId, icon) {
             const input = document.getElementById(inputId);
             const iconElem = icon.querySelector('i');
@@ -158,35 +136,6 @@
                 iconElem.classList.replace('fa-eye-slash', 'fa-eye');
             }
         }
-
-        // Logic xử lý đăng ký
-        document.getElementById('register-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const username = document.getElementById('username-email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-
-            // Kiểm tra độ dài mật khẩu
-            if (password.length < 6) {
-                alert("Mật khẩu phải có ít nhất 6 ký tự!");
-                return;
-            }
-
-            // Kiểm tra mật khẩu khớp nhau
-            if (password !== confirmPassword) {
-                alert("Mật khẩu nhập lại không khớp!");
-                return;
-            }
-
-            // Giả lập đăng ký thành công
-            if(username) {
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('username', username);
-                alert("Đăng ký thành công! Chào mừng " + username);
-                window.location.href = 'index.html';
-            }
-        });
     </script>
 </body>
 </html>
