@@ -1,0 +1,1012 @@
+[
+  {
+    "id": 1,
+    "name": "Daniel Craig",
+    "slug": "daniel-craig",
+    "avatar_url": "https://i1-giaitri.vnecdn.net/2015/11/09/DanielCraig10-9470-1447062650.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=Z19WA6ihcR9nGWEk6gB_JA",
+    "birth_date": "1968-03-02",
+    "nationality": "Anh",
+    "biography": "Nam diễn viên nổi tiếng với vai James Bond trong 5 phần phim từ 2006-2021.",
+    "movies": [1]
+  },
+  {
+    "id": 2,
+    "name": "Rami Malek",
+    "slug": "rami-malek",
+    "avatar_url": "https://resizing.flixster.com/WTj8cEDGUenMn9M3qTVysmeXbpc=/218x280/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/330277_v9_bc.jpg",
+    "birth_date": "1981-05-12",
+    "nationality": "Mỹ",
+    "biography": "Chủ nhân giải Oscar cho vai Freddie Mercury trong phim Bohemian Rhapsody.",
+    "movies": [1, 5]
+  },
+  {
+    "id": 3,
+    "name": "Naomie Harris",
+    "slug": "naomie-harris",
+    "avatar_url": "https://static.wikia.nocookie.net/pirates/images/0/02/NaomieHarrisLge.jpg/revision/latest?cb=20100527190513",
+    "birth_date": "1976-09-06",
+    "nationality": "Anh",
+    "biography": "Nữ diễn viên đóng vai Eve Moneypenny trong loạt phim 007.",
+    "movies": [1]
+  },
+  {
+    "id": 4,
+    "name": "Ha Jung-woo",
+    "slug": "ha-jung-woo",
+    "avatar_url": "https://media.vov.vn/sites/default/files/styles/large/public/2022-09-2/20220915000478_0.jpeg.jpg",
+    "birth_date": "1978-03-11",
+    "nationality": "Hàn Quốc",
+    "biography": "Diễn viên, đạo diễn hàng đầu Hàn Quốc, nổi tiếng với Along with the Gods.",
+    "movies": [2]
+  },
+  {
+    "id": 5,
+    "name": "Ju Ji-hoon",
+    "slug": "ju-ji-hoon",
+    "avatar_url": "https://bloganchoi.com/wp-content/uploads/2025/04/ju-ji-hoon-7-696x1046.jpg",
+    "birth_date": "1982-05-16",
+    "nationality": "Hàn Quốc",
+    "biography": "Ngôi sao phim Kingdom và Along with the Gods.",
+    "movies": [2]
+  },
+  {
+    "id": 6,
+    "name": "Kim Hyang-gi",
+    "slug": "kim-hyang-gi",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kim%20Hyang-gi",
+    "birth_date": "2000-12-30",
+    "nationality": "Hàn Quốc",
+    "biography": "Nữ diễn viên trẻ thực lực, nổi tiếng từ các vai diễn nhí.",
+    "movies": [2]
+  },
+  {
+    "id": 7,
+    "name": "Ma Dong-seok",
+    "slug": "ma-dong-seok",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ma%20Dong-seok",
+    "birth_date": "1971-03-01",
+    "nationality": "Hàn Quốc - Mỹ",
+    "biography": "Ngôi sao hành động nổi tiếng với Train to Busan và The Outlaws.",
+    "movies": [2, 15]
+  },
+  {
+    "id": 8,
+    "name": "Kim Dong-wook",
+    "slug": "kim-dong-wook",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kim%20Dong-wook",
+    "birth_date": "1983-07-29",
+    "nationality": "Hàn Quốc",
+    "biography": "Nam chính của bộ phim Along with the Gods: The Two Worlds.",
+    "movies": [2]
+  },
+  {
+    "id": 9,
+    "name": "Lee Jung-jae",
+    "slug": "lee-jung-jae",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Lee%20Jung-jae",
+    "birth_date": "1972-12-15",
+    "nationality": "Hàn Quốc",
+    "biography": "Siêu sao Squid Game và nhiều phim điện ảnh đình đám.",
+    "movies": [2]
+  },
+  {
+    "id": 10,
+    "name": "Jo Han-chul",
+    "slug": "jo-han-chul",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Jo%20Han-chul",
+    "birth_date": "1973-06-13",
+    "nationality": "Hàn Quốc",
+    "biography": "Diễn viên phụ kỳ cựu trong nhiều phim truyền hình và điện ảnh.",
+    "movies": [2]
+  },
+  {
+    "id": 11,
+    "name": "Im Won-hee",
+    "slug": "im-won-hee",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Im%20Won-hee",
+    "birth_date": "1970-10-11",
+    "nationality": "Hàn Quốc",
+    "biography": "Diễn viên hài nổi tiếng của Hàn Quốc.",
+    "movies": [2]
+  },
+  {
+    "id": 12,
+    "name": "Nam Il-woo",
+    "slug": "nam-il-woo",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Nam%20Il-woo",
+    "birth_date": "1938-05-25",
+    "nationality": "Hàn Quốc",
+    "biography": "Nam diễn viên gạo cội của điện ảnh Hàn Quốc.",
+    "movies": [2]
+  },
+  {
+    "id": 13,
+    "name": "Jung Ji-hoon",
+    "slug": "jung-ji-hoon",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Jung%20Ji-hoon",
+    "birth_date": "2007-05-31",
+    "nationality": "Hàn Quốc",
+    "biography": "Diễn viên nhí triển vọng của Hàn Quốc.",
+    "movies": [2]
+  },
+  {
+    "id": 14,
+    "name": "Doh Kyung-soo",
+    "slug": "doh-kyung-soo",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Doh%20Kyung-soo",
+    "birth_date": "1993-01-12",
+    "nationality": "Hàn Quốc",
+    "biography": "Thành viên nhóm EXO (D.O.) và là diễn viên được đánh giá cao.",
+    "movies": [2]
+  },
+  {
+    "id": 15,
+    "name": "Lee Jun-hyuk",
+    "slug": "lee-jun-hyuk",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Lee%20Jun-hyuk",
+    "birth_date": "1984-03-13",
+    "nationality": "Hàn Quốc",
+    "biography": "Được biết đến qua các vai phản diện ấn tượng.",
+    "movies": [2]
+  },
+  {
+    "id": 16,
+    "name": "Jang Gwang",
+    "slug": "jang-gwang",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Jang%20Gwang",
+    "birth_date": "1952-01-05",
+    "nationality": "Hàn Quốc",
+    "biography": "Diễn viên gạo cội đồng thời là diễn viên lồng tiếng nổi tiếng.",
+    "movies": [2]
+  },
+  {
+    "id": 17,
+    "name": "Jung Hae-kyun",
+    "slug": "jung-hae-kyun",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Jung%20Hae-kyun",
+    "birth_date": "1968-08-16",
+    "nationality": "Hàn Quốc",
+    "biography": "Chuyên đảm nhận các vai phụ có chiều sâu.",
+    "movies": [2]
+  },
+  {
+    "id": 18,
+    "name": "Lee Kyung-young",
+    "slug": "lee-kyung-young",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Lee%20Kyung-young",
+    "birth_date": "1960-12-12",
+    "nationality": "Hàn Quốc",
+    "biography": "Nam diễn viên gạo cội xuất hiện trong hầu hết các bom tấn điện ảnh Hàn.",
+    "movies": [2]
+  },
+  {
+    "id": 19,
+    "name": "Kim Myung-gon",
+    "slug": "kim-myung-gon",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kim%20Myung-gon",
+    "birth_date": "1952-12-03",
+    "nationality": "Hàn Quốc",
+    "biography": "Diễn viên, đạo diễn và nguyên Bộ trưởng Bộ Văn hóa Hàn Quốc.",
+    "movies": [2]
+  },
+  {
+    "id": 20,
+    "name": "Ye Su-jeong",
+    "slug": "ye-su-jeong",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ye%20Su-jeong",
+    "birth_date": "1955-03-25",
+    "nationality": "Hàn Quốc",
+    "biography": "Nữ diễn viên kỳ cựu chuyên trị những vai người mẹ.",
+    "movies": [2]
+  },
+  {
+    "id": 21,
+    "name": "Sung Dong-il",
+    "slug": "sung-dong-il",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Sung%20Dong-il",
+    "birth_date": "1964-04-27",
+    "nationality": "Hàn Quốc",
+    "biography": "Diễn viên gạo cội của series Replay nổi tiếng.",
+    "movies": [2]
+  },
+  {
+    "id": 22,
+    "name": "Lee Jun",
+    "slug": "lee-jun",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Lee%20Jun",
+    "birth_date": "1988-02-07",
+    "nationality": "Hàn Quốc",
+    "biography": "Cựu thành viên MBLAQ và là diễn viên thực lực.",
+    "movies": [2]
+  },
+  {
+    "id": 23,
+    "name": "Tom Cruise",
+    "slug": "tom-cruise",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Tom%20Cruise",
+    "birth_date": "1962-07-03",
+    "nationality": "Mỹ",
+    "biography": "Biểu tượng phim hành động với loạt phim Mission: Impossible.",
+    "movies": [3]
+  },
+  {
+    "id": 24,
+    "name": "Simon Pegg",
+    "slug": "simon-pegg",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Simon%20Pegg",
+    "birth_date": "1970-02-14",
+    "nationality": "Anh",
+    "biography": "Nam diễn viên hài, biên kịch người Anh.",
+    "movies": [3]
+  },
+  {
+    "id": 25,
+    "name": "Hayley Atwell",
+    "slug": "hayley-atwell",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Hayley%20Atwell",
+    "birth_date": "1982-04-05",
+    "nationality": "Anh - Mỹ",
+    "biography": "Nổi tiếng với vai Peggy Carter trong vũ trụ Marvel.",
+    "movies": [3]
+  },
+  {
+    "id": 26,
+    "name": "Vanessa Kirby",
+    "slug": "vanessa-kirby",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Vanessa%20Kirby",
+    "birth_date": "1988-04-18",
+    "nationality": "Anh",
+    "biography": "Tỏa sáng qua vai Công chúa Margaret trong The Crown.",
+    "movies": [3]
+  },
+  {
+    "id": 27,
+    "name": "Pom Klementieff",
+    "slug": "pom-klementieff",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Pom%20Klementieff",
+    "birth_date": "1986-05-03",
+    "nationality": "Pháp",
+    "biography": "Nổi tiếng với vai Mantis trong Guardians of the Galaxy.",
+    "movies": [3]
+  },
+  {
+    "id": 28,
+    "name": "Dakota Johnson",
+    "slug": "dakota-johnson",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Dakota%20Johnson",
+    "birth_date": "1989-10-04",
+    "nationality": "Mỹ",
+    "biography": "Nổi tiếng với vai chính trong loạt phim 50 Sắc Thái.",
+    "movies": [4]
+  },
+  {
+    "id": 29,
+    "name": "Chris Evans",
+    "slug": "chris-evans",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Chris%20Evans",
+    "birth_date": "1981-06-13",
+    "nationality": "Mỹ",
+    "biography": "Nam diễn viên thủ vai Captain America của Marvel.",
+    "movies": [4]
+  },
+  {
+    "id": 30,
+    "name": "Pedro Pascal",
+    "slug": "pedro-pascal",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Pedro%20Pascal",
+    "birth_date": "1975-04-02",
+    "nationality": "Chile - Mỹ",
+    "biography": "Ngôi sao của The Mandalorian và The Last of Us.",
+    "movies": [4]
+  },
+  {
+    "id": 31,
+    "name": "Rachel Brosnahan",
+    "slug": "rachel-brosnahan",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Rachel%20Brosnahan",
+    "birth_date": "1990-07-12",
+    "nationality": "Mỹ",
+    "biography": "Ngôi sao của series The Marvelous Mrs. Maisel.",
+    "movies": [5]
+  },
+  {
+    "id": 32,
+    "name": "Caitríona Balfe",
+    "slug": "caitriona-balfe",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Caitriona%20Balfe",
+    "birth_date": "1979-10-04",
+    "nationality": "Ireland",
+    "biography": "Nữ chính phim Outlander và phim điện ảnh Belfast.",
+    "movies": [5]
+  },
+  {
+    "id": 33,
+    "name": "Laurence Fishburne",
+    "slug": "laurence-fishburne",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Laurence%20Fishburne",
+    "birth_date": "1961-07-30",
+    "nationality": "Mỹ",
+    "biography": "Nổi tiếng với vai Morpheus trong The Matrix.",
+    "movies": [5]
+  },
+  {
+    "id": 34,
+    "name": "June Squibb",
+    "slug": "june-squibb",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=June%20Squibb",
+    "birth_date": "1929-11-06",
+    "nationality": "Mỹ",
+    "biography": "Nữ diễn viên gạo cội từng nhận đề cử Oscar cho phim Nebraska.",
+    "movies": [6]
+  },
+  {
+    "id": 35,
+    "name": "Erin Kellyman",
+    "slug": "erin-kellyman",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Erin%20Kellyman",
+    "birth_date": "1998-10-17",
+    "nationality": "Anh",
+    "biography": "Được biết đến qua Solo: A Star Wars Story.",
+    "movies": [6]
+  },
+  {
+    "id": 36,
+    "name": "Jessica Hecht",
+    "slug": "jessica-hecht",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Jessica%20Hecht",
+    "birth_date": "1965-06-28",
+    "nationality": "Mỹ",
+    "biography": "Nữ diễn viên phụ nổi tiếng của sân khấu Broadway và truyền hình.",
+    "movies": [6]
+  },
+  {
+    "id": 37,
+    "name": "Chiwetel Ejiofor",
+    "slug": "chiwetel-ejiofor",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Chiwetel%20Ejiofor",
+    "birth_date": "1977-07-10",
+    "nationality": "Anh",
+    "biography": "Nam chính phim 12 Years a Slave và vai Mordo trong Dr. Strange.",
+    "movies": [6]
+  },
+  {
+    "id": 38,
+    "name": "Sam Worthington",
+    "slug": "sam-worthington",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Sam%20Worthington",
+    "birth_date": "1976-08-02",
+    "nationality": "Úc",
+    "biography": "Nam chính của siêu phẩm Avatar.",
+    "movies": [7]
+  },
+  {
+    "id": 39,
+    "name": "Zoe Saldana",
+    "slug": "zoe-saldana",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Zoe%20Saldana",
+    "birth_date": "1978-06-19",
+    "nationality": "Mỹ",
+    "biography": "Nữ diễn viên góp mặt trong nhiều bom tấn doanh thu tỷ đô nhất.",
+    "movies": [7]
+  },
+  {
+    "id": 40,
+    "name": "Sigourney Weaver",
+    "slug": "sigourney-weaver",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Sigourney%20Weaver",
+    "birth_date": "1949-10-08",
+    "nationality": "Mỹ",
+    "biography": "Huyền thoại của dòng phim khoa học viễn tưởng.",
+    "movies": [7]
+  },
+  {
+    "id": 41,
+    "name": "Kate Winslet",
+    "slug": "kate-winslet",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kate%20Winslet",
+    "birth_date": "1975-10-05",
+    "nationality": "Anh",
+    "biography": "Nữ minh tinh của Titanic và chủ nhân giải Oscar.",
+    "movies": [7]
+  },
+  {
+    "id": 42,
+    "name": "Anthony Mackie",
+    "slug": "anthony-mackie",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Anthony%20Mackie",
+    "birth_date": "1978-09-23",
+    "nationality": "Mỹ",
+    "biography": "Nam diễn viên đảm nhận vai Captain America mới.",
+    "movies": [8]
+  },
+  {
+    "id": 43,
+    "name": "Harrison Ford",
+    "slug": "harrison-ford",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Harrison%20Ford",
+    "birth_date": "1942-07-13",
+    "nationality": "Mỹ",
+    "biography": "Huyền thoại đóng vai Indiana Jones và Han Solo.",
+    "movies": [8]
+  },
+  {
+    "id": 44,
+    "name": "Shira Haas",
+    "slug": "shira-haas",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Shira%20Haas",
+    "birth_date": "1995-05-11",
+    "nationality": "Israel",
+    "biography": "Nổi tiếng từ phim Unorthodox.",
+    "movies": [8]
+  },
+  {
+    "id": 45,
+    "name": "Danny Ramirez",
+    "slug": "danny-ramirez",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Danny%20Ramirez",
+    "birth_date": "1992-09-17",
+    "nationality": "Mỹ",
+    "biography": "Diễn viên trẻ triển vọng trong Top Gun: Maverick.",
+    "movies": [8]
+  },
+  {
+    "id": 46,
+    "name": "Paul Rudd",
+    "slug": "paul-rudd",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Paul%20Rudd",
+    "birth_date": "1969-04-06",
+    "nationality": "Mỹ",
+    "biography": "Nam diễn viên thủ vai Ant-Man của Marvel.",
+    "movies": [9]
+  },
+  {
+    "id": 47,
+    "name": "Jack Black",
+    "slug": "jack-black",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Jack%20Black",
+    "birth_date": "1969-08-28",
+    "nationality": "Mỹ",
+    "biography": "Diễn viên hài, ca sĩ nổi tiếng với School of Rock.",
+    "movies": [9]
+  },
+  {
+    "id": 48,
+    "name": "Steve Zahn",
+    "slug": "steve-zahn",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Steve%20Zahn",
+    "birth_date": "1967-11-13",
+    "nationality": "Mỹ",
+    "biography": "Diễn viên thực lực trong phim War for the Planet of the Apes.",
+    "movies": [9]
+  },
+  {
+    "id": 49,
+    "name": "Thandiwe Newton",
+    "slug": "thandiwe-newton",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Thandiwe%20Newton",
+    "birth_date": "1972-11-06",
+    "nationality": "Anh",
+    "biography": "Nổi tiếng với vai Maeve trong Westworld.",
+    "movies": [9]
+  },
+  {
+    "id": 50,
+    "name": "Sydney Elizebeth Agudong",
+    "slug": "sydney-elizebeth-agudong",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Sydney%20Agudong",
+    "birth_date": "2000-11-13",
+    "nationality": "Mỹ",
+    "biography": "Nữ diễn viên trẻ đóng vai Nani trong Lilo & Stitch live-action.",
+    "movies": [10]
+  },
+  {
+    "id": 51,
+    "name": "Billy Magnussen",
+    "slug": "billy-magnussen",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Billy%20Magnussen",
+    "birth_date": "1985-04-20",
+    "nationality": "Mỹ",
+    "biography": "Diễn viên thực lực từng đóng No Time to Die.",
+    "movies": [10]
+  },
+  {
+    "id": 52,
+    "name": "Hannah Waddingham",
+    "slug": "hannah-waddingham",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Hannah%20Waddingham",
+    "birth_date": "1974-07-28",
+    "nationality": "Anh",
+    "biography": "Ngôi sao của phim Ted Lasso.",
+    "movies": [10]
+  },
+  {
+    "id": 53,
+    "name": "Maia Kealoha",
+    "slug": "maia-kealoha",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Maia%20Kealoha",
+    "birth_date": "Đang cập nhật",
+    "nationality": "Mỹ",
+    "biography": "Diễn viên nhí đóng vai Lilo trong Lilo & Stitch live-action.",
+    "movies": [10]
+  },
+  {
+    "id": 54,
+    "name": "Ginnifer Goodwin",
+    "slug": "ginnifer-goodwin",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ginnifer%20Goodwin",
+    "birth_date": "1978-05-22",
+    "nationality": "Mỹ",
+    "biography": "Lồng tiếng cho Judy Hopps trong Zootopia.",
+    "movies": [11]
+  },
+  {
+    "id": 55,
+    "name": "Jason Bateman",
+    "slug": "jason-bateman",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Jason%20Bateman",
+    "birth_date": "1969-01-14",
+    "nationality": "Mỹ",
+    "biography": "Lồng tiếng cho Nick Wilde và nam chính phim Ozark.",
+    "movies": [11]
+  },
+  {
+    "id": 56,
+    "name": "Ke Huy Quan",
+    "slug": "ke-huy-quan",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ke%20Huy%20Quan",
+    "birth_date": "1971-08-20",
+    "nationality": "Mỹ - Việt Nam",
+    "biography": "Chủ nhân giải Oscar cho vai diễn trong Everything Everywhere All at Once.",
+    "movies": [11]
+  },
+  {
+    "id": 57,
+    "name": "Shakira",
+    "slug": "shakira",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Shakira",
+    "birth_date": "1977-02-02",
+    "nationality": "Colombia",
+    "biography": "Nữ ca sĩ nổi tiếng toàn cầu, lồng tiếng cho nhân vật Gazelle.",
+    "movies": [11]
+  },
+  {
+    "id": 58,
+    "name": "Lee Byung-hun",
+    "slug": "lee-byung-hun",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Lee%20Byung-hun",
+    "birth_date": "1970-07-12",
+    "nationality": "Hàn Quốc",
+    "biography": "Một trong những diễn viên Hàn Quốc thành công nhất tại Hollywood.",
+    "movies": [12]
+  },
+  {
+    "id": 59,
+    "name": "Park Seo-joon",
+    "slug": "park-seo-joon",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Park%20Seo-joon",
+    "birth_date": "1988-12-16",
+    "nationality": "Hàn Quốc",
+    "biography": "Nam thần màn ảnh Hàn Quốc nổi tiếng với Itaewon Class.",
+    "movies": [12]
+  },
+  {
+    "id": 60,
+    "name": "Park Bo-young",
+    "slug": "park-bo-young",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Park%20Bo-young",
+    "birth_date": "1990-02-12",
+    "nationality": "Hàn Quốc",
+    "biography": "Nữ diễn viên xinh đẹp, thực lực của điện ảnh Hàn.",
+    "movies": [12]
+  },
+  {
+    "id": 61,
+    "name": "Kim Woo-bin",
+    "slug": "kim-woo-bin",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kim%20Woo-bin",
+    "birth_date": "1989-07-16",
+    "nationality": "Hàn Quốc",
+    "biography": "Người mẫu kiêm diễn viên nổi tiếng từ The Heirs.",
+    "movies": [13]
+  },
+  {
+    "id": 62,
+    "name": "Ryu Jun-yeol",
+    "slug": "ryu-jun-yeol",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ryu%20Jun-yeol",
+    "birth_date": "1986-09-25",
+    "nationality": "Hàn Quốc",
+    "biography": "Nam chính Reply 1988 và là diễn viên thực lực.",
+    "movies": [13]
+  },
+  {
+    "id": 63,
+    "name": "Kim Tae-ri",
+    "slug": "kim-tae-ri",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kim%20Tae-ri",
+    "birth_date": "1990-04-24",
+    "nationality": "Hàn Quốc",
+    "biography": "Nữ diễn viên tài năng từ phim The Handmaiden.",
+    "movies": [13]
+  },
+  {
+    "id": 64,
+    "name": "Kim Hye-soo",
+    "slug": "kim-hye-soo",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kim%20Hye-soo",
+    "birth_date": "1970-09-05",
+    "nationality": "Hàn Quốc",
+    "biography": "Biểu tượng quyến rũ và quyền lực của điện ảnh Hàn.",
+    "movies": [14]
+  },
+  {
+    "id": 65,
+    "name": "Yum Jung-ah",
+    "slug": "yum-jung-ah",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Yum%20Jung-ah",
+    "birth_date": "1972-07-28",
+    "nationality": "Hàn Quốc",
+    "biography": "Nữ minh tinh của phim kinh dị A Tale of Two Sisters.",
+    "movies": [14]
+  },
+  {
+    "id": 66,
+    "name": "Zo In-sung",
+    "slug": "zo-in-sung",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Zo%20In-sung",
+    "birth_date": "1981-07-28",
+    "nationality": "Hàn Quốc",
+    "biography": "Nam thần hàng đầu với chiều cao và kỹ năng diễn xuất ấn tượng.",
+    "movies": [14]
+  },
+  {
+    "id": 67,
+    "name": "Kim Moo-yul",
+    "slug": "kim-moo-yul",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kim%20Moo-yul",
+    "birth_date": "1982-05-22",
+    "nationality": "Hàn Quốc",
+    "biography": "Nam diễn viên thực lực của điện ảnh và sân khấu kịch.",
+    "movies": [15]
+  },
+  {
+    "id": 68,
+    "name": "Lee Dong-hwi",
+    "slug": "lee-dong-hwi",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Lee%20Dong-hwi",
+    "birth_date": "1985-07-22",
+    "nationality": "Hàn Quốc",
+    "biography": "Được yêu thích qua vai Dong-ryong trong Reply 1988.",
+    "movies": [15]
+  },
+  {
+    "id": 69,
+    "name": "Choi Min-sik",
+    "slug": "choi-min-sik",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Choi%20Min-sik",
+    "birth_date": "1962-04-27",
+    "nationality": "Hàn Quốc",
+    "biography": "Huyền thoại đóng chính trong phim Oldboy.",
+    "movies": [16]
+  },
+  {
+    "id": 70,
+    "name": "Kim Go-eun",
+    "slug": "kim-go-eun",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kim%20Go-eun",
+    "birth_date": "1991-07-02",
+    "nationality": "Hàn Quốc",
+    "biography": "Nữ chính phim Goblin và Exhuma.",
+    "movies": [16]
+  },
+  {
+    "id": 71,
+    "name": "Yoo Hae-jin",
+    "slug": "yoo-hae-jin",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Yoo%20Hae-jin",
+    "birth_date": "1970-01-04",
+    "nationality": "Hàn Quốc",
+    "biography": "Nam diễn viên thực lực chuyên trị các vai hài hước và khắc khổ.",
+    "movies": [16]
+  },
+  {
+    "id": 72,
+    "name": "Đỗ Nhật Hoàng",
+    "slug": "do-nhat-hoang",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=%C4%90%E1%BB%97%20Nh%E1%BA%ADt%20Ho%C3%A0ng",
+    "birth_date": "1997-01-01",
+    "nationality": "Việt Nam",
+    "biography": "Nam diễn viên trẻ tiềm năng, nổi tiếng từ phim điện ảnh Ngày Xưa Có Một Chuyện Tình.",
+    "movies": [17]
+  },
+  {
+    "id": 73,
+    "name": "Lê Hạ Anh",
+    "slug": "le-ha-anh",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=L%C3%AA%20H%E1%BA%A1%20Anh",
+    "birth_date": "1995-08-31",
+    "nationality": "Việt Nam",
+    "biography": "Nữ diễn viên xinh đẹp của truyền hình Việt Nam.",
+    "movies": [17]
+  },
+  {
+    "id": 74,
+    "name": "Steven Nguyễn",
+    "slug": "steven-nguyen",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Steven%20Nguy%E1%BB%85n",
+    "birth_date": "1991-01-13",
+    "nationality": "Việt Nam",
+    "biography": "Nam diễn viên được biết đến qua các web drama hành động.",
+    "movies": [17]
+  },
+  {
+    "id": 75,
+    "name": "Phương Nam",
+    "slug": "phuong-nam",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ph%C6%B0%C6%A1ng%20Nam",
+    "birth_date": "Đang cập nhật",
+    "nationality": "Việt Nam",
+    "biography": "Diễn viên trẻ của làng điện ảnh Việt.",
+    "movies": [17]
+  },
+  {
+    "id": 76,
+    "name": "Trấn Thành",
+    "slug": "tran-thanh",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Tr%E1%BA%A5n%20Th%C3%A0nh",
+    "birth_date": "1987-02-05",
+    "nationality": "Việt Nam",
+    "biography": "Nghệ sĩ ưu tú, đạo diễn của những phim doanh thu kỷ lục tại Việt Nam.",
+    "movies": [18, 21, 23]
+  },
+  {
+    "id": 77,
+    "name": "Lê Dương Bảo Lâm",
+    "slug": "le-duong-bao-lam",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=L%C3%AA%20D%C6%B0%C6%A1ng%20B%E1%BA%A3o%20L%C3%A2m",
+    "birth_date": "1989-12-30",
+    "nationality": "Việt Nam",
+    "biography": "Nghệ sĩ hài nổi tiếng với phong cách hoạt ngôn.",
+    "movies": [18]
+  },
+  {
+    "id": 78,
+    "name": "Lê Giang",
+    "slug": "le-giang",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=L%C3%AA%20Giang",
+    "birth_date": "1972-01-01",
+    "nationality": "Việt Nam",
+    "biography": "Nghệ sĩ hài gạo cội với lối diễn xuất tự nhiên.",
+    "movies": [18, 24]
+  },
+  {
+    "id": 79,
+    "name": "Uyển Ân",
+    "slug": "uyen-an",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Uy%E1%BB%83n%20%C3%82n",
+    "birth_date": "1999-01-28",
+    "nationality": "Việt Nam",
+    "biography": "Nữ diễn viên trẻ, em gái của nghệ sĩ Trấn Thành.",
+    "movies": [18, 24]
+  },
+  {
+    "id": 80,
+    "name": "Quốc Huy",
+    "slug": "quoc-huy",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Qu%E1%BB%91c%20Huy",
+    "birth_date": "1986-05-19",
+    "nationality": "Việt Nam",
+    "biography": "Nam diễn viên quen thuộc của truyền hình miền Nam.",
+    "movies": [19]
+  },
+  {
+    "id": 81,
+    "name": "Đinh Ngọc Diệp",
+    "slug": "dinh-ngoc-diep",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=%C4%90inh%20Ng%E1%BB%8Dc%20Di%E1%BB%87p",
+    "birth_date": "1984-10-11",
+    "nationality": "Việt Nam",
+    "biography": "Nữ diễn viên, người mẫu và biên tập viên nổi tiếng.",
+    "movies": [19]
+  },
+  {
+    "id": 82,
+    "name": "Trần Quốc Anh",
+    "slug": "tran-quoc-anh",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Tr%E1%BA%A7n%20Qu%E1%BB%91c%20Anh",
+    "birth_date": "1998-04-02",
+    "nationality": "Việt Nam",
+    "biography": "Nam diễn viên, người mẫu trẻ nổi tiếng với biệt danh Yoon Trần.",
+    "movies": [19]
+  },
+  {
+    "id": 83,
+    "name": "Đoàn Minh Anh",
+    "slug": "doan-minh-anh",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=%C4%90o%C3%A0n%20Minh%20Anh",
+    "birth_date": "Đang cập nhật",
+    "nationality": "Việt Nam",
+    "biography": "Diễn viên trẻ của làng điện ảnh.",
+    "movies": [19]
+  },
+  {
+    "id": 84,
+    "name": "Minh Châu",
+    "slug": "minh-chau",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Minh%20Ch%C3%A2u",
+    "birth_date": "1956-01-01",
+    "nationality": "Việt Nam",
+    "biography": "NSND gạo cội của điện ảnh Việt Nam.",
+    "movies": [20]
+  },
+  {
+    "id": 85,
+    "name": "Xuân An",
+    "slug": "xuan-an",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Xu%C3%A2n%20An",
+    "birth_date": "Đang cập nhật",
+    "nationality": "Việt Nam",
+    "biography": "Diễn viên truyền hình Việt Nam.",
+    "movies": [20]
+  },
+  {
+    "id": 86,
+    "name": "Hà Phương",
+    "slug": "ha-phuong",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=H%C3%A0%20Ph%C6%B0%C6%A1ng",
+    "birth_date": "1972-03-31",
+    "nationality": "Việt Nam - Mỹ",
+    "biography": "Ca sĩ, diễn viên nổi tiếng tại hải ngoại.",
+    "movies": [20]
+  },
+  {
+    "id": 87,
+    "name": "Hoàng Hà",
+    "slug": "hoang-ha",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ho%C3%A0ng%20H%C3%A0",
+    "birth_date": "1996-01-01",
+    "nationality": "Việt Nam",
+    "biography": "Nữ diễn viên trẻ tỏa sáng từ phim Em và Trịnh.",
+    "movies": [20]
+  },
+  {
+    "id": 88,
+    "name": "Phương Anh Đào",
+    "slug": "phuong-anh-dao",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ph%C6%B0%C6%A1ng%20Anh%20%C4%90%C3%A0o",
+    "birth_date": "1992-04-30",
+    "nationality": "Việt Nam",
+    "biography": "Nữ chính phim Mai, ngôi sao thực lực của điện ảnh Việt.",
+    "movies": [21]
+  },
+  {
+    "id": 89,
+    "name": "Xuân Lan",
+    "slug": "xuan-lan",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Xu%C3%A2n%20Lan",
+    "birth_date": "1978-08-12",
+    "nationality": "Việt Nam",
+    "biography": "Siêu mẫu, diễn viên nổi tiếng Việt Nam.",
+    "movies": [21]
+  },
+  {
+    "id": 90,
+    "name": "NSND Việt Anh",
+    "slug": "viet-anh-nsnd",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=NSND%20Vi%E1%BB%87t%20Anh",
+    "birth_date": "1958-01-01",
+    "nationality": "Việt Nam",
+    "biography": "Nghệ sĩ nhân dân gạo cội của sân khấu và điện ảnh.",
+    "movies": [21]
+  },
+  {
+    "id": 91,
+    "name": "Minh Hằng",
+    "slug": "minh-hang",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Minh%20H%E1%BA%B1ng",
+    "birth_date": "1987-06-22",
+    "nationality": "Việt Nam",
+    "biography": "Ca sĩ, diễn viên và nhà sản xuất phim nổi tiếng.",
+    "movies": [22]
+  },
+  {
+    "id": 92,
+    "name": "Ngọc Trinh",
+    "slug": "ngoc-trinh",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Ng%E1%BB%8Dc%20Trinh",
+    "birth_date": "1989-09-27",
+    "nationality": "Việt Nam",
+    "biography": "Người mẫu, diễn viên thu hút nhiều sự quan tâm của truyền thông.",
+    "movies": [22]
+  },
+  {
+    "id": 93,
+    "name": "Lãnh Thanh",
+    "slug": "lanh-thanh",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=L%C3%A3nh%20Thanh",
+    "birth_date": "1993-01-01",
+    "nationality": "Việt Nam",
+    "biography": "Nam diễn viên thực lực nổi tiếng từ phim Thưa Mẹ Con Đi.",
+    "movies": [22]
+  },
+  {
+    "id": 94,
+    "name": "Hồng Ánh",
+    "slug": "hong-anh",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=H%E1%BB%93ng%20%C3%81nh",
+    "birth_date": "1977-09-03",
+    "nationality": "Việt Nam",
+    "biography": "Nữ diễn viên đạt nhiều giải thưởng điện ảnh quốc tế.",
+    "movies": [23]
+  },
+  {
+    "id": 95,
+    "name": "Đồng Ánh Quỳnh",
+    "slug": "dong-anh-quynh",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=%C4%90%E1%BB%93ng%20%C3%81nh%20Qu%E1%BB%B3nh",
+    "birth_date": "1995-01-01",
+    "nationality": "Việt Nam",
+    "biography": "Nữ diễn viên đóng chính trong bom tấn hành động Thanh Sói.",
+    "movies": [23]
+  },
+  {
+    "id": 96,
+    "name": "Công Ninh",
+    "slug": "cong-ninh",
+    "authority_url": "https://placehold.co/400x600/111/FFF?text=C%C3%B4ng%20Ninh",
+    "birth_date": "1962-02-01",
+    "nationality": "Việt Nam",
+    "biography": "NSƯT, đạo diễn và diễn viên kỳ cựu.",
+    "movies": [23]
+  },
+  {
+    "id": 97,
+    "name": "Khả Như",
+    "slug": "kha-nhu",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kh%E1%BA%A3%20Nh%C6%B0",
+    "birth_date": "1987-03-16",
+    "nationality": "Việt Nam",
+    "biography": "Nữ diễn viên hài, MC nổi tiếng.",
+    "movies": [24]
+  },
+  {
+    "id": 98,
+    "name": "Thái Hòa",
+    "slug": "thai-hoa",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Th%C3%A1i%20H%C3%B2a",
+    "birth_date": "1974-08-10",
+    "nationality": "Việt Nam",
+    "biography": "Nam diễn viên được mệnh danh là 'Ông hoàng phòng vé' Việt Nam.",
+    "movies": [25]
+  },
+  {
+    "id": 99,
+    "name": "Kaity Nguyễn",
+    "slug": "kaity-nguyen",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Kaity%20Nguy%E1%BB%85n",
+    "birth_date": "1999-04-09",
+    "nationality": "Việt Nam",
+    "biography": "Nữ diễn viên trẻ nổi tiếng từ siêu phẩm Em chưa 18.",
+    "movies": [25]
+  },
+  {
+    "id": 100,
+    "name": "Thanh Sơn",
+    "slug": "thanh-son",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=Thanh%20S%C6%A1n",
+    "birth_date": "1991-09-01",
+    "nationality": "Việt Nam",
+    "biography": "Nam diễn viên nổi tiếng của các phim truyền hình VTV.",
+    "movies": [25]
+  },
+  {
+    "id": 101,
+    "name": "Võ Điền Gia Huy",
+    "slug": "vo-dien-gia-huy",
+    "avatar_url": "https://placehold.co/400x600/111/FFF?text=V%C3%B5%20%C4%90i%E1%BB%81n%20Gia%20Huy",
+    "birth_date": "1996-01-01",
+    "nationality": "Việt Nam",
+    "biography": "Diễn viên trẻ tiềm năng, đóng chính trong Thưa Mẹ Con Đi.",
+    "movies": [25]
+  }
+]

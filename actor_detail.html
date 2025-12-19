@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết diễn viên - phimconmeo</title>
+    <script src="scripts/load_header.js"></script>
+  </head>
+
+  <body class="bg-bgMain text-white h-screen flex overflow-hidden">
+    <div
+      id="sidebar-overlay"
+      class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm transition-opacity"
+    ></div>
+
+    <div
+      id="sidebar-container"
+      class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 md:relative transition-all duration-300 w-72 py-4 pl-4"
+    ></div>
+
+    <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain">
+      <div id="navbar-container"></div>
+
+      <div class="flex-1 overflow-y-auto px-4 md:px-8 pb-20 md:pb-8">
+        <div class="mt-6 mb-5">
+          <a
+            href="actor.html"
+            class="inline-flex items-center gap-2 text-gray-300 hover:text-white transition"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+            Quay lại danh sách
+          </a>
+        </div>
+
+        <section
+          class="bg-[#141414] rounded-[30px] p-5 md:p-7 border border-white/5 shadow-2xl"
+        >
+          <div id="actor-hero" class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- render here -->
+          </div>
+        </section>
+
+        <section
+          class="mt-8 bg-[#141414] rounded-[30px] p-5 md:p-7 border border-white/5 shadow-2xl"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-[13px] font-bold uppercase tracking-[0.2em] text-gray-400">
+              Phim đã tham gia
+            </h2>
+            <div class="text-gray-400 text-sm">
+              <span id="movie-count">0</span> phim
+            </div>
+          </div>
+
+          <div
+            id="actor-movies"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+          ></div>
+        </section>
+
+        <div id="footer-container" class="mt-8"></div>
+      </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/loadheaderfooter.js"></script>
+    <script type="module" src="scripts/actor_detail.js"></script>
+  </body>
+</html>

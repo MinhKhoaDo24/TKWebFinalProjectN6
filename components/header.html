@@ -1,86 +1,119 @@
-<header class="h-20 flex items-center justify-between px-8 glass-effect sticky top-0 z-30 w-full mb-6 rounded-b-2xl border-b border-white/5">
-    
-    <div class="flex items-center gap-4">
-        <button id="toggle-sidebar-btn" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-gray-400 hover:text-white hover:bg-purple-600 hover:shadow-lg hover:shadow-purple-500/30 transition-all active:scale-95 cursor-pointer">
-            <i class="fa-solid fa-bars text-lg"></i>
-        </button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/header.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bgMain: "#121212",
+              bgCard: "#1e1e1e",
+              bgInput: "#2a2a2a",
+              primary: "#8b5cf6",
+            },
+            backgroundImage: {
+              "gradient-brand":
+                "linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)",
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body>
+    <header class="h-20 flex items-center justify-between px-8 glass-effect sticky top-0 z-30 w-full mb-6 rounded-b-2xl border-b border-white/5">
+        <div class="flex items-center gap-4">
+            <button id="toggle-sidebar-btn" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-gray-400 hover:text-white hover:bg-purple-600 hover:shadow-lg hover:shadow-purple-500/30 transition-all active:scale-95 cursor-pointer">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
 
-        <div class="hidden md:flex bg-black/30 p-1 rounded-xl border border-white/5 items-center translate-y-[2px]">
-            <a href="#" class="px-5 py-2 rounded-lg bg-[#2a2a2a] text-white text-sm font-medium shadow-md transition-all flex items-center">Trang Chủ</a>
-            
-            <div class="relative group">
-                <button class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1">
-                    Thể loại <i class="fa-solid fa-chevron-down text-[10px] pt-0.5 ml-1 transition-transform group-hover:rotate-180"></i>
-                </button>
-                <div class="absolute top-full left-0 mt-2 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
-                    <div id="header-genres-list" class="max-h-64 overflow-y-auto custom-scrollbar p-1 grid grid-cols-1 gap-0.5">
-                        <div class="px-4 py-3 text-xs text-gray-500 text-center">Đang tải...</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative group">
-                <button class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1">
-                    Quốc gia <i class="fa-solid fa-chevron-down text-[10px] pt-0.5 ml-1 transition-transform group-hover:rotate-180"></i>
-                </button>
-                <div class="absolute top-full left-0 mt-2 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
-                    <div id="header-countries-list" class="max-h-64 overflow-y-auto custom-scrollbar p-1 grid grid-cols-1 gap-0.5">
-                        <div class="px-4 py-3 text-xs text-gray-500 text-center">Đang tải...</div>
-                    </div>
-                </div>
-            </div>
-
-            <a href="#" class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center">Diễn viên</a>
-        </div>
-    </div>
-
-    <div class="flex items-center gap-4">
-        <div class="relative hidden sm:block group">
-            <input type="text" placeholder="Tìm kiếm..." class="bg-[#2a2a2a] text-sm text-gray-300 pl-10 pr-4 py-2.5 rounded-xl w-64 focus:w-72 focus:ring-1 focus:ring-purple-500 transition-all duration-300 outline-none border border-transparent focus:border-purple-500/50" />
-            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-500 group-hover:text-white transition-colors"></i>
-        </div>
-
-        <button class="w-10 h-10 rounded-xl bg-[#2a2a2a] flex items-center justify-center text-gray-400 hover:text-white hover:bg-purple-600 transition-all relative">
-            <i class="fa-regular fa-bell"></i>
-            <span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-[#1e1e1e]"></span>
-        </button>
-
-        <div class="pl-4 border-l border-white/10" id="auth-container">
-            
-            <div id="guest-action-container" class="relative">
-                <button id="btn-member-menu" class="text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-purple-500/40 flex items-center gap-2 hover:brightness-110 active:scale-95" style="background-image: linear-gradient(135deg, #8b5cf6, #d946ef);">
-                    <i class="fa-regular fa-user"></i>
-                    <span class="hidden sm:inline">Thành Viên</span>
-                </button>
-
-                <div id="guest-dropdown" class="hidden absolute top-full right-0 mt-5 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl p-1.5 z-50">
-                    <a href="login.html" class="block w-full">
-                        <div class="px-4 py-3 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white text-sm font-medium transition-colors flex items-center gap-3 cursor-pointer">
-                            <i class="fa-solid fa-arrow-right-to-bracket text-purple-500"></i> Đăng Nhập
-                        </div>
-                    </a>
-                    <a href="register.html" class="block w-full">
-                        <div class="px-4 py-3 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white text-sm font-medium transition-colors flex items-center gap-3 cursor-pointer">
-                            <i class="fa-solid fa-user-plus text-blue-500"></i> Đăng Ký
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div id="user-profile" class="hidden flex items-center gap-3 cursor-pointer group relative">
-                <div class="text-right hidden md:block">
-                    <div id="username-display" class="text-sm font-bold text-white">Người dùng</div>
-                    <div class="text-[10px] font-bold text-purple-400 uppercase tracking-wider">Premium</div>
-                </div>
-                <img src="https://i.pravatar.cc/150?img=11" class="w-10 h-10 rounded-xl border-2 border-purple-500/30 group-hover:border-purple-500 transition-colors">
+            <div class="hidden md:flex bg-black/30 p-1 rounded-xl border border-white/5 items-center translate-y-[2px]">
+                <a href="#" class="px-5 py-2 rounded-lg bg-[#2a2a2a] text-white text-sm font-medium shadow-md transition-all flex items-center">Trang Chủ</a>
                 
-                <div class="absolute top-full right-0 mt-2 w-32 bg-[#1e1e1e] border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                    <button id="btn-logout" class="w-full text-left px-4 py-2 text-xs text-red-400 hover:bg-white/5 hover:text-red-300 rounded-lg flex items-center gap-2">
-                        <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                <div class="relative group">
+                    <button class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1">
+                        Thể loại <i class="fa-solid fa-chevron-down text-[10px] pt-0.5 ml-1 transition-transform group-hover:rotate-180"></i>
                     </button>
+                    <div class="absolute top-full left-0 mt-2 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+                        <div id="header-genres-list" class="max-h-64 overflow-y-auto custom-scrollbar p-1 grid grid-cols-1 gap-0.5">
+                            <div class="px-4 py-3 text-xs text-gray-500 text-center">Đang tải...</div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="relative group">
+                    <button class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1">
+                        Quốc gia <i class="fa-solid fa-chevron-down text-[10px] pt-0.5 ml-1 transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-2 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+                        <div id="header-countries-list" class="max-h-64 overflow-y-auto custom-scrollbar p-1 grid grid-cols-1 gap-0.5">
+                            <div class="px-4 py-3 text-xs text-gray-500 text-center">Đang tải...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="actor.html" class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center">Diễn viên</a>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <div class="relative hidden sm:block group">
+                <input type="text" placeholder="Tìm kiếm..." class="bg-[#2a2a2a] text-sm text-gray-300 pl-10 pr-4 py-2.5 rounded-xl w-64 focus:w-72 focus:ring-1 focus:ring-purple-500 transition-all duration-300 outline-none border border-transparent focus:border-purple-500/50" />
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-500 group-hover:text-white transition-colors"></i>
             </div>
 
+            <button class="w-10 h-10 rounded-xl bg-[#2a2a2a] flex items-center justify-center text-gray-400 hover:text-white hover:bg-purple-600 transition-all relative">
+                <i class="fa-regular fa-bell"></i>
+                <span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-[#1e1e1e]"></span>
+            </button>
+
+            <div class="pl-4 border-l border-white/10" id="auth-container">
+                
+                <div id="guest-action-container" class="relative">
+                    <button id="btn-member-menu" class="text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-purple-500/40 flex items-center gap-2 hover:brightness-110 active:scale-95" style="background-image: linear-gradient(135deg, #8b5cf6, #d946ef);">
+                        <i class="fa-regular fa-user"></i>
+                        <span class="hidden sm:inline">Thành Viên</span>
+                    </button>
+
+                    <div id="guest-dropdown" class="hidden absolute top-full right-0 mt-5 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl p-1.5 z-50">
+                        <a href="login.html" class="block w-full">
+                            <div class="px-4 py-3 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white text-sm font-medium transition-colors flex items-center gap-3 cursor-pointer">
+                                <i class="fa-solid fa-arrow-right-to-bracket text-purple-500"></i> Đăng Nhập
+                            </div>
+                        </a>
+                        <a href="register.html" class="block w-full">
+                            <div class="px-4 py-3 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white text-sm font-medium transition-colors flex items-center gap-3 cursor-pointer">
+                                <i class="fa-solid fa-user-plus text-blue-500"></i> Đăng Ký
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="user-profile" class="hidden flex items-center gap-3 cursor-pointer group relative">
+                    <div class="text-right hidden md:block">
+                        <div id="username-display" class="text-sm font-bold text-white">Người dùng</div>
+                        <div class="text-[10px] font-bold text-purple-400 uppercase tracking-wider">Premium</div>
+                    </div>
+                    <img src="https://i.pravatar.cc/150?img=11" class="w-10 h-10 rounded-xl border-2 border-purple-500/30 group-hover:border-purple-500 transition-colors">
+                    
+                    <div class="absolute top-full right-0 mt-2 w-32 bg-[#1e1e1e] border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        <button id="btn-logout" class="w-full text-left px-4 py-2 text-xs text-red-400 hover:bg-white/5 hover:text-red-300 rounded-lg flex items-center gap-2">
+                            <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                        </button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-</header>
+    </header>    
+</body>
+</html>
+
