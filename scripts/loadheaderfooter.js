@@ -8,7 +8,7 @@ $(document).ready(function () {
     let heroSliderInterval;
 
     const SIDEBAR_WIDTH_MINI = "20px"; 
-    const SIDEBAR_WIDTH_FULL = "10px"; 
+    const SIDEBAR_WIDTH_FULL = "15px"; 
 
     // ==========================================
     // 2. LOGIC YÊU THÍCH (FAVORITES)
