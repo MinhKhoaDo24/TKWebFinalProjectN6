@@ -307,12 +307,7 @@
     "poster_url": "https://media.themoviedb.org/t/p/w220_and_h330_face/dAJAUq3WO5w5QUK2YLJTqxTfxio.jpg",
     "landscape_poster_url": "https://placehold.co/1280x720/FF9800/FFF?text=Zootopia+2",
     "trailer_url": "https://www.youtube.com/watch?v=BjkIOU5PhyQ",
-<<<<<<< HEAD
-    "embed_url":,
-    "genres": ["Hoạt hình", "Hài", "Gia Đình"],
-=======
     "genres": ["Hoạt hình", "Hài hước", "Gia đình"],
->>>>>>> c32976575877cd051d455c7dd6396ab916bfbc3c
     "release_date": "2025-11-26",
     "status": "Sắp Chiếu",
     "vote_average": 0,
@@ -467,7 +462,6 @@
     "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR94P03AG0zs3-8BOb2svbBfqSp9rGhZcRYig&s",
     "landscape_poster_url": "https://placehold.co/1280x720/800000/FFF?text=Mua+Do",
     "trailer_url": "https://www.youtube.com/watch?v=BD6PoZJdt_M",
-    "embed_url": ,
     "genres": ["Chiến tranh", "Lịch Sử", "Hành động"],
     "release_date": "2025-04-30",
     "status": "Sắp Chiếu",
@@ -493,12 +487,8 @@
     "poster_url": "https://phimimg.com/upload/vod/20250901-1/4094cc857ac6a13df6eef22ad8b1ae1d.jpg",
     "landscape_poster_url": "https://placehold.co/1280x720/FFD700/000?text=Bo+Tu+Bao+Thu",
     "trailer_url": "https://www.youtube.com/watch?v=zKMOgOWn8lQ",
-<<<<<<< HEAD
     "embed_url": "https://player.phimapi.com/player/?url=https://s6.kkphimplayer6.com/20250901/2RZvePPZ/index.m3u8",
-    "genres": ["Hài", "Lãng mạn"],
-=======
     "genres": ["Hài hước", "Lãng mạn"],
->>>>>>> c32976575877cd051d455c7dd6396ab916bfbc3c
     "release_date": "2025-01-22",
     "status": "Đang Chiếu",
     "vote_average": 8.0,
