@@ -15,7 +15,7 @@ $(document).ready(function() {
             container.html(`
                 <div class="col-span-full flex flex-col items-center justify-center py-20 text-gray-500">
                     <div class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa-regular fa-heart-broken text-3xl"></i>
+                        <i class="fa-solid fa-heart-crack text-red-500 font text-2xl"></i>
                     </div>
                     <p class="text-lg">Bạn chưa có phim yêu thích nào.</p>
                     <a href="index.html" class="mt-4 px-6 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition text-white text-sm font-bold">Khám phá ngay</a>
