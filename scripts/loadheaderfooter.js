@@ -84,17 +84,30 @@ $(document).ready(function () {
             });
         }
     });
+        // Header
+        $("#navbar-container").load("components/header.html", function() {
+            // GỌI HÀM CẬP NHẬT UI HEADER TỪ AUTH.JS
+            if (typeof window.checkLoginStatus === 'function') {
+                window.checkLoginStatus();
+            }
+            // CLICK AVATAR HOẶC TÊN → PROFILE
+            const userProfile = document.getElementById("user-profile");
+            const logoutBtn = document.getElementById("btn-logout");
 
-    // --- HEADER ---
-    $("#navbar-container").load("components/header.html", function() {
-        if (typeof window.checkLoginStatus === 'function') {
-            window.checkLoginStatus();
-        }
-        if (globalMoviesData.length > 0) {
-            populateGenres(globalMoviesData);
-            populateCountries(globalMoviesData);
-        }
-    });
+            if (userProfile) {
+                userProfile.addEventListener("click", (e) => {
+                    // Nếu click vào nút logout thì KHÔNG redirect
+                    if (logoutBtn && logoutBtn.contains(e.target)) return;
+
+                    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+                    if (isLoggedIn) {
+                        window.location.href = "profile.html";
+                    } else {
+                        window.location.href = "login.html";
+                    }
+                });
+            }
 
     // --- FOOTER ---
     $("#footer-container").load("components/footer.html");
