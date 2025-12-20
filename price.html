@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gói Dịch Vụ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+</head>
+<body class="bg-[#0b0b0b] text-white font-sans overflow-hidden">
+
+  <!-- Overlay -->
+  <div
+    id="sidebar-overlay"
+    class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm"
+  ></div>
+
+  <!-- Sidebar -->
+  <div
+    id="sidebar-container"
+    class="fixed inset-y-0 left-0 z-50 w-72 bg-[#0b0b0b]"
+  ></div>
+
+  <!-- CONTENT AREA -->
+  <div class="ml-72 min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <div
+      id="navbar-container"
+      class="fixed top-0 left-72 right-0 z-40"
+    ></div>
+
+    <!-- Main -->
+    <main class="pt-20 px-8 pb-16 overflow-y-auto">
+
+      <!-- Header -->
+      <section class="text-center mb-10 mt-12">
+        <h2 class="text-purple-500 font-bold tracking-widest uppercase text-sm mb-3">
+          Gói Dịch Vụ
+        </h2>
+
+        <h1
+          class="text-4xl md:text-5xl font-extrabold
+                 leading-[1.35] py-2
+                 text-white"
+        >
+          Nâng Cấp Trải Nghiệm Điện Ảnh
+        </h1>
+
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+          Chọn gói phù hợp để tận hưởng chất lượng 4K và không quảng cáo ngay hôm nay.
+        </p>
+      </section>
+
+       <!-- Pricing Cards -->
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Basic -->
+            <div class="group relative p-[2px] rounded-3xl transition-all duration-500
+                        hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.3)]">
+                <div class="absolute inset-0 bg-gradient-to-b from-purple-500 to-pink-500 rounded-3xl"></div>
+
+                <div class="relative bg-[#161616] p-8 rounded-[23px] h-full flex flex-col border border-white/5">
+                    <h3 class="text-xl font-semibold mb-2 text-purple-400">Cơ Bản</h3>
+
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-4xl font-bold">79k</span>
+                        <span class="text-gray-400 ml-1">/tháng</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-8 flex-grow text-gray-300">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-purple-500"></i> Xem trên 1 thiết bị
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-purple-500"></i> Chất lượng HD
+                        </li>
+                        <li class="flex items-center gap-3 opacity-40">
+                            <i class="fas fa-times"></i> Không quảng cáo
+                        </li>
+                    </ul>
+                    <a href="payment.html"><button
+                        class="w-full py-3 rounded-xl border border-purple-500/50 bg-purple-500
+                               text-white font-bold 
+                               hover:bg-purple-800 hover:text-white transition-all duration-300"
+                    >
+                        Đăng ký
+                    </button></a>
+                </div>
+            </div>
+
+            <!-- Standard -->
+              <div class="group relative p-[2px] rounded-3xl transition-all duration-500
+                        hover:scale-105 shadow-[0_0_40px_rgba(168,85,247,0.3)]">
+                <div class="absolute inset-0 bg-gradient-to-b from-purple-500 to-pink-500 rounded-3xl"></div>
+
+                <div class="relative bg-[#1a1a1a] p-8 rounded-[22px] h-full flex flex-col">
+                    <h3 class="text-xl font-semibold mb-2 text-purple-400">Tiêu Chuẩn</h3>
+
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-4xl font-bold">129k</span>
+                        <span class="text-gray-400 ml-1">/tháng</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-purple-500"></i> Xem trên 2 thiết bị
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-purple-500"></i> Chất lượng Full HD
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-purple-500"></i> Không quảng cáo
+                        </li>
+                    </ul>
+
+                    <a href="payment.html">
+                      <button
+                        class="w-full py-3 rounded-xl border border-purple-500/50
+                               bg-purple-500 text-white font-bold
+                               hover:bg-purple-800 transition-all duration-300"
+                    >
+                        Đăng ký
+                    </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Premium -->
+            <div class="group relative p-[2px] rounded-3xl transition-all duration-500
+                        hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.3)]">
+                <div class="absolute inset-0 bg-gradient-to-b from-purple-500 to-pink-500 rounded-3xl"></div>
+
+                <div class="relative bg-[#161616] p-8 rounded-[23px] h-full flex flex-col border border-white/5">
+                    <h3 class="text-xl font-semibold mb-2 text-purple-400">Cao Cấp</h3>
+
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-4xl font-bold">199k</span>
+                        <span class="text-gray-400 ml-1">/tháng</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-8 flex-grow text-gray-300">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-purple-500"></i> Xem trên 4 thiết bị
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-purple-500"></i> Chất lượng 4K
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-purple-500"></i> Không quảng cáo
+                        </li>
+                    </ul>
+
+                    <a href="payment.html"><button
+                        class="w-full py-3 rounded-xl border border-purple-500/50 bg-purple-500
+                               text-white font-bold 
+                               hover:bg-purple-800 hover:text-white transition-all duration-300"
+                    >
+                        Đăng ký
+                    </button></a>
+                </div>
+            </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="scripts/loadheaderfooter.js"></script>
+
+</body>
+</html>
