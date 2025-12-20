@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Điều Khoản Dịch Vụ</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/favicon.png"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: "#141414",
+                        bgCard: "#1e1e1e",
+                        primary: "#8b5cf6",
+                        secondary: "#d946ef",
+                    },
+                    fontFamily: {
+                        // Sử dụng Outfit làm font chính, đảm bảo kiểu chữ đứng và hiện đại
+                        sans: ["Outfit", "sans-serif"]
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+
+        /* Fix lỗi Sidebar Mini để không bị tràn chữ khi thu nhỏ */
+        .mini-sidebar #sidebar-content { width: 88px !important; }
+        .mini-sidebar .sidebar-text { display: none !important; }
+        .mini-sidebar .sidebar-divider { display: block !important; width: 24px; margin: 10px auto; }
+
+        body { background-color: #141414; font-style: normal !important; }
+
+        /* Tối ưu hóa các thẻ Section để nội dung thẳng và rõ nét */
+        section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        section:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        /* Đảm bảo toàn bộ tiêu đề không bị nghiêng */
+        h1, h2, h3, p, span, a {
+            font-style: normal !important;
+        }
+    </style>
+</head>
+
+<body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
+
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72 shrink-0">
+    </div>
+
+    <main class="flex-1 flex flex-col h-screen relative w-full overflow-hidden transition-all duration-300">
+
+        <div id="navbar-container" class="z-40"></div>
+
+        <div class="flex-1 overflow-y-auto px-4 md:px-10 pb-24 scroll-smooth custom-scrollbar">
+            
+            <div class="max-w-4xl mx-auto pt-16 w-full">
+                <div class="text-center mb-16">
+                    <p class="text-primary uppercase tracking-[0.4em] text-[11px] font-black mb-3">
+                        Legal Documents
+                    </p>
+                    <h1 class="text-4xl md:text-6xl font-black leading-tight text-white uppercase tracking-tight">
+                        Điều khoản <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Sử dụng</span>
+                    </h1>
+                    <p class="text-gray-500 mt-6 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed font-light">
+                        Vui lòng dành ít phút để đọc kỹ các điều khoản dịch vụ của AuraFilm. <br class="hidden md:block"> 
+                        Việc sử dụng dịch vụ đồng nghĩa với việc bạn chấp thuận các quy tắc này.
+                    </p>
+                </div>
+
+                <div class="space-y-8 text-gray-400 leading-loose">
+
+                    <section>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary font-bold">01</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide uppercase">Chấp nhận điều khoản</h2>
+                        </div>
+                        <p class="text-sm md:text-base pl-14">
+                            Mọi hoạt động truy cập và sử dụng dịch vụ tại AuraFilm đều phải tuân thủ các điều khoản này. Chúng tôi có quyền từ chối cung cấp dịch vụ cho bất kỳ cá nhân nào vi phạm các quy tắc cộng đồng đã được thiết lập.
+                        </p>
+                    </section>
+
+                    <section>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary font-bold">02</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide uppercase">Bảo mật tài khoản</h2>
+                        </div>
+                        <p class="text-sm md:text-base pl-14">
+                            Bạn có trách nhiệm tự bảo quản thông tin đăng nhập cá nhân. AuraFilm khuyến nghị người dùng không chia sẻ tài khoản để đảm bảo trải nghiệm tốt nhất và tránh các rủi ro về mất mát dữ liệu yêu thích.
+                        </p>
+                    </section>
+
+                    <section>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary font-bold">03</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide uppercase">Quyền sở hữu trí tuệ</h2>
+                        </div>
+                        <p class="text-sm md:text-base pl-14">
+                            Toàn bộ nội dung phim, hình ảnh và giao diện thuộc bản quyền của AuraFilm hoặc bên thứ ba cấp phép. Nghiêm cấm mọi hành vi sao chép, tái bản hoặc sử dụng thương mại mà không có sự đồng ý bằng văn bản.
+                        </p>
+                    </section>
+
+                    <section>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary font-bold">04</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide uppercase">Cập nhật điều khoản</h2>
+                        </div>
+                        <p class="text-sm md:text-base pl-14">
+                            AuraFilm có quyền cập nhật điều khoản này bất kỳ lúc nào để phù hợp với sự thay đổi của pháp luật và công nghệ. Các thay đổi sẽ có hiệu lực ngay khi được đăng tải công khai trên hệ thống.
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="mt-16 p-8 rounded-[2rem] bg-gradient-to-br from-white/5 to-transparent border border-white/5 text-center">
+                    <p class="text-sm text-gray-500 mb-2 uppercase tracking-widest font-bold">Cần hỗ trợ thêm?</p>
+                    <a href="mailto:support@aurafilm.vn" class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                        support@aurafilm.vn
+                    </a>
+                </div>
+            </div>
+
+            <div id="footer-container" class="mt-20 border-t border-white/5 pt-10 pb-10"></div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/login_register.js"></script>
+    <script src="scripts/loadheaderfooter.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            if (typeof window.checkLoginStatus === 'function') {
+                window.checkLoginStatus();
+            }
+        });
+    </script>
+</body>
+</html>

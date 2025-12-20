@@ -3,16 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PhimConMeo</title>
+    <title>Trang Chủ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="assets/favicon.png"/>
     <script>
       tailwind.config = {
         theme: {
@@ -143,6 +138,7 @@
       .transition-all {
         margin-bottom: 5px;
       }
+
     </style>
   </head>
   <body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
@@ -189,9 +185,9 @@
                 >
                   Bảng Xếp Hạng
                 </h3>
-                <i
+                <!-- <i
                   class="fa-solid fa-arrow-right-long text-purple-500 cursor-pointer hover:translate-x-1 transition-transform"
-                ></i>
+                ></i> -->
               </div>
               <div
                 id="top-rated-list"
@@ -204,7 +200,7 @@
             </div>
           </div>
         </div>
-
+        <div id="banner-hero" class="my-6 w-full overflow-hidden rounded-lg shadow-md group"></div>
         <div id="footer-container" class="mt-5"></div>
       </div>
     </main>
@@ -238,5 +234,6 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="scripts/loadheaderfooter.js"></script>
     <script src="scripts/login_register.js"></script>
+    <script src="scripts/banner.js"></script>
   </body>
 </html>

@@ -101,11 +101,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                         const avatar = isValidUrl(actor.avatar_url) ? actor.avatar_url : `https://ui-avatars.com/api/?name=${encodeURIComponent(actor.name)}&background=random&color=fff`;
                         actorList.innerHTML += `
                             <div class="flex items-center gap-3 bg-[#1e1e1e] p-2 rounded-xl border border-white/5 hover:bg-white/10 transition-colors cursor-pointer mb-2">
+                                <a href="actor_detail.html?slug=${actor.slug}" class="flex items-center gap-3">
                                 <img src="${avatar}" alt="${actor.name}" class="w-12 h-12 rounded-full object-cover border border-white/10 shrink-0">
                                 <div>
                                     <h4 class="font-bold text-sm text-white">${actor.name}</h4>
                                     <p class="text-xs text-gray-500">${actor.nationality || 'Diễn viên'}</p>
-                                </div>
+                                </div></a>
                             </div>`;
                     });
                 } else {

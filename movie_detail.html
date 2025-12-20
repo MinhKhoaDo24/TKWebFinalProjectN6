@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chi tiết phim</title>
+    <title>Chi Tiết Phim</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/movie_detail.css" />
-
+   <link rel="icon" type="image/png" href="assets/favicon.png"/>
     <script>
       tailwind.config = {
         theme: {
@@ -213,12 +213,55 @@
           </div>
         </div>
 
-        <div id="footer-container" class="mt-12"></div>
+        <div id="footer-container" class="mt-12 px-5"></div>
       </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="scripts/loadheaderfooter.js"></script>
     <script src="scripts/login_register.js"></script>
+    <script src="scripts/favorite.js"></script>
+    <script>
+    $(document).ready(function() {
+        // 1. Lấy Movie ID từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieId = parseInt(urlParams.get('id'));
+
+        if (!movieId) return;
+
+        // 2. Kiểm tra trạng thái yêu thích ban đầu khi vừa load trang
+        // Đợi loadheaderfooter.js sẵn sàng (0.3s)
+        setTimeout(() => {
+            if (typeof window.isFavorite === 'function' && window.isFavorite(movieId)) {
+                // Nếu đã thích, đổi icon sang tim đặc màu đỏ
+                $('#icon-heart-detail')
+                    .removeClass('fa-regular text-white/50')
+                    .addClass('fa-solid text-red-500');
+            }
+        }, 300);
+
+        // 3. Định nghĩa hàm xử lý khi bấm nút tim trên trang chi tiết
+        window.toggleFavoriteDetail = function() {
+            if (typeof window.toggleFavorite === 'function') {
+                // Gọi hàm toggleFavorite toàn cục từ loadheaderfooter.js
+                // Truyền movieId và giả lập event để hàm cũ hoạt động
+                window.toggleFavorite({
+                    preventDefault: () => {},
+                    stopPropagation: () => {},
+                    currentTarget: $('#btn-favorite')[0]
+                }, movieId);
+
+                // Cập nhật lại UI dựa trên trạng thái mới
+                const isNowFav = window.isFavorite(movieId);
+                const icon = $('#icon-heart-detail');
+                if (isNowFav) {
+                    icon.removeClass('fa-regular text-white/50').addClass('fa-solid text-red-500');
+                } else {
+                    icon.removeClass('fa-solid text-red-500').addClass('fa-regular text-white/50');
+                }
+            }
+        };
+    });
+</script>
   </body>
 </html>

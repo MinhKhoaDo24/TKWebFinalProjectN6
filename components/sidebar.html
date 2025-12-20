@@ -1,3 +1,24 @@
+<style>
+    /* Lớp Active với nền tím Gradient và hiệu ứng phát sáng */
+.nav-active {
+    background: linear-gradient(135deg, #8b5cf6, #d946ef) !important;
+    color: white !important;
+    font-weight: 600;
+    /* Tạo hiệu ứng bóng mờ (Glow) xung quanh nút */
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    border: none !important;
+}
+
+/* Đảm bảo icon luôn là màu trắng khi mục đó đang Active */
+.nav-active i {
+    color: white !important;
+}
+
+/* Hiệu ứng chuyển động mượt mà cho các mục Menu */
+.nav-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+</style>
 <aside id="sidebar-content" class="h-full xl:h-[calc(100vh-2rem)] xl:my-4 xl:ml-4 relative z-50 transition-all duration-300 w-full group/sidebar">
     
     <div class="absolute inset-0 flex flex-col bg-[#141414] border-r border-white/10 xl:border xl:border-white/5 shadow-2xl overflow-hidden rounded-none xl:rounded-2xl">
@@ -16,9 +37,9 @@
                 <h3 class="sidebar-text text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500 mb-3 px-4 truncate transition-opacity duration-300">Menu</h3>
                 <ul class="space-y-2">
                     <li>
-                        <a href="#section-trending" class="nav-item active flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm">
+                        <a href="#section-trending" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm">
                             <i class="fa-solid fa-fire w-6 text-lg text-center transition-colors"></i>
-                            <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Trending</span>
+                            <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Thịnh Hành</span>
                         </a>
                     </li>
                     <li>
@@ -31,6 +52,18 @@
                         <a href="#section-coming-soon" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
                             <i class="fa-regular fa-clock w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
                             <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Sắp Chiếu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="favorite_film.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <i class="fa-regular fa-heart w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                        <span class="ml-3 sidebar-text whitespace-nowrap">Yêu Thích</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="actor.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                            <i class="fa-solid fa-star w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                            <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Diễn Viên</span>
                         </a>
                     </li>
                 </ul>
@@ -68,15 +101,15 @@
                 <div class="w-6 h-[2px] bg-white/10 mx-auto mb-4 sidebar-divider rounded-full hidden"></div> 
                 <ul class="space-y-2">
                     <li>
-                        <a href="../history.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <a href="history.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
                             <i class="fa-solid fa-clock-rotate-left w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
-                            <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Gần Đây</span>
+                            <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Lịch Sử Xem</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../favorite_film.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
-                            <i class="fa-regular fa-heart w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
-                            <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Yêu Thích</span>
+                        <a href="about.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                            <i class="fa-regular fa-solid fa-circle-info w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
+                            <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Về Chúng Tôi</span>
                         </a>
                     </li>
                 </ul>
@@ -85,17 +118,17 @@
             <div class="mt-4 pt-4 border-t border-white/5">
                  <ul class="space-y-2">
                     <li>
-                        <a href="../price.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <a href="price.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
                             <i class="fa-solid fa-layer-group w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
                             <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Dịch Vụ</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
                             <i class="fa-solid fa-gear w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
                             <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Cài Đặt</span>
                         </a>
-                    </li>
+                    </li> -->
 
                     <li id="sidebar-guest-view">
                         <a href="login.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">

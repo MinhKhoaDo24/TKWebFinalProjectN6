@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chính Sách Bảo Mật</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/favicon.png"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: "#141414",
+                        bgCard: "#1e1e1e",
+                        primary: "#8b5cf6",
+                        secondary: "#d946ef",
+                    },
+                    fontFamily: {
+                        sans: ["Outfit", "sans-serif"]
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+
+        /* CSS Fix cho Sidebar Mini - Đảm bảo không vỡ layout khi co giãn */
+        .mini-sidebar #sidebar-content { width: 88px !important; }
+        .mini-sidebar .sidebar-text { display: none !important; }
+        .mini-sidebar .sidebar-divider { display: block !important; width: 24px; margin: 10px auto; }
+
+        body { background-color: #141414; font-style: normal !important; }
+
+        /* Tối ưu hóa các thẻ Section */
+        section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        section:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        /* Đảm bảo mọi chữ đều thẳng */
+        h1, h2, h3, p, span, a, div { font-style: normal !important; }
+    </style>
+</head>
+
+<body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
+
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72 shrink-0">
+    </div>
+
+    <main class="flex-1 flex flex-col h-screen relative w-full overflow-hidden transition-all duration-300">
+
+        <div id="navbar-container" class="z-40"></div>
+
+        <div class="flex-1 overflow-y-auto px-4 md:px-10 pb-0 scroll-smooth custom-scrollbar">
+            
+            <div class="max-w-4xl mx-auto pt-16 w-full">
+                <div class="text-center mb-16">
+                    <p class="text-primary uppercase tracking-[0.4em] text-[10px] font-black mb-3">
+                        Privacy Policy
+                    </p>
+                    <h1 class="text-4xl md:text-6xl font-black leading-tight text-white uppercase tracking-tight">
+                        Chính sách <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Bảo mật</span>
+                    </h1>
+                    <p class="text-gray-500 mt-6 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                        AuraFilm cam kết bảo vệ quyền riêng tư và mọi thông tin cá nhân của bạn. Chúng tôi sử dụng các công nghệ bảo mật tiên tiến nhất để đảm bảo an toàn dữ liệu.
+                    </p>
+                </div>
+
+                <div class="space-y-8 text-gray-400 leading-relaxed">
+
+                    <section>
+                        <h2 class="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                            <span class="w-1.5 h-6 bg-primary rounded-full"></span> 1. Thông tin thu thập
+                        </h2>
+                        <p class="text-sm md:text-base pl-5 border-l border-white/10 ml-0.5">
+                            AuraFilm thu thập thông tin khi bạn đăng ký tài khoản, bao gồm email và tên người dùng. Ngoài ra, chúng tôi ghi nhận lịch sử xem phim để cá nhân hóa gợi ý cho bạn.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                            <span class="w-1.5 h-6 bg-secondary rounded-full"></span> 2. Mục đích sử dụng
+                        </h2>
+                        <p class="text-sm md:text-base pl-5 border-l border-white/10 ml-0.5">
+                            Thông tin được sử dụng để duy trì tài khoản, cải thiện hiệu suất dịch vụ, hỗ trợ khách hàng và gửi thông báo về các tính năng mới nhất của AuraFilm.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                            <span class="w-1.5 h-6 bg-primary rounded-full"></span> 3. Bảo mật tuyệt đối
+                        </h2>
+                        <p class="text-sm md:text-base pl-5 border-l border-white/10 ml-0.5">
+                            Chúng tôi áp dụng các chuẩn mã hóa dữ liệu hàng đầu để ngăn chặn truy cập trái phép. Dữ liệu của bạn luôn được lưu trữ trong môi trường an toàn và được kiểm soát chặt chẽ.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                            <span class="w-1.5 h-6 bg-secondary rounded-full"></span> 4. Quyền của bạn
+                        </h2>
+                        <p class="text-sm md:text-base pl-5 border-l border-white/10 ml-0.5">
+                            Bạn hoàn toàn có quyền truy cập, chỉnh sửa hoặc yêu cầu xóa dữ liệu cá nhân bất kỳ lúc nào thông qua phần cài đặt tài khoản hoặc liên hệ trực tiếp với đội ngũ hỗ trợ.
+                        </p>
+                    </section>
+
+                    <div class="mt-12 p-8 rounded-[2.5rem] bg-gradient-to-br from-white/5 to-transparent border border-white/5 text-center">
+                        <p class="text-xs text-gray-500 mb-2 uppercase tracking-widest font-bold">Mọi thắc mắc xin gửi về</p>
+                        <a href="mailto:support@aurafilm.vn" class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary hover:brightness-110 transition">
+                            support@aurafilm.vn
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="footer-container" class="mt-20 border-t border-white/5 pt-10 pb-10"></div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/login_register.js"></script>
+    <script src="scripts/loadheaderfooter.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            if (typeof window.checkLoginStatus === 'function') {
+                window.checkLoginStatus();
+            }
+        });
+    </script>
+</body>
+</html>

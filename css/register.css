@@ -9,7 +9,6 @@
             align-items: center;
             min-height: 100vh;
             /* Thêm background-image để mô phỏng phim ảnh mờ */
-            background-image: url('\assets\img\background-resigter.jpg'); /* Thay bằng URL ảnh nền của bạn */
             background-size: cover;
             background-position: center;
         }

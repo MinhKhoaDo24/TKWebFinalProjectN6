@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xem Phim - CineMax</title>
+    <title>Trang Xem Phim</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="icon" type="image/png" href="assets/favicon.png"/>
     <script>
       tailwind.config = {
         theme: {
@@ -140,81 +140,6 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="scripts/loadheaderfooter.js"></script>
     <script src="scripts/login_register.js"></script>
-
-    <script>
-      // LOGIC LẤY DỮ LIỆU PHIM
-      document.addEventListener("DOMContentLoaded", async () => {
-        const params = new URLSearchParams(window.location.search);
-        const idParam = params.get("id") ? Number(params.get("id")) : null;
-
-        if (!idParam) {
-          window.location.href = "index.html"; 
-          return;
-        }
-
-        try {
-          const res = await fetch("data/movies.json");
-          const movies = await res.json();
-          const movie = movies.find((m) => m.id === idParam);
-
-          if (movie) {
-            document.title = `Xem phim: ${movie.title}`;
-            
-            // --- Điền dữ liệu ---
-            document.getElementById("movie-title").textContent = movie.title;
-            document.getElementById("movie-desc").textContent = movie.description || "Chưa có mô tả.";
-            
-            document.getElementById("vote-average").textContent = movie.vote_average || "0";
-            document.getElementById("release-year").textContent = movie.release_date ? movie.release_date.split('-')[0] : "N/A";
-            document.getElementById("duration").textContent = movie.details?.duration_minutes ? `${movie.details.duration_minutes} phút` : "N/A";
-            document.getElementById("country").textContent = movie.details?.country || "Quốc tế";
-
-            // Render Thể loại
-            const genresContainer = document.getElementById("genres-list");
-            if (movie.genres && movie.genres.length > 0) {
-                genresContainer.innerHTML = movie.genres.map(g => 
-                    `<span class="px-3 py-1 bg-[#222] text-gray-300 text-xs rounded-full border border-white/10 hover:border-primary/50 hover:text-white transition-colors cursor-default">${g}</span>`
-                ).join('');
-            }
-
-            // Render Diễn viên
-            const actorContainer = document.getElementById("watch-actor-list");
-            if (movie.credits && movie.credits.cast && movie.credits.cast.length > 0) {
-                actorContainer.innerHTML = movie.credits.cast.map(name => `
-                    <div class="flex flex-col items-center text-center gap-3 group cursor-pointer">
-                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 bg-[#2a2a2a]">
-                            <img src="https://ui-avatars.com/api/?name=${name}&background=random&color=fff&size=128&bold=true" 
-                                 alt="${name}" 
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors leading-tight">
-                            ${name}
-                        </div>
-                    </div>
-                `).join('');
-            } else {
-                actorContainer.innerHTML = '<p class="text-gray-500 text-sm italic col-span-3 text-center">Đang cập nhật diễn viên.</p>';
-            }
-
-            // Video Player
-            let videoUrl = "";
-            if (movie.embed_url) {
-              videoUrl = movie.embed_url;
-            } else if (movie.trailer_url) {
-              const videoId = movie.trailer_url.split("v=")[1];
-              videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-            }
-            const iframe = document.getElementById("video-frame");
-            if(iframe) iframe.src = videoUrl;
-            
-          } else {
-            alert("Không tìm thấy dữ liệu phim!");
-            window.location.href = "index.html";
-          }
-        } catch (err) {
-          console.error(err);
-        }
-      });
-    </script>
+    <script src="scripts/Watch.js"></script>
   </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lịch sử xem - CineMax</title>
-
+    <title>Lịch Sử Xem Phim</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     
@@ -18,9 +18,7 @@
                         bgInput: "#2a2a2a",
                         primary: "#8b5cf6",
                     },
-                    backgroundImage: {
-                        "gradient-brand": "linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)",
-                    },
+                    fontFamily: { sans: ["Outfit", "sans-serif"] },
                 },
             },
         };
@@ -41,30 +39,38 @@
             margin: 0;
         }
 
-        /* 2. Sidebar Sync - Quan trọng để không bị vỡ layout */
-        #sidebar-container {
-            flex-shrink: 0;
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: #121212;
-            z-index: 50;
+        /* 2. Sidebar & Overlay Logic */
+        #sidebar-overlay {
+            z-index: 40; /* Nằm dưới Sidebar nhưng trên Main */
+            transition: all 0.3s ease;
         }
 
-        /* Hỗ trợ trạng thái Mini Sidebar của file JS */
-        .mini-sidebar .sidebar-text, 
-        .mini-sidebar h3, 
-        .mini-sidebar .sidebar-divider-text {
-            display: none !important;
+        #sidebar-container {
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #121212;
+            z-index: 50; /* Cao nhất để không bị đè */
         }
+
+        /* Khi mở sidebar trên điện thoại */
+        .sidebar-open {
+            transform: translateX(0) !important;
+        }
+
+        /* Trạng thái mini sidebar cho Desktop */
+        .mini-sidebar #sidebar-content { width: 88px !important; }
+        .mini-sidebar .sidebar-text, .mini-sidebar h3 { display: none; }
 
         /* 3. Main Content Area */
         main {
             flex: 1;
             display: flex;
             flex-direction: column;
-            min-width: 0; /* Tránh vỡ layout khi nội dung rộng */
+            min-width: 0;
             height: 100vh;
             background: #121212;
-            transition: padding-left 0.3s ease;
+            position: relative;
+            z-index: 10;
         }
 
         .page-scroll {
@@ -77,148 +83,102 @@
             .page-scroll { padding: 32px 40px; }
         }
 
-        /* 4. List Items UI */
+        /* 4. UI Components */
         .list-container {
             background: #181818;
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 24px;
             padding: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .history-item {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 20px;
-            padding: 16px;
+            grid-template-columns: 160px 1fr;
+            gap: 16px;
+            padding: 12px;
             border-radius: 16px;
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid transparent;
             transition: all 0.2s ease;
             margin-bottom: 12px;
         }
 
+        @media (max-width: 640px) {
+            .history-item { grid-template-columns: 100px 1fr; }
+        }
+
         .history-item:hover {
             background: rgba(255, 255, 255, 0.05);
-            border-color: #8b5cf6;
-            transform: translateY(-2px);
+            transform: translateX(5px);
         }
 
         .thumb-box {
             width: 100%;
-            aspect-ratio: 16/9;
-            border-radius: 12px;
+            aspect-ratio: 2/3;
+            border-radius: 8px;
             overflow: hidden;
-            background: #000;
         }
 
-        .thumb-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Tỉ lệ poster 2:3 giống trang yêu thích */
-.thumb-2-3 {
-    aspect-ratio: 2/3;
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Hiệu ứng chấm tròn ngăn cách */
-.dot-sep {
-    width: 3px;
-    height: 3px;
-    background: #4b5563;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 6px;
-    vertical-align: middle;
-}
-
-/* Nút xóa nhanh trên từng thẻ */
-.remove-quick-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 30px;
-    height: 30px;
-    background: rgba(239, 68, 68, 0.8);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.2s;
-    z-index: 10;
-}
-
-.history-item-card:hover .remove-quick-btn {
-    opacity: 1;
-}
-        /* Mobile Responsive */
-        @media (max-width: 640px) {
-            .history-item { grid-template-columns: 1fr; }
-            #sidebar-container { position: fixed; height: 100%; }
-        }
+        .thumb-box img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 
-<body>
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden backdrop-blur-sm"></div>
+<body class="bg-bgMain text-white">
 
-    <div id="sidebar-container"></div>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/80 hidden backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+
+    <div id="sidebar-container" 
+         class="fixed inset-y-0 left-0 w-72 h-full transform -translate-x-full transition-transform duration-300 
+                md:relative md:translate-x-0 shadow-2xl md:shadow-none">
+    </div>
 
     <main>
         <div id="navbar-container"></div>
 
-        <div class="page-scroll">
+        <div class="page-scroll custom-scrollbar">
+            
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-    <div class="flex items-center gap-4">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center shadow-lg animate-pulse">
-            <i class="fa-solid fa-clock-rotate-left text-2xl text-white"></i>
-        </div>
-        
-        <div>
-            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                Lịch sử xem
-            </h1>
-            <p class="text-gray-400 mt-1">Nơi lưu giữ những bộ phim bạn đã thưởng thức</p>
-        </div>
-    </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                        <i class="fa-solid fa-clock-rotate-left text-xl text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold tracking-tight">Lịch Sử Xem</h1>
+                        <p class="text-gray-400 text-sm">Những bộ phim bạn đã xem gần đây</p>
+                    </div>
+                </div>
 
-    <div class="w-full max-w-md">
-        <div class="relative group">
-            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors"></i>
-            <input id="history-search" type="text" 
-                   class="w-full bg-bgInput border border-white/5 rounded-xl py-3 pl-12 pr-4 outline-none focus:border-primary/50 transition-all text-sm"
-                   placeholder="Tìm phim trong lịch sử...">
-        </div>
-    </div>
-</div>
+                <div class="w-full md:w-80">
+                    <div class="relative group">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary"></i>
+                        <input id="history-search" type="text" 
+                               class="w-full bg-bgInput border border-white/5 rounded-xl py-2.5 pl-11 pr-4 outline-none focus:border-primary/50 transition-all text-sm"
+                               placeholder="Tìm kiếm phim đã xem...">
+                    </div>
+                </div>
+            </div>
+
             <section class="list-container">
-                <div class="flex items-center justify-between mb-6 px-2">
-                    <div class="uppercase tracking-widest text-xs font-bold text-gray-500">Danh sách gần đây</div>
-                    <div class="flex items-center gap-4 text-sm">
-                        <span class="text-gray-400"><b id="history-count" class="text-white">0</b> phim</span>
-                        <button id="btn-clear" class="flex items-center gap-2 bg-white/5 hover:bg-red-500/20 hover:text-red-500 px-4 py-2 rounded-lg transition-all border border-white/5">
-                            <i class="fa-solid fa-trash-can text-xs"></i>
-                            Xóa tất cả
+                <div class="flex items-center justify-between mb-6">
+                    <span class="text-xs uppercase tracking-widest font-bold text-gray-500">Phim vừa xem</span>
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-400"><span id="history-count" class="text-white font-bold">0</span> phim</span>
+                        <button id="btn-clear" class="text-xs font-bold text-red-400 hover:text-red-300 transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20">
+                            <i class="fa-solid fa-trash-can"></i> XÓA TẤT CẢ
                         </button>
                     </div>
                 </div>
 
-                <div id="history-list" class="space-y-4">
-                    </div>
+                <div id="history-list" class="space-y-2"></div>
 
-                <div id="history-empty" class="hidden py-20 text-center">
-                    <div class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fa-solid fa-clock-rotate-left text-3xl text-gray-600"></i>
+                <div id="history-empty" class="hidden py-24 text-center">
+                    <div class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-white/5">
+                        <i class="fa-solid fa-film text-3xl text-gray-700"></i>
                     </div>
-                    <p class="text-gray-500 mb-5">Bạn chưa xem bộ phim nào gần đây.</p>
-                    <a href="index.html" class="mt-4 px-6 py-2.5 bg-purple-600 rounded-full hover:bg-purple-700 transition text-white text-sm font-bold">Khám phá phim ngay</a>
+                    <h3 class="text-lg font-medium text-gray-300">Lịch sử trống</h3>
+                    <p class="text-gray-500 text-sm mb-6">Bạn chưa xem bộ phim nào.</p>
+                    <a href="index.html" class="inline-block px-8 py-3 bg-primary hover:bg-purple-500 rounded-full transition-all text-sm font-bold shadow-lg shadow-purple-500/25">
+                        Khám phá ngay
+                    </a>
                 </div>
             </section>
 
@@ -230,5 +190,19 @@
     <script src="scripts/loadheaderfooter.js"></script>
     <script src="scripts/login_register.js"></script>
     <script src="scripts/history.js"></script>
+
+    <script>
+        // Logic bổ sung để đóng/mở sidebar trên Mobile (đảm bảo đồng bộ với nút menu trên Navbar)
+        $(document).on('click', '#btn-menu-mobile', function() {
+            $('#sidebar-container').addClass('sidebar-open');
+            $('#sidebar-overlay').removeClass('hidden').addClass('opacity-100');
+        });
+
+        $('#sidebar-overlay').on('click', function() {
+            $('#sidebar-container').removeClass('sidebar-open');
+            $(this).removeClass('opacity-100');
+            setTimeout(() => $(this).addClass('hidden'), 300);
+        });
+    </script>
 </body>
 </html>
