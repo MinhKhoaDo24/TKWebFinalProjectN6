@@ -1,3 +1,11 @@
+<style>
+    /* Trạng thái Active cho các mục trên Header */
+.header-active {
+    background-color: #2a2a2a !important;
+    color: white !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+</style>
 <header class="h-20 flex items-center justify-between px-8 sticky top-0 z-30 w-full mb-3">
 <!-- <header class="h-20 flex items-center justify-between px-8 glass-effect sticky top-0 z-30 w-full mb-6 rounded-b-2xl border-b border-white/5"></header> -->
         <div class="flex items-center gap-4">
@@ -10,15 +18,16 @@
                 <a href="../index.html" class="px-5 py-2 rounded-lg bg-[#2a2a2a] text-white text-sm font-medium shadow-md transition-all flex items-center">Trang Chủ</a>
                 
                 <div class="relative group">
-                    <button class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1">
-                        Thể loại <i class="fa-solid fa-chevron-down text-[10px] pt-0.5 ml-1 transition-transform group-hover:rotate-180"></i>
-                    </button>
-                    <div class="absolute top-full left-0 mt-2 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
-                        <div id="header-genres-list" class="max-h-64 overflow-y-auto custom-scrollbar p-1 grid grid-cols-1 gap-0.5">
-                            <div class="px-4 py-3 text-xs text-gray-500 text-center">Đang tải...</div>
-                        </div>
+                   <a href="movie_list.html?genre=all" class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1 cursor-pointer">
+                    Thể loại <i class="fa-solid fa-chevron-down text-[10px] pt-0.5 ml-1 transition-transform group-hover:rotate-180"></i>
+                    </a>
+    
+                <div class="absolute top-full left-0 mt-2 w-48 bg-[#1e1e1e] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+                    <div id="header-genres-list" class="max-h-64 overflow-y-auto custom-scrollbar p-1 grid grid-cols-1 gap-0.5">
+                        <div class="px-4 py-3 text-xs text-gray-500 text-center">Đang tải...</div>
                     </div>
                 </div>
+            </div>
 
                 <div class="relative group">
                     <button class="px-5 py-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white text-sm font-medium transition-all flex items-center gap-1">

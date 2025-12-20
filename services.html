@@ -8,8 +8,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
 
     <script>
         tailwind.config = {
@@ -17,10 +16,12 @@
                 extend: {
                     colors: {
                         bgMain: "#141414",
+                        bgCard: "#1e1e1e",
                         primary: "#8b5cf6",
                         secondary: "#d946ef",
                     },
                     fontFamily: {
+                        // Sử dụng Outfit làm font chính, đảm bảo kiểu chữ đứng và hiện đại
                         sans: ["Outfit", "sans-serif"]
                     },
                 },
@@ -29,150 +30,130 @@
     </script>
 
     <style>
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
 
-        ::-webkit-scrollbar-thumb {
-            background: #444;
-            border-radius: 10px;
-        }
+        /* Fix lỗi Sidebar Mini để không bị tràn chữ khi thu nhỏ */
+        .mini-sidebar #sidebar-content { width: 88px !important; }
+        .mini-sidebar .sidebar-text { display: none !important; }
+        .mini-sidebar .sidebar-divider { display: block !important; width: 24px; margin: 10px auto; }
 
-        body {
-            background-color: #141414;
+        body { background-color: #141414; font-style: normal !important; }
+
+        /* Tối ưu hóa các thẻ Section để nội dung thẳng và rõ nét */
+        section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        section:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        /* Đảm bảo toàn bộ tiêu đề không bị nghiêng */
+        h1, h2, h3, p, span, a {
+            font-style: normal !important;
         }
     </style>
 </head>
 
 <body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
 
-    <!-- Overlay sidebar -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
 
-    <!-- Sidebar -->
-    <div id="sidebar-container"
-        class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72">
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72 shrink-0">
     </div>
 
-    <!-- Main -->
-    <main class="flex-1 flex flex-col h-screen relative w-full overflow-y-auto transition-all duration-300">
+    <main class="flex-1 flex flex-col h-screen relative w-full overflow-hidden transition-all duration-300">
 
-        <!-- Navbar -->
         <div id="navbar-container" class="z-40"></div>
 
-        <!-- Content -->
-        <div class="max-w-5xl mx-auto px-4 pt-12 pb-20 flex-grow w-full">
+        <div class="flex-1 overflow-y-auto px-4 md:px-10 pb-24 scroll-smooth custom-scrollbar">
+            
+            <div class="max-w-4xl mx-auto pt-16 w-full">
+                <div class="text-center mb-16">
+                    <p class="text-primary uppercase tracking-[0.4em] text-[11px] font-black mb-3">
+                        Legal Documents
+                    </p>
+                    <h1 class="text-4xl md:text-6xl font-black leading-tight text-white uppercase tracking-tight">
+                        Điều khoản <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Sử dụng</span>
+                    </h1>
+                    <p class="text-gray-500 mt-6 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed font-light">
+                        Vui lòng dành ít phút để đọc kỹ các điều khoản dịch vụ của AuraFilm. <br class="hidden md:block"> 
+                        Việc sử dụng dịch vụ đồng nghĩa với việc bạn chấp thuận các quy tắc này.
+                    </p>
+                </div>
 
-            <!-- Header -->
-            <div class="text-center mb-14">
-                <p class="text-primary uppercase tracking-widest text-sm font-semibold mb-2">
-                    Điều khoản dịch vụ
-                </p>
-                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
-                    Điều khoản sử dụng AuraFilm
-                </h1>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-sm md:text-base">
-                    Vui lòng đọc kỹ các điều khoản dưới đây trước khi sử dụng dịch vụ của AuraFilm.
-                </p>
+                <div class="space-y-8 text-gray-400 leading-loose">
+
+                    <section>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary font-bold">01</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide uppercase">Chấp nhận điều khoản</h2>
+                        </div>
+                        <p class="text-sm md:text-base pl-14">
+                            Mọi hoạt động truy cập và sử dụng dịch vụ tại AuraFilm đều phải tuân thủ các điều khoản này. Chúng tôi có quyền từ chối cung cấp dịch vụ cho bất kỳ cá nhân nào vi phạm các quy tắc cộng đồng đã được thiết lập.
+                        </p>
+                    </section>
+
+                    <section>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary font-bold">02</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide uppercase">Bảo mật tài khoản</h2>
+                        </div>
+                        <p class="text-sm md:text-base pl-14">
+                            Bạn có trách nhiệm tự bảo quản thông tin đăng nhập cá nhân. AuraFilm khuyến nghị người dùng không chia sẻ tài khoản để đảm bảo trải nghiệm tốt nhất và tránh các rủi ro về mất mát dữ liệu yêu thích.
+                        </p>
+                    </section>
+
+                    <section>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary font-bold">03</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide uppercase">Quyền sở hữu trí tuệ</h2>
+                        </div>
+                        <p class="text-sm md:text-base pl-14">
+                            Toàn bộ nội dung phim, hình ảnh và giao diện thuộc bản quyền của AuraFilm hoặc bên thứ ba cấp phép. Nghiêm cấm mọi hành vi sao chép, tái bản hoặc sử dụng thương mại mà không có sự đồng ý bằng văn bản.
+                        </p>
+                    </section>
+
+                    <section>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary font-bold">04</div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide uppercase">Cập nhật điều khoản</h2>
+                        </div>
+                        <p class="text-sm md:text-base pl-14">
+                            AuraFilm có quyền cập nhật điều khoản này bất kỳ lúc nào để phù hợp với sự thay đổi của pháp luật và công nghệ. Các thay đổi sẽ có hiệu lực ngay khi được đăng tải công khai trên hệ thống.
+                        </p>
+                    </section>
+
+                </div>
+
+                <div class="mt-16 p-8 rounded-[2rem] bg-gradient-to-br from-white/5 to-transparent border border-white/5 text-center">
+                    <p class="text-sm text-gray-500 mb-2 uppercase tracking-widest font-bold">Cần hỗ trợ thêm?</p>
+                    <a href="mailto:support@aurafilm.vn" class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                        support@aurafilm.vn
+                    </a>
+                </div>
             </div>
 
-            <!-- Terms Content -->
-            <div class="space-y-10 text-gray-300 leading-relaxed">
-
-                <!-- Section 1 -->
-                <section>
-                    <h2 class="text-xl md:text-2xl font-bold text-white mb-3">
-                        1. Chấp nhận điều khoản
-                    </h2>
-                    <p class="text-sm md:text-base">
-                        Khi truy cập hoặc sử dụng AuraFilm, bạn xác nhận rằng bạn đã đọc, hiểu và đồng ý tuân thủ toàn
-                        bộ
-                        các điều khoản dịch vụ này. Nếu bạn không đồng ý với bất kỳ điều khoản nào, vui lòng ngừng sử
-                        dụng
-                        dịch vụ.
-                    </p>
-                </section>
-
-                <!-- Section 2 -->
-                <section>
-                    <h2 class="text-xl md:text-2xl font-bold text-white mb-3">
-                        2. Tài khoản người dùng
-                    </h2>
-                    <p class="text-sm md:text-base">
-                        Người dùng chịu trách nhiệm bảo mật thông tin tài khoản, bao gồm tên đăng nhập và mật khẩu.
-                        AuraFilm không chịu trách nhiệm đối với các thiệt hại phát sinh do việc tiết lộ thông tin tài
-                        khoản từ phía người dùng.
-                    </p>
-                </section>
-
-                <!-- Section 3 -->
-                <section>
-                    <h2 class="text-xl md:text-2xl font-bold text-white mb-3">
-                        3. Quyền và nghĩa vụ của người dùng
-                    </h2>
-                    <p class="text-sm md:text-base">
-                        Người dùng cam kết không sử dụng AuraFilm cho các mục đích trái pháp luật, vi phạm thuần phong
-                        mỹ
-                        tục, hoặc xâm phạm quyền lợi của bên thứ ba. Mọi hành vi vi phạm có thể dẫn đến việc khóa tài
-                        khoản hoặc chấm dứt dịch vụ.
-                    </p>
-                </section>
-
-                <!-- Section 4 -->
-                <section>
-                    <h2 class="text-xl md:text-2xl font-bold text-white mb-3">
-                        4. Quyền sở hữu nội dung
-                    </h2>
-                    <p class="text-sm md:text-base">
-                        Tất cả nội dung hiển thị trên AuraFilm, bao gồm nhưng không giới hạn ở phim ảnh, hình ảnh, logo
-                        và giao diện, đều thuộc quyền sở hữu của AuraFilm hoặc các đối tác liên quan và được bảo vệ bởi
-                        luật sở hữu trí tuệ.
-                    </p>
-                </section>
-
-                <!-- Section 5 -->
-                <section>
-                    <h2 class="text-xl md:text-2xl font-bold text-white mb-3">
-                        5. Giới hạn trách nhiệm
-                    </h2>
-                    <p class="text-sm md:text-base">
-                        AuraFilm không chịu trách nhiệm đối với bất kỳ thiệt hại gián tiếp, ngẫu nhiên hoặc hệ quả nào
-                        phát sinh từ việc sử dụng hoặc không thể sử dụng dịch vụ.
-                    </p>
-                </section>
-
-                <!-- Section 6 -->
-                <section>
-                    <h2 class="text-xl md:text-2xl font-bold text-white mb-3">
-                        6. Thay đổi điều khoản
-                    </h2>
-                    <p class="text-sm md:text-base">
-                        AuraFilm có quyền thay đổi, cập nhật điều khoản dịch vụ bất kỳ lúc nào. Các thay đổi sẽ có hiệu
-                        lực ngay khi được đăng tải trên website.
-                    </p>
-                </section>
-
-                <!-- Section 7 -->
-                <section>
-                    <h2 class="text-xl md:text-2xl font-bold text-white mb-3">
-                        7. Liên hệ
-                    </h2>
-                    <p class="text-sm md:text-base">
-                        Nếu bạn có bất kỳ câu hỏi nào liên quan đến điều khoản dịch vụ, vui lòng liên hệ với chúng tôi
-                        qua email:
-                        <a href="mailto:supportaurafilm@gmail.com" class="text-primary font-medium">supportaurafilm@gmail.com</a>
-                    </p>
-                </section>
-
-            </div>
+            <div id="footer-container" class="mt-20 border-t border-white/5 pt-10 pb-10"></div>
         </div>
-        <!-- Footer -->
-        <div id="footer-container" class="mt-auto border-t border-white/5 pt-5 mb-5 px-5"></div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="scripts/login_register.js"></script>
     <script src="scripts/loadheaderfooter.js"></script>
-</body>
 
+    <script>
+        $(document).ready(function() {
+            if (typeof window.checkLoginStatus === 'function') {
+                window.checkLoginStatus();
+            }
+        });
+    </script>
+</body>
 </html>

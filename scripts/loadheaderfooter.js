@@ -76,7 +76,7 @@ $(document).ready(function () {
         const text = $link.text().trim();
 
         // 1. Gán href động cho các mục đặc biệt
-        if(text === 'Trending') $link.attr('href', 'movie_list.html?type=trending');
+        if(text === 'Thịnh Hành') $link.attr('href', 'movie_list.html?type=trending');
         if(text === 'Đang Chiếu') $link.attr('href', 'movie_list.html?type=now-showing');
         if(text === 'Sắp Chiếu') $link.attr('href', 'movie_list.html?type=coming-soon');
         
@@ -105,25 +105,44 @@ $(document).ready(function () {
 });
 
     $("#navbar-container").load("components/header.html", function() {
-        if (typeof window.checkLoginStatus === 'function') {
-            window.checkLoginStatus();
-        }
-        if (globalMoviesData.length > 0) {
-            populateGenres(globalMoviesData);
-            populateCountries(globalMoviesData);
+    const currentFile = window.location.pathname.split('/').pop() || "index.html";
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Tìm tất cả các link (<a>) và nút (button) trong Header
+    $("#navbar-container a, #navbar-container button").each(function() {
+        const $el = $(this);
+        const href = $el.attr('href');
+        const text = $el.text().trim();
+
+        // Xóa các class active mặc định nếu có
+        $el.removeClass('header-active text-white bg-[#2a2a2a]');
+
+        // 1. Kiểm tra nếu href của link khớp với tên file hiện tại
+        if (href) {
+            const linkFile = href.split('/').pop();
+            if (currentFile === linkFile) {
+                $el.addClass('header-active');
+            }
         }
 
-        const userProfile = document.getElementById("user-profile");
-        const logoutBtn = document.getElementById("btn-logout");
-
-        if (userProfile) {
-            userProfile.addEventListener("click", (e) => {
-                if (logoutBtn && logoutBtn.contains(e.target)) return;
-                const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-                window.location.href = isLoggedIn ? "profile.html" : "login.html";
-            });
+        // 2. Logic đặc biệt cho các Dropdown (Thể loại / Quốc gia)
+        // Nếu đang ở trang movie_list.html và có tham số lọc tương ứng
+        if (currentFile === 'movie_list.html') {
+            if (urlParams.has('genre') && text.includes('Thể loại')) {
+                $el.addClass('header-active');
+            }
+            if (urlParams.has('country') && text.includes('Quốc gia')) {
+                $el.addClass('header-active');
+            }
         }
     });
+
+    // Giữ nguyên logic kiểm tra đăng nhập cũ của bạn
+    if (typeof window.checkLoginStatus === 'function') {
+        window.checkLoginStatus();
+    }
+    // ... các logic profile/logout khác ...
+});
 
     $("#footer-container").load("components/footer.html");
 
@@ -195,7 +214,7 @@ $(document).ready(function () {
         globalMoviesData = data; 
         if ($("#hero-section").length > 0) {
             renderHeroSlider(data.slice(0, 5));
-            renderCarouselRow("#section-trending", "Phổ Biến", data.slice(0, 20));
+            renderCarouselRow("#section-trending", "Thịnh Hành", data.slice(0, 20));
             renderCarouselRow("#section-now-showing", "Đang Chiếu", data.filter(m => m.status === 'Đang Chiếu'));
             renderCarouselRow("#section-coming-soon", "Sắp Chiếu", data.filter(m => m.status === 'Sắp Chiếu'));
             

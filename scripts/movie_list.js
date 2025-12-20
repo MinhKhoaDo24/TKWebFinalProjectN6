@@ -32,6 +32,9 @@ $(document).ready(function () {
             } else if (type === 'now-showing') {
                 allFilteredMovies = data.filter(m => m.status === 'Đang Chiếu');
                 titleText = "Phim Đang Chiếu";
+            } else if (type === 'coming-soon') {
+                allFilteredMovies = data.filter(m => m.status === 'Sắp Chiếu');
+                titleText = "Phim Sắp Chiếu";
             } else {
                 allFilteredMovies = data;
             }
