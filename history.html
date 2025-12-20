@@ -167,9 +167,8 @@
 </head>
 
 <body>
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden backdrop-blur-sm"></div>
-
-    <div id="sidebar-container"></div>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72"></div>
 
     <main>
         <div id="navbar-container"></div>
