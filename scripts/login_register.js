@@ -1,31 +1,43 @@
 $(document).ready(function() {
     
-    // Key để lưu danh sách tài khoản trong LocalStorage
+    // Key lưu trữ
     const DB_KEY = 'cine_users'; 
 
     // ==================================================
-    // 1. CÁC HÀM DÙNG CHUNG (GLOBAL)
+    // 1. HÀM CẬP NHẬT TRẠNG THÁI (ĐỒNG BỘ CẢ 2 NƠI)
     // ==================================================
-
-    // Hàm kiểm tra và cập nhật giao diện Header
     window.checkLoginStatus = function() {
         const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
         const username = localStorage.getItem("username") || "Member";
 
-        // Nếu header chưa load xong thì bỏ qua
-        if ($("#guest-action-container").length === 0) return;
+        // --- A. CẬP NHẬT HEADER ---
+        if ($("#guest-action-container").length > 0) {
+            if (isLoggedIn) {
+                $("#guest-action-container").addClass("hidden");
+                $("#user-profile").removeClass("hidden").addClass("flex");
+                $("#username-display").text(username);
+            } else {
+                $("#guest-action-container").removeClass("hidden");
+                $("#user-profile").addClass("hidden").removeClass("flex");
+            }
+        }
 
-        if (isLoggedIn) {
-            $("#guest-action-container").addClass("hidden");
-            $("#user-profile").removeClass("hidden").addClass("flex");
-            $("#username-display").text(username);
-        } else {
-            $("#guest-action-container").removeClass("hidden");
-            $("#user-profile").addClass("hidden").removeClass("flex");
+        // --- B. CẬP NHẬT SIDEBAR (MỚI) ---
+        if ($("#sidebar-guest-view").length > 0) {
+            if (isLoggedIn) {
+                // Đăng nhập -> Ẩn nút Login cũ, Hiện Profile mới
+                $("#sidebar-guest-view").addClass("hidden");
+                $("#sidebar-user-view").removeClass("hidden");
+                $("#sidebar-username-text").text(username);
+            } else {
+                // Chưa đăng nhập -> Hiện nút Login cũ
+                $("#sidebar-guest-view").removeClass("hidden");
+                $("#sidebar-user-view").addClass("hidden");
+            }
         }
     };
 
-    // Hàm bắt buộc đăng nhập (dùng cho các nút chức năng)
+    // Hàm bắt buộc đăng nhập (Tiện ích)
     window.requireLogin = function() {
         if (localStorage.getItem("isLoggedIn") !== "true") {
             if (confirm("Bạn cần đăng nhập để sử dụng tính năng này!\nĐến trang đăng nhập ngay?")) {
@@ -37,7 +49,7 @@ $(document).ready(function() {
     };
 
     // ==================================================
-    // 2. XỬ LÝ ĐĂNG KÝ (REGISTER)
+    // 2. XỬ LÝ ĐĂNG KÝ
     // ==================================================
     $("#register-form").on("submit", function(e) {
         e.preventDefault();
@@ -47,21 +59,16 @@ $(document).ready(function() {
         const password = $("#reg-password").val().trim();
         const confirmPass = $("#reg-confirm").val().trim();
 
-        // Validate cơ bản
-        if (username.length < 3) { alert("Tên đăng nhập quá ngắn!"); return; }
-        if (password.length < 6) { alert("Mật khẩu phải từ 6 ký tự trở lên!"); return; }
-        if (password !== confirmPass) { alert("Mật khẩu nhập lại không khớp!"); return; }
+        if (username.length < 3) { alert("Tên quá ngắn!"); return; }
+        if (password.length < 6) { alert("Mật khẩu quá ngắn!"); return; }
+        if (password !== confirmPass) { alert("Mật khẩu không khớp!"); return; }
 
-        // Lấy danh sách user từ LocalStorage
         let users = JSON.parse(localStorage.getItem(DB_KEY)) || [];
-
-        // Kiểm tra trùng lặp
         if (users.some(u => u.username === username)) {
-            alert("Tên đăng nhập này đã tồn tại!");
+            alert("Tên đăng nhập đã tồn tại!");
             return;
         }
 
-        // Lưu tài khoản mới
         users.push({ username, email, password });
         localStorage.setItem(DB_KEY, JSON.stringify(users));
 
@@ -70,7 +77,7 @@ $(document).ready(function() {
     });
 
     // ==================================================
-    // 3. XỬ LÝ ĐĂNG NHẬP (LOGIN)
+    // 3. XỬ LÝ ĐĂNG NHẬP
     // ==================================================
     $("#login-form").on("submit", function(e) {
         e.preventDefault();
@@ -78,46 +85,43 @@ $(document).ready(function() {
         const inputUser = $("#login-username").val().trim();
         const inputPass = $("#login-password").val().trim();
 
-        // Lấy danh sách user
         let users = JSON.parse(localStorage.getItem(DB_KEY)) || [];
-
-        // Tìm user khớp cả tên và mật khẩu
         const validUser = users.find(u => 
             (u.username === inputUser || u.email === inputUser) && u.password === inputPass
         );
 
         if (validUser) {
-            // Đăng nhập thành công
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("username", validUser.username);
             
             alert("Đăng nhập thành công! Chào mừng " + validUser.username);
             window.location.href = "index.html";
         } else {
-            // Đăng nhập thất bại
-            alert("Sai tên đăng nhập hoặc mật khẩu! Vui lòng kiểm tra lại.");
+            alert("Sai tên đăng nhập hoặc mật khẩu!");
         }
     });
 
     // ==================================================
-    // 4. XỬ LÝ ĐĂNG XUẤT (LOGOUT)
+    // 4. XỬ LÝ ĐĂNG XUẤT (CHUNG CHO CẢ 2 NÚT)
     // ==================================================
-    $(document).on("click", "#btn-logout", function(e) {
+    function handleLogout(e) {
         e.preventDefault();
         if(confirm("Bạn có chắc muốn đăng xuất?")) {
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("username");
-            // localStorage.removeItem("favorites"); // Có thể bỏ comment nếu muốn xóa cả list yêu thích
             
             alert("Đã đăng xuất.");
-            window.location.reload(); // Tải lại trang để cập nhật giao diện
+            window.location.reload(); // Tải lại trang để reset giao diện
         }
-    });
+    }
 
-    // ==================================================
-    // 5. CÁC TIỆN ÍCH KHÁC
-    // ==================================================
-    // Toggle menu khách trên header
+    // Gán sự kiện cho Header
+    $(document).on("click", "#btn-logout", handleLogout);
+    
+    // Gán sự kiện cho Sidebar
+    $(document).on("click", "#btn-sidebar-logout", handleLogout);
+
+    // Toggle menu dropdown (Header)
     $(document).on("click", "#btn-member-menu", function(e) {
         e.stopPropagation();
         $("#guest-dropdown").toggleClass("hidden");

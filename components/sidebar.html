@@ -2,22 +2,21 @@
     
     <div class="absolute inset-0 flex flex-col bg-[#141414] border-r border-white/10 xl:border xl:border-white/5 shadow-2xl overflow-hidden rounded-none xl:rounded-2xl">
         
-        <div class="h-20 flex items-center px-6 shrink-0 cursor-pointer overflow-hidden whitespace-nowrap group transition-all duration-300" onclick="window.location.href='index.html'">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-lg shadow-purple-500/20 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 mx-auto md:mx-0">
+        <div class="h-20 flex items-center px-4 mx-auto md:px-6 shrink-0 cursor-pointer overflow-hidden whitespace-nowrap group transition-all duration-300" onclick="window.location.href='index.html'">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-lg shadow-purple-500/20 shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                 <i class="fa-solid fa-play text-white text-sm"></i>
             </div>
             <h1 class="text-2xl font-bold tracking-tight ml-3 opacity-100 transition-opacity duration-300 sidebar-text text-white">
                 phim<span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">conmeo</span>
             </h1>
         </div>
-
         <nav class="flex-1 overflow-y-auto px-3 py-2 space-y-4 custom-scrollbar mt-1">
             
             <div>
                 <h3 class="sidebar-text text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500 mb-3 px-4 truncate transition-opacity duration-300">Menu</h3>
                 <ul class="space-y-2">
                     <li>
-                        <a href="#" class="nav-item active flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm">
+                        <a href="#section-trending" class="nav-item active flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm">
                             <i class="fa-solid fa-fire w-6 text-lg text-center transition-colors"></i>
                             <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Trending</span>
                         </a>
@@ -50,7 +49,6 @@
                         <span class="text-xs text-gray-500">Đang tải...</span>
                     </div>
                 </div>
-
                 <div class="mb-4">
                     <button class="mobile-accordion-btn w-full flex items-center justify-between h-12 px-4 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-all group">
                         <div class="flex items-center">
@@ -68,10 +66,9 @@
             <div>
                 <h3 class="sidebar-text text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500 mb-3 px-4 truncate mt-2 transition-opacity duration-300">Thư Viện</h3>
                 <div class="w-6 h-[2px] bg-white/10 mx-auto mb-4 sidebar-divider rounded-full hidden"></div> 
-                
                 <ul class="space-y-2">
                     <li>
-                        <a href="#" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
+                        <a href="../history.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
                             <i class="fa-solid fa-clock-rotate-left w-6 text-lg text-center transition-colors group-hover:text-purple-400"></i>
                             <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Gần Đây</span>
                         </a>
@@ -99,12 +96,32 @@
                             <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Cài Đặt</span>
                         </a>
                     </li>
-                    <li>
+
+                    <li id="sidebar-guest-view">
                         <a href="login.html" class="nav-item flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-gray-400 hover:text-white hover:bg-white/5">
                             <i class="fa-solid fa-right-from-bracket w-6 text-lg text-center transition-colors group-hover:text-red-500"></i>
                             <span class="ml-3 sidebar-text whitespace-nowrap group-hover:text-red-400 opacity-100 transition-opacity duration-300">Đăng Nhập</span>
                         </a>
                     </li>
+
+                    <div id="sidebar-user-view" class="hidden space-y-2">
+                        <!-- <li class="px-2">
+                            <div class="flex items-center h-12 px-2 rounded-xl bg-white/5 border border-white/5 overflow-hidden">
+                                <img src="https://i.pravatar.cc/150?img=11" class="w-8 h-8 rounded-full border border-purple-500 object-cover shrink-0">
+                                <div class="ml-3 sidebar-text overflow-hidden whitespace-nowrap">
+                                    <p id="sidebar-username-text" class="text-xs font-bold text-white truncate">Thành viên</p>
+                                    <p class="text-[10px] text-purple-400 font-bold uppercase">Premium</p>
+                                </div>
+                            </div>
+                        </li> -->
+                        <li>
+                            <button id="btn-sidebar-logout" class="nav-item w-full flex items-center h-12 px-4 rounded-xl transition-all duration-200 group font-medium text-sm text-red-400 hover:text-white hover:bg-red-500/20 text-left">
+                                <i class="fa-solid fa-power-off w-6 text-lg text-center transition-colors"></i>
+                                <span class="ml-3 sidebar-text whitespace-nowrap opacity-100 transition-opacity duration-300">Đăng Xuất</span>
+                            </button>
+                        </li>
+                    </div>
+
                 </ul>
             </div>
         </nav>

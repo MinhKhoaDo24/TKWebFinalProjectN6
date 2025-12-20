@@ -113,19 +113,40 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="scripts/login_register.js"></script>
-    <script src="scripts/loadheaderfooter.js"></script>
+    <!-- <script src="scripts/loadheaderfooter.js"></script> -->
     <script>
-      function togglePassword(inputId, icon) {
-        const input = document.getElementById(inputId);
-        const iconElem = icon.querySelector('i');
-        if (input.type === "password") {
-          input.type = "text";
-          iconElem.classList.replace('fa-eye', 'fa-eye-slash');
-        } else {
-          input.type = "password";
-          iconElem.classList.replace('fa-eye-slash', 'fa-eye');
-        }
+  function togglePassword(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const eyeIcon = btn.querySelector('i');
+    
+    // Tìm icon ổ khóa nằm cùng dòng (bên trái)
+    const container = btn.closest('.relative');
+    const lockIcon = container.querySelector('.absolute.left-0 i');
+
+    if (input.type === "password") {
+      // 1. HIỆN MẬT KHẨU
+      input.type = "text";
+      
+      // Đổi icon mắt: Mắt mở -> Mắt gạch chéo
+      eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+      
+      // Đổi icon khóa: Đóng -> Mở (nếu là icon ổ khóa)
+      if (lockIcon && lockIcon.classList.contains('fa-lock')) {
+          lockIcon.classList.replace('fa-lock', 'fa-lock-open');
       }
-    </script>
+    } else {
+      // 2. ẨN MẬT KHẨU
+      input.type = "password";
+      
+      // Đổi icon mắt: Mắt gạch chéo -> Mắt mở
+      eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+      
+      // Đổi icon khóa: Mở -> Đóng (nếu là icon ổ khóa)
+      if (lockIcon && lockIcon.classList.contains('fa-lock-open')) {
+          lockIcon.classList.replace('fa-lock-open', 'fa-lock');
+      }
+    }
+  }
+</script>
   </body>
 </html>
