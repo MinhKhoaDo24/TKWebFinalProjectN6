@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh Toán - CineMax</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: "#141414", // Màu đồng bộ với Sidebar của bạn
+                        primary: "#8b5cf6",
+                        secondary: "#d946ef",
+                    },
+                    fontFamily: { sans: ["Outfit", "sans-serif"] },
+                },
+            },
+        };
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
+
+        /* Đảm bảo Sidebar mini hiển thị đúng */
+        .mini-sidebar #sidebar-content {
+            width: 88px !important;
+        }
+
+        .mini-sidebar .sidebar-text {
+            display: none;
+        }
+
+        body {
+            background-color: #141414;
+        }
+    </style>
+</head>
+
+<body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
+    <div id="sidebar-container"
+        class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72">
+    </div>
+
+    <main class="flex-1 flex flex-col h-screen relative w-full overflow-y-auto transition-all duration-300">
+
+        <div id="navbar-container" class="z-40"></div>
+
+        <div class="max-w-5xl mx-auto px-4 pt-12 pb-20 flex-grow w-full">
+
+            <div class="text-center mb-12">
+                <p class="text-primary uppercase tracking-widest text-sm font-semibold mb-2">Thanh Toán Thành công</p>
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-white">Cảm ơn bạn đã đăng ký dịch vụ</h1>
+                <p class="text-gray-400 mt-4 max-w-xl mx-auto text-sm md:text-base">
+                    Chúc bạn có những trải nghiệm tuyệt vời với CineMax!
+                </p>
+            </div>
+        </div>
+
+        <div id="footer-container" class="mt-auto border-t border-white/5 pt-5 mb-5 px-5"></div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/login_register.js"></script>
+    <script src="scripts/loadheaderfooter.js"></script>
+</body>
+</html>

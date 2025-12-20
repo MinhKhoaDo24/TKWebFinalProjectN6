@@ -128,3 +128,15 @@ $(document).ready(function() {
     });
     $(document).click(function() { $("#guest-dropdown").addClass("hidden"); });
 });
+
+    document.addEventListener("click", (e) => {
+  const link = e.target.closest("#avatar-link");
+  if (!link) return;
+
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const username = localStorage.getItem("username");
+  if (!isLoggedIn || !username) {
+    e.preventDefault();
+    window.location.href = "login.html";
+  }
+});
