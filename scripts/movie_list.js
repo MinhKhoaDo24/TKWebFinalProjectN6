@@ -29,7 +29,7 @@ $(document).ready(function () {
                 titleText = `Quốc gia: ${country}`;
             } else if (type === 'trending') {
                 allFilteredMovies = data.sort((a, b) => b.vote_average - a.vote_average);
-                titleText = "Phim Đang Thịnh Hành";
+                titleText = "Phim Thịnh Hành";
             } else if (type === 'now-showing') {
                 allFilteredMovies = data.filter(m => m.status === 'Đang Chiếu');
                 titleText = "Phim Đang Chiếu";

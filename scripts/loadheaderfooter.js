@@ -135,6 +135,8 @@ $(document).ready(function () {
                 $el.addClass('header-active');
             }
         }
+
+        
     });
 
     // Giữ nguyên logic kiểm tra đăng nhập cũ của bạn
@@ -336,7 +338,7 @@ $(document).ready(function () {
     const renderTopRated = (movies) => {
          let html = "";
          movies.sort((a,b) => b.vote_average - a.vote_average).slice(0, 10).forEach((m, i) => {
-             let rankTextStyle = i === 0 ? "text-6xl font-black italic text-transparent bg-clip-text bg-gradient-to-t from-purple-600 to-pink-400 drop-shadow-[0_4px_10px_rgba(168,85,247,0.6)] pr-2" : (i === 1 ? "text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 drop-shadow-md pr-1" : (i === 2 ? "text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-t from-yellow-700 to-yellow-300 drop-shadow-md pr-1" : "text-3xl font-bold text-gray-500 font-[Outfit]"));
+             let rankTextStyle = i === 0 ? "text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-t from-purple-600 to-pink-400 drop-shadow-[0_4px_10px_rgba(168,85,247,0.6)] pr-2" : (i === 1 ? "text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 drop-shadow-md pr-1" : (i === 2 ? "text-5xl font-black italic text-transparent bg-clip-text bg-gradient-to-t from-yellow-700 to-yellow-300 drop-shadow-md pr-1" : "text-3xl font-bold text-gray-500 font-[Outfit]"));
              let rankHeartColor = i === 0 ? "text-pink-500/50" : (i === 1 ? "text-blue-500/50" : (i === 2 ? "text-yellow-500/50" : "text-gray-700")); 
 
              const heartClass = window.isFavorite(m.id) ? 'fa-solid text-red-500' : 'fa-regular text-gray-400';
@@ -345,7 +347,7 @@ $(document).ready(function () {
              html += `
                 <div class="relative group block mb-3 pl-1">
                     <a href="movie_detail.html?id=${m.id}" class="top-rated-item flex items-center p-3 rounded-2xl cursor-pointer bg-[#1e1e1e]/50 border border-white/5 relative overflow-hidden hover:bg-white/5 transition-colors pr-14">
-                        <div class="w-16 flex-shrink-0 flex flex-col justify-center items-center z-10">
+                        <div class="w-10 flex-shrink-0 flex flex-col justify-center items-center z-10">
                             <span class="${rankTextStyle} leading-none">${i+1}</span>
                             <i class="fa-solid fa-heart text-[10px] mt-1 ${rankHeartColor}"></i>
                         </div>
