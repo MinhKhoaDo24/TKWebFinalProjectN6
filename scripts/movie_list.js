@@ -20,6 +20,7 @@ $(document).ready(function () {
         .then(data => {
             // 1. Thực hiện lọc dữ liệu dựa trên URL
             let titleText = "Tất cả phim";
+            
             if (genre) {
                 allFilteredMovies = data.filter(m => m.genres.includes(genre));
                 titleText = `Thể loại: ${genre}`;
