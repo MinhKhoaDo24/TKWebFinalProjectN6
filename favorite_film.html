@@ -3,54 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phim Yêu Thích Của Tôi</title>
+    <title>Phim Yêu Thích Của Tôi - CineMax</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     
-    <link rel="stylesheet" href="css/favorites.css">
-
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            colors: { bgMain: "#121212", bgCard: "#1e1e1e", bgInput: "#2a2a2a", primary: "#8b5cf6" },
+            colors: { 
+                bgMain: "#141414", // Màu nền đồng bộ Sidebar
+                bgCard: "#1e1e1e", 
+                bgInput: "#2a2a2a", 
+                primary: "#8b5cf6" 
+            },
             fontFamily: { sans: ["Outfit", "sans-serif"] },
             backgroundImage: { "gradient-brand": "linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)" },
           },
         },
       };
     </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+        
+        /* Styles cho Sidebar Mini */
+        .mini-sidebar #sidebar-content { width: 88px !important; }
+        .mini-sidebar .sidebar-text { display: none; }
+        
+        body { background-color: #141414; }
+    </style>
 </head>
 <body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
     
-<div id="sidebar-container" class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-[88px] border-r border-white/5 bg-[#121212]"></div>
-    <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain transition-all duration-300">
-        <div id="navbar-container"></div>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72"></div>
 
-        <div class="flex-1 overflow-y-auto px-4 md:px-8 scroll-smooth">
+    <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain transition-all duration-300">
+        <div id="navbar-container" class="z-40"></div>
+
+        <div class="flex-1 overflow-y-auto px-4 md:px-8 scroll-smooth custom-scrollbar">
             
             <div class="pt-6">
-                <div class="fav-hero-section group relative w-full h-[350px] rounded-[2.5rem] overflow-hidden mb-10 border border-white/10 shadow-2xl">
+                <div class="fav-hero-section group relative w-full h-[300px] md:h-[350px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden mb-10 border border-white/10 shadow-2xl">
                     <div class="fav-banner-bg absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" 
                          style="background-image: url('https://phimimg.com/upload/vod/20231019-1/464bfa48e2c1b343df197c9b6b95b789.jpg');">
                     </div>
                     
                     <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-500"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-bgMain via-transparent to-transparent"></div>
 
                     <div class="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-4">
-                        
                         <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/40 border border-white/20 backdrop-blur-md mb-6 hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-default">
                             <i class="fa-solid fa-heart text-red-500 animate-pulse"></i>
-                            <span class="text-white text-sm font-bold uppercase tracking-widest">My Collection</span>
+                            <span class="text-white text-sm font-bold uppercase tracking-widest">Bộ sưu tập của tôi</span>
                         </div>
 
-                        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+                        <h1 class="text-3xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
                             Thư Viện Phim Cá Nhân
                         </h1>
 
-                        <p class="text-gray-200 text-lg md:text-xl font-light max-w-2xl drop-shadow-md">
+                        <p class="text-gray-200 text-base md:text-xl font-light max-w-2xl">
                             Bạn đang có <span id="total-count" class="text-primary font-bold text-2xl mx-1">0</span> bộ phim tuyệt vời trong danh sách.
                         </p>
                     </div>
@@ -61,18 +75,23 @@
                 <div id="favorites-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
                     <div class="col-span-full text-center py-20 text-gray-500">
                         <i class="fa-solid fa-spinner fa-spin text-3xl text-primary"></i>
-                        <p class="mt-2">Đang tải phim...</p>
+                        <p class="mt-2">Đang tải danh sách phim...</p>
                     </div>
                 </div>
             </div>
             
-            <div id="footer-container" class="mt-auto border-t border-white/5 pt-5 mb-5"></div>
+            <div id="footer-container" class="mt-auto border-t border-white/5 pt-10 pb-10"></div>
         </div>
     </main>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="scripts/login_register.js"></script>
-    <script src="scripts/loadheaderfooter.js"></script>
-    <script src="scripts/favorite.js"></script>
-    
+    <script src="scripts/login_register.js"></script> <script src="scripts/loadheaderfooter.js"></script> <script src="scripts/favorite.js"></script> <script>
+        // Gọi kiểm tra đăng nhập ngay khi trang sẵn sàng
+        $(document).ready(function() {
+            if (typeof window.checkLoginStatus === 'function') {
+                window.checkLoginStatus();
+            }
+        });
+    </script>
 </body>
 </html>
