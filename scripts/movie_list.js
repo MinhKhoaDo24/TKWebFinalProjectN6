@@ -19,14 +19,14 @@ $(document).ready(function () {
         .then(res => res.json())
         .then(data => {
             // 1. Thực hiện lọc dữ liệu dựa trên URL
-            let titleText = "Tất cả phim";
+            let titleText = "Tất Cả Phim";
             
             if (genre) {
                 allFilteredMovies = data.filter(m => m.genres.includes(genre));
-                titleText = `Thể loại: ${genre}`;
+                titleText = `Thể Loại: ${genre}`;
             } else if (country) {
                 allFilteredMovies = data.filter(m => m.details?.country?.includes(country));
-                titleText = `Quốc gia: ${country}`;
+                titleText = `Quốc Gia: ${country}`;
             } else if (type === 'trending') {
                 allFilteredMovies = data.sort((a, b) => b.vote_average - a.vote_average);
                 titleText = "Phim Thịnh Hành";
