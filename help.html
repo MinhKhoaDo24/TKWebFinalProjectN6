@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liên hệ - AuraFilm</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: "#141414",
+                        primary: "#8b5cf6",
+                        secondary: "#d946ef",
+                    },
+                    fontFamily: {
+                        sans: ["Outfit", "sans-serif"]
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
+
+        body {
+            background-color: #141414;
+        }
+    </style>
+</head>
+
+<body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
+
+    <!-- Overlay sidebar -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar-container"
+        class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72">
+    </div>
+
+    <!-- Main -->
+    <main class="flex-1 flex flex-col h-screen relative w-full overflow-y-auto transition-all duration-300">
+
+        <!-- Navbar -->
+        <div id="navbar-container" class="z-40"></div>
+
+        <!-- Content -->
+        <div class="max-w-6xl mx-auto px-4 pt-12 pb-20 flex-grow w-full">
+
+            <!-- Header -->
+            <div class="text-center mb-14">
+                <p class="text-primary uppercase tracking-widest text-sm font-semibold mb-2">
+                    Liên hệ AuraFilm
+                </p>
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-white">
+                    Chúng tôi luôn sẵn sàng hỗ trợ bạn
+                </h1>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-sm md:text-base">
+                    Nếu bạn có bất kỳ câu hỏi, góp ý hoặc vấn đề kỹ thuật nào, hãy liên hệ với AuraFilm qua các kênh bên
+                    dưới hoặc gửi tin nhắn trực tiếp cho chúng tôi.
+                </p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                <!-- Thông tin liên hệ -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold mb-4">Thông tin liên hệ</h2>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-location-dot text-primary text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold">Địa chỉ</p>
+                            <p class="text-gray-500 text-sm">
+                                12 Chùa Bộc, Đống Đa, Hà Nội, Việt Nam
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-envelope text-primary text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold">Email</p>
+                            <p class="text-gray-500 text-sm">
+                                supportaurafilm@gmail.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-phone text-primary text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold">Hotline</p>
+                            <p class="text-gray-500 text-sm">
+                                1900 6868
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-clock text-primary text-xl mt-1"></i>
+                        <div>
+                            <p class="font-semibold">Giờ làm việc</p>
+                            <p class="text-gray-500 text-sm">
+                                08:00 - 22:00 (Thứ 2 – Chủ nhật)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form liên hệ -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                    <h2 class="text-2xl font-bold mb-6">Gửi liên hệ cho chúng tôi</h2>
+
+                    <form class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Họ và tên</label>
+                            <input type="text" placeholder="Nhập họ tên của bạn"
+                                class="w-full px-4 py-2 rounded-lg bg-bgMain border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" placeholder="example@email.com"
+                                class="w-full px-4 py-2 rounded-lg bg-bgMain border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Nội dung</label>
+                            <textarea rows="4" placeholder="Nhập nội dung liên hệ..."
+                                class="w-full px-4 py-2 rounded-lg bg-bgMain border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full py-3 rounded-lg bg-gradient-to-r from-primary to-secondary font-semibold hover:opacity-90 transition">
+                            Gửi liên hệ
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-container" class="mt-auto border-t border-white/5 pt-5 mb-5 px-5"></div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/login_register.js"></script>
+    <script src="scripts/loadheaderfooter.js"></script>
+</body>
+
+</html>
