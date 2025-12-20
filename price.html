@@ -12,7 +12,6 @@
 </head>
 <body class="bg-[#0b0b0b] text-white font-sans overflow-hidden">
 
-  <!-- Overlay -->
   <div
     id="sidebar-overlay"
     class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm"
@@ -82,7 +81,7 @@
                             <i class="fas fa-times"></i> Không quảng cáo
                         </li>
                     </ul>
-                    <a href="payment.html"><button
+                    <a href="payment.html"><button onclick="selectPlan('Cơ Bản', 'HD', '1 thiết bị', '79.000đ')"
                         class="w-full py-3 rounded-xl border border-purple-500/50 bg-purple-500
                                text-white font-bold 
                                hover:bg-purple-800 hover:text-white transition-all duration-300"
@@ -118,7 +117,7 @@
                     </ul>
 
                     <a href="payment.html">
-                      <button
+                      <button onclick="selectPlan('Tiêu Chuẩn', 'Full HD', '2 thiết bị', '129.000đ')"
                         class="w-full py-3 rounded-xl border border-purple-500/50
                                bg-purple-500 text-white font-bold
                                hover:bg-purple-800 transition-all duration-300"
@@ -154,7 +153,7 @@
                         </li>
                     </ul>
 
-                    <a href="payment.html"><button
+                    <a href="payment.html"><button onclick="selectPlan('Cao Cấp', '4K', '4 thiết bị', '199.000đ')"
                         class="w-full py-3 rounded-xl border border-purple-500/50 bg-purple-500
                                text-white font-bold 
                                hover:bg-purple-800 hover:text-white transition-all duration-300"
@@ -164,13 +163,25 @@
                 </div>
             </div>
       </section>
-
+      <div id="footer-container" class="mt-5"></div>
     </main>
-  </div>
 
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="scripts/loadheaderfooter.js"></script>
-
+  <script>
+        function selectPlan(name, quality, devices, price) {
+            const planData = {
+                name: name,
+                quality: quality,
+                devices: devices,
+                price: price
+            };
+            // Lưu thông tin vào localStorage
+            localStorage.setItem('selectedPlan', JSON.stringify(planData));
+            // Chuyển hướng sang trang thanh toán
+            window.location.href = 'payment.html';
+        }
+    </script>
 </body>
 </html>

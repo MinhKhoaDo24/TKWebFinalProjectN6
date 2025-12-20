@@ -47,26 +47,26 @@
           <div class="space-y-4 text-gray-300">
             <div class="flex justify-between">
               <span>Tên gói</span>
-              <span class="font-semibold text-white">Tiêu Chuẩn</span>
+              <span id="display-name" class="font-semibold text-white">---</span>
             </div>
-
+          
             <div class="flex justify-between">
               <span>Chất lượng</span>
-              <span>Full HD</span>
+              <span id="display-quality">---</span>
             </div>
-
+          
             <div class="flex justify-between">
               <span>Thiết bị</span>
-              <span>2 thiết bị</span>
+              <span id="display-devices">---</span>
             </div>
-
+          
             <div class="border-t border-white/10 my-4"></div>
-
+          
             <div class="flex justify-between text-lg font-bold">
               <span>Tổng tiền</span>
-              <span class="text-purple-400">129.000đ / tháng</span>
+              <span id="display-price" class="text-purple-400">---</span>
             </div>
-          </div>
+          </div> 
         </div>
       </div>
 
@@ -120,5 +120,22 @@
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="scripts/loadheaderfooter.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lấy dữ liệu từ localStorage
+        const planData = JSON.parse(localStorage.getItem('selectedPlan'));
+    
+        if (planData) {
+            // Đổ dữ liệu vào các ID tương ứng
+            document.getElementById('display-name').textContent = planData.name;
+            document.getElementById('display-quality').textContent = planData.quality;
+            document.getElementById('display-devices').textContent = planData.devices;
+            document.getElementById('display-price').textContent = planData.price + " / tháng";
+        } else {
+            // Nếu không có dữ liệu (truy cập trực tiếp), quay lại trang giá
+            window.location.href = 'price.html';
+        }
+    });
+    </script>
 </body>
 </html>
