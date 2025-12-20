@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hồ sơ</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bgMain: "#121212",
+              bgCard: "#1e1e1e",
+              bgInput: "#2a2a2a",
+              primary: "#8b5cf6",
+            },
+            backgroundImage: {
+              "gradient-brand":
+                "linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-thumb {
+        background: #333; border-radius: 10px; border: 2px solid #121212;
+      }
+      ::-webkit-scrollbar-track { background: transparent; }
+
+      .glass-effect {
+        background: rgba(18, 18, 18, 0.85);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+    </style>
+  </head>
+
+  <body class="bg-bgMain text-white h-screen flex overflow-hidden">
+    <div
+      id="sidebar-overlay"
+      class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm transition-opacity"
+    ></div>
+
+    <div
+      id="sidebar-container"
+      class="fixed inset-y-0 left-0 z-50 h-full transform -translate-x-full md:translate-x-0 md:relative transition-all duration-300 w-72 py-4 pl-4"
+    ></div>
+
+    <main class="flex-1 flex flex-col h-screen relative w-full bg-bgMain">
+      <div id="navbar-container"></div>
+
+      <div class="flex-1 overflow-y-auto px-4 md:px-8 pb-20 md:pb-8">
+        <!-- Header -->
+        <div class="mt-6 mb-6">
+          <h1 class="text-3xl md:text-4xl font-extrabold">Hồ sơ</h1>
+          <p class="text-gray-400 mt-2">Thông tin tài khoản của bạn.</p>
+        </div>
+
+        <!-- Card -->
+        <section class="bg-[#141414] rounded-[30px] p-5 md:p-6 border border-white/5 shadow-2xl">
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
+            <!-- Avatar -->
+            <div class="relative">
+              <div class="w-28 h-28 rounded-3xl overflow-hidden border border-white/10 shadow-xl bg-bgCard">
+                <img
+                  id="pf-avatar"
+                  src="https://placehold.co/240x240/111/FFF?text=U"
+                  alt="Avatar"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="mt-3 text-xs text-gray-400">
+                <i class="fa-solid fa-shield-halved mr-1"></i>
+                Trạng thái: <span id="pf-status" class="text-gray-200">—</span>
+              </div>
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1 w-full">
+              <div class="flex items-start justify-between gap-4 flex-wrap">
+                <div>
+                  <h2 id="pf-name" class="text-2xl font-extrabold">—</h2>
+                  <div class="mt-2 text-gray-300 text-sm space-y-1">
+                    <div>
+                      <span class="text-gray-400">Email:</span>
+                      <span id="pf-email">—</span>
+                    </div>
+                    <div>
+                      <span class="text-gray-400">Username:</span>
+                      <span id="pf-username">—</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex gap-2">
+                  <a
+                    href="history.html"
+                    class="px-4 py-2 rounded-2xl bg-bgInput border border-white/5 hover:border-white/10 transition"
+                    title="Lịch sử xem"
+                  >
+                    <i class="fa-solid fa-clock-rotate-left mr-2 text-gray-300"></i>
+                    Lịch sử
+                  </a>
+
+                  <button
+                    id="btn-logout"
+                    class="px-4 py-2 rounded-2xl bg-gradient-brand text-white font-semibold hover:opacity-95 transition"
+                  >
+                    <i class="fa-solid fa-right-from-bracket mr-2"></i>
+                    Đăng xuất
+                  </button>
+                </div>
+              </div>
+
+              <!-- Mini stats -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
+                <div class="bg-bgCard rounded-2xl p-4 border border-white/5">
+                  <div class="text-xs text-gray-400 uppercase tracking-widest">Đã xem</div>
+                  <div id="pf-watched" class="text-2xl font-extrabold mt-2">0</div>
+                  <div class="text-xs text-gray-500 mt-1">mục trong lịch sử</div>
+                </div>
+
+                <div class="bg-bgCard rounded-2xl p-4 border border-white/5">
+                  <div class="text-xs text-gray-400 uppercase tracking-widest">Gần đây</div>
+                  <div id="pf-recent" class="text-sm text-gray-200 mt-2 line-clamp-2">—</div>
+                  <div class="text-xs text-gray-500 mt-1">phim xem gần nhất</div>
+                </div>
+
+
+              <div class="mt-6 text-xs text-gray-500">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="footer-container" class="mt-8"></div>
+      </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/loadheaderfooter.js"></script>
+    <script src="scripts/profile.js"></script>
+  </body>
+</html>

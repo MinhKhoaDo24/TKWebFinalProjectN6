@@ -78,6 +78,24 @@
             if (typeof window.checkLoginStatus === 'function') {
                 window.checkLoginStatus();
             }
+            // CLICK AVATAR HOẶC TÊN → PROFILE
+            const userProfile = document.getElementById("user-profile");
+            const logoutBtn = document.getElementById("btn-logout");
+
+            if (userProfile) {
+                userProfile.addEventListener("click", (e) => {
+                    // Nếu click vào nút logout thì KHÔNG redirect
+                    if (logoutBtn && logoutBtn.contains(e.target)) return;
+
+                    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+                    if (isLoggedIn) {
+                        window.location.href = "profile.html";
+                    } else {
+                        window.location.href = "login.html";
+                    }
+                });
+            }
 
             // Load dữ liệu phụ
             if (globalMoviesData.length > 0) {
