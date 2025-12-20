@@ -382,4 +382,4 @@ $(document).ready(function () {
 window.scrollCarousel = (id, direction) => {
     const container = document.getElementById(id);
     if (container) container.scrollBy({ left: direction * (container.clientWidth * 0.95), behavior: 'smooth' });
-};
+};});
