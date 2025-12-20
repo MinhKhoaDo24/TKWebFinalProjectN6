@@ -3,174 +3,131 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gói Dịch Vụ</title>
+    <title>Gói Dịch Vụ - CineMax</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bgMain: "#141414", // Đã đổi theo màu Sidebar của bạn
+              primary: "#8b5cf6",
+              secondary: "#d946ef",
+            },
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+        /* Tối ưu scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+        
+        /* Logic hiển thị Sidebar Mini */
+        .mini-sidebar #sidebar-content { width: 88px !important; }
+        .mini-sidebar .sidebar-text { display: none; }
+        
+        body { background-color: #141414; }
+    </style>
 </head>
-<body class="bg-[#0b0b0b] text-white font-sans overflow-hidden">
+<body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
 
-  <!-- Overlay -->
-  <div
-    id="sidebar-overlay"
-    class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm"
-  ></div>
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
+    <div id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72"></div>
 
-  <!-- Sidebar -->
-  <div
-    id="sidebar-container"
-    class="fixed inset-y-0 left-0 z-50 w-72 bg-[#0b0b0b]"
-  ></div>
+    <main class="flex-1 flex flex-col h-screen relative w-full overflow-y-auto transition-all duration-300">
+        
+        <div id="navbar-container" class="z-40"></div>
 
-  <!-- CONTENT AREA -->
-  <div class="ml-72 min-h-screen flex flex-col">
+        <div class="flex-1 px-4 md:px-8 py-12">
+            
+            <section class="text-center mb-16 mt-6">
+                <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-3">
+                    Gói Dịch Vụ
+                </h2>
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-white">
+                    Nâng Cấp Trải Nghiệm Điện Ảnh
+                </h1>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-sm md:text-base">
+                    Chọn gói phù hợp để tận hưởng chất lượng 4K và không quảng cáo ngay hôm nay.
+                </p>
+            </section>
 
-    <!-- Navbar -->
-    <div
-      id="navbar-container"
-      class="fixed top-0 left-72 right-0 z-40"
-    ></div>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
 
-    <!-- Main -->
-    <main class="pt-20 px-8 pb-16 overflow-y-auto">
-
-      <!-- Header -->
-      <section class="text-center mb-10 mt-12">
-        <h2 class="text-purple-500 font-bold tracking-widest uppercase text-sm mb-3">
-          Gói Dịch Vụ
-        </h2>
-
-        <h1
-          class="text-4xl md:text-5xl font-extrabold
-                 leading-[1.35] py-2
-                 text-white"
-        >
-          Nâng Cấp Trải Nghiệm Điện Ảnh
-        </h1>
-
-        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
-          Chọn gói phù hợp để tận hưởng chất lượng 4K và không quảng cáo ngay hôm nay.
-        </p>
-      </section>
-
-       <!-- Pricing Cards -->
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <!-- Basic -->
-            <div class="group relative p-[2px] rounded-3xl transition-all duration-500
-                        hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.3)]">
-                <div class="absolute inset-0 bg-gradient-to-b from-purple-500 to-pink-500 rounded-3xl"></div>
-
-                <div class="relative bg-[#161616] p-8 rounded-[23px] h-full flex flex-col border border-white/5">
-                    <h3 class="text-xl font-semibold mb-2 text-purple-400">Cơ Bản</h3>
-
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-4xl font-bold">79k</span>
-                        <span class="text-gray-400 ml-1">/tháng</span>
+                <div class="group relative p-[1px] rounded-3xl transition-all duration-500 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent rounded-3xl opacity-50"></div>
+                    <div class="relative bg-[#1e1e1e] p-8 rounded-[23px] h-full flex flex-col border border-white/5 shadow-2xl">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-300">Cơ Bản</h3>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-bold">79k</span>
+                            <span class="text-gray-400 ml-1">/tháng</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow text-gray-400 text-sm">
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-primary"></i> Xem trên 1 thiết bị</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-primary"></i> Chất lượng HD</li>
+                            <li class="flex items-center gap-3 opacity-30"><i class="fas fa-times"></i> Không quảng cáo</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl border border-white/10 bg-white/5 text-white font-bold hover:bg-white/10 transition-all">
+                            Đăng ký
+                        </button>
                     </div>
-
-                    <ul class="space-y-4 mb-8 flex-grow text-gray-300">
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-purple-500"></i> Xem trên 1 thiết bị
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-purple-500"></i> Chất lượng HD
-                        </li>
-                        <li class="flex items-center gap-3 opacity-40">
-                            <i class="fas fa-times"></i> Không quảng cáo
-                        </li>
-                    </ul>
-                    <a href="payment.html"><button
-                        class="w-full py-3 rounded-xl border border-purple-500/50 bg-purple-500
-                               text-white font-bold 
-                               hover:bg-purple-800 hover:text-white transition-all duration-300"
-                    >
-                        Đăng ký
-                    </button></a>
                 </div>
-            </div>
 
-            <!-- Standard -->
-              <div class="group relative p-[2px] rounded-3xl transition-all duration-500
-                        hover:scale-105 shadow-[0_0_40px_rgba(168,85,247,0.3)]">
-                <div class="absolute inset-0 bg-gradient-to-b from-purple-500 to-pink-500 rounded-3xl"></div>
-
-                <div class="relative bg-[#1a1a1a] p-8 rounded-[22px] h-full flex flex-col">
-                    <h3 class="text-xl font-semibold mb-2 text-purple-400">Tiêu Chuẩn</h3>
-
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-4xl font-bold">129k</span>
-                        <span class="text-gray-400 ml-1">/tháng</span>
+                <div class="group relative p-[2px] rounded-3xl transition-all duration-500 scale-100 md:scale-105 z-10 shadow-[0_0_40px_rgba(139,92,246,0.2)]">
+                    <div class="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-primary rounded-3xl"></div>
+                    <div class="relative bg-[#1a1a1a] p-8 rounded-[22px] h-full flex flex-col">
+                        <div class="absolute top-0 right-0 bg-gradient-to-r from-primary to-secondary text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-[22px] uppercase">
+                            Phổ biến
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Tiêu Chuẩn</h3>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-5xl font-bold text-white">129k</span>
+                            <span class="text-gray-400 ml-1">/tháng</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow text-gray-200 text-sm">
+                            <li class="flex items-center gap-3"><div class="bg-primary/20 p-1 rounded-full"><i class="fas fa-check text-primary text-[10px]"></i></div> Xem trên 2 thiết bị</li>
+                            <li class="flex items-center gap-3"><div class="bg-primary/20 p-1 rounded-full"><i class="fas fa-check text-primary text-[10px]"></i></div> Chất lượng Full HD</li>
+                            <li class="flex items-center gap-3"><div class="bg-primary/20 p-1 rounded-full"><i class="fas fa-check text-primary text-[10px]"></i></div> Không quảng cáo</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold hover:brightness-110 transition-all shadow-lg">
+                            Đăng ký ngay
+                        </button>
                     </div>
-
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-purple-500"></i> Xem trên 2 thiết bị
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-purple-500"></i> Chất lượng Full HD
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-purple-500"></i> Không quảng cáo
-                        </li>
-                    </ul>
-
-                    <a href="payment.html">
-                      <button
-                        class="w-full py-3 rounded-xl border border-purple-500/50
-                               bg-purple-500 text-white font-bold
-                               hover:bg-purple-800 transition-all duration-300"
-                    >
-                        Đăng ký
-                    </button>
-                    </a>
                 </div>
-            </div>
 
-            <!-- Premium -->
-            <div class="group relative p-[2px] rounded-3xl transition-all duration-500
-                        hover:scale-105 hover:shadow-[0_0_40px_rgba(168,85,247,0.3)]">
-                <div class="absolute inset-0 bg-gradient-to-b from-purple-500 to-pink-500 rounded-3xl"></div>
-
-                <div class="relative bg-[#161616] p-8 rounded-[23px] h-full flex flex-col border border-white/5">
-                    <h3 class="text-xl font-semibold mb-2 text-purple-400">Cao Cấp</h3>
-
-                    <div class="flex items-baseline mb-6">
-                        <span class="text-4xl font-bold">199k</span>
-                        <span class="text-gray-400 ml-1">/tháng</span>
+                <div class="group relative p-[1px] rounded-3xl transition-all duration-500 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-b from-primary/40 to-transparent rounded-3xl opacity-50"></div>
+                    <div class="relative bg-[#1e1e1e] p-8 rounded-[23px] h-full flex flex-col border border-white/5 shadow-2xl">
+                        <h3 class="text-xl font-semibold mb-2 text-primary">Cao Cấp</h3>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-bold">199k</span>
+                            <span class="text-gray-400 ml-1">/tháng</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 flex-grow text-gray-400 text-sm">
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-primary"></i> Xem trên 4 thiết bị</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-primary"></i> Chất lượng 4K HDR</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-primary"></i> Không quảng cáo</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl border border-primary/50 bg-primary/10 text-white font-bold hover:bg-primary/20 transition-all">
+                            Đăng ký
+                        </button>
                     </div>
-
-                    <ul class="space-y-4 mb-8 flex-grow text-gray-300">
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-purple-500"></i> Xem trên 4 thiết bị
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-purple-500"></i> Chất lượng 4K
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-check text-purple-500"></i> Không quảng cáo
-                        </li>
-                    </ul>
-
-                    <a href="payment.html"><button
-                        class="w-full py-3 rounded-xl border border-purple-500/50 bg-purple-500
-                               text-white font-bold 
-                               hover:bg-purple-800 hover:text-white transition-all duration-300"
-                    >
-                        Đăng ký
-                    </button></a>
                 </div>
-            </div>
-      </section>
 
+            </div>
+        </div>
+
+        <div id="footer-container" class="mt-auto border-t border-white/5 pt-5 mb-5 px-4"></div>
     </main>
-  </div>
 
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="scripts/loadheaderfooter.js"></script>
-
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/login_register.js"></script> 
+    <script src="scripts/loadheaderfooter.js"></script> </body>
 </html>

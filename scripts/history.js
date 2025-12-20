@@ -44,53 +44,77 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function render(items) {
     listEl.innerHTML = "";
-
     countEl.textContent = String(items.length);
 
     if (!items.length) {
+      emptyEl.classList.remove("hidden");
       emptyEl.style.display = "block";
       return;
     }
     emptyEl.style.display = "none";
 
-    for (const it of items) {
+    // Sử dụng CSS Grid cho danh sách giống trang yêu thích
+    listEl.className = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6";
+
+    items.forEach((it, index) => {
       const id = it?.id;
       const title = safeText(it?.title) || "Không có tiêu đề";
-      const thumb =
-        (it?.landscape_poster_url && safeText(it.landscape_poster_url).trim()) ||
-        (it?.poster_url && safeText(it.poster_url).trim()) ||
-        DEFAULT_THUMB;
+      const thumb = (it?.poster_url && safeText(it.poster_url).trim()) || DEFAULT_THUMB;
+      const vote = it?.vote_average || "0";
+      const genre = it?.genres ? it.genres[0] : "Phim";
+      const watchedAt = it?.watched_at ? formatTime(it.watched_at) : "";
 
-      const vote = (it?.vote_average ?? "") !== "" ? `⭐ ${it.vote_average}` : "";
-      const release = it?.release_date ? `Ra mắt: ${it.release_date}` : "";
-      const watched = it?.watched_at ? `Xem: ${formatTime(it.watched_at)}` : "";
+      const card = document.createElement("div");
+      card.className = "relative group/card history-item-card";
+      card.innerHTML = `
+          <div class="block cursor-pointer">
+              <div class="thumb-2-3 bg-gray-800 mb-3 relative border border-white/5 shadow-lg group">
+                  <img src="${thumb}" loading="lazy" class="w-full h-full object-cover group-hover/card:scale-110 transition duration-500 opacity-90 group-hover/card:opacity-100">
+                  
+                  <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition duration-300 bg-black/20" onclick="window.location.href='movie_detail.html?id=${id}'">
+                      <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition">
+                          <i class="fa-solid fa-play text-white text-sm ml-1"></i>
+                      </div>
+                  </div>
 
-      const row = [vote, release, watched].filter(Boolean);
+                  <button class="remove-quick-btn hover:bg-red-600 text-white shadow-lg" title="Xóa khỏi lịch sử" data-id="${id}">
+                      <i class="fa-solid fa-xmark text-xs"></i>
+                  </button>
+                  
+                  <div class="absolute top-2 left-2 px-1.5 py-0.5 bg-primary/80 backdrop-blur-md rounded text-[10px] font-bold text-white shadow-lg">HD</div>
+              </div>
 
-      const div = document.createElement("div");
-      div.className = "item";
-      div.innerHTML = `
-        <div class="thumb">
-          <img src="${thumb}" alt="${title}">
-        </div>
-        <div class="info">
-          <h3 class="name">${title}</h3>
-          <div class="row">
-            ${row.map((x, idx) => `<span>${idx ? `<span class="dot"></span>` : ""}${x}</span>`).join("")}
+              <h4 class="font-bold truncate text-base text-gray-200 group-hover/card:text-purple-400 transition mb-1" title="${title}">${title}</h4>
+              <div class="flex items-center justify-between mt-1">
+                  <div class="flex items-center text-[11px] text-gray-500">
+                      <p class="text-xs text-gray-500">${genre}</p>
+                      
+                  </div>
+                  <span class="text-[10px] bg-yellow-500/20 text-yellow-500 px-1.5 py-0.5 rounded border border-yellow-500/30 font-bold">
+                    <i class="fa-solid fa-star mr-0.5"></i>${vote}
+                  </span>
+              </div>
           </div>
-        </div>
       `;
 
-      div.addEventListener("click", () => {
-        if (id != null) window.location.href = `movie_detail.html?id=${id}`;
+      // Xử lý sự kiện xóa từng mục
+      const delBtn = card.querySelector(".remove-quick-btn");
+      delBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const all = getHistory();
+          const updated = all.filter(item => item.id !== id);
+          setHistory(updated);
+          render(updated);
       });
 
-      // nếu ảnh lỗi → fallback
-      const img = div.querySelector("img");
-      img.onerror = () => { img.src = DEFAULT_THUMB; };
+      // Click vào tên hoặc ảnh để xem chi tiết
+      card.querySelector("h4").addEventListener("click", () => {
+          window.location.href = `movie_detail.html?id=${id}`;
+      });
 
-      listEl.appendChild(div);
-    }
+      listEl.appendChild(card);
+    });
   }
 
   function applyFilter() {
