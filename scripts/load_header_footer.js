@@ -266,10 +266,10 @@ $(document).ready(function () {
                         <p class="text-gray-300 line-clamp-2 mb-6 text-sm leading-relaxed max-w-lg">${m.description}</p>
                         <div class="flex items-center gap-3">
                             <a href="movie_detail.html?id=${m.id}" class="bg-white text-black pl-5 pr-6 py-2.5 rounded-full font-bold hover:scale-105 transition flex items-center gap-2 text-sm whitespace-nowrap"><i class="fa-solid fa-play"></i> Xem Phim</a>
-<button class="btn-play-hero-bg bg-white/5 backdrop-blur-sm border border-white/20 text-white w-11 h-11 md:w-auto md:px-5 md:py-2.5 rounded-full font-medium hover:bg-white/10 hover:border-white/40 transition flex items-center justify-center gap-2 text-sm group/trailer" data-video-id="${videoId}">
-    <i class="fa-brands fa-youtube text-red-500 text-lg"></i>
-    <span class="hidden md:inline whitespace-nowrap">Trailer</span>
-</button>                            <button onclick="window.toggleFavorite(event, ${m.id})" class="w-11 h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition group/fav">
+                        <button class="btn-play-hero-bg bg-white/5 backdrop-blur-sm border border-white/20 text-white w-11 h-11 md:w-auto md:px-5 md:py-2.5 rounded-full font-medium hover:bg-white/10 hover:border-white/40 transition flex items-center justify-center gap-2 text-sm group/trailer" data-video-id="${videoId}">
+                        <i class="fa-brands fa-youtube text-red-500 text-lg"></i>
+                        <span class="hidden md:inline whitespace-nowrap">Trailer</span>
+                        </button>                            <button onclick="window.toggleFavorite(event, ${m.id})" class="w-11 h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition group/fav">
                                 <i class="${heartClass} fa-heart text-lg transition-transform group-hover/fav:scale-110"></i>
                             </button>
                         </div>

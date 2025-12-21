@@ -4,26 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Về Chúng Tôi | AuraFilm</title>
-    <!-- Tailwind CSS và Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Config Tailwind -->
     <script src="scripts/Tailwind_config.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Set Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png"/>
-    <!-- Link font -->
     <link rel="stylesheet" href="fonts/fonts.css" />
 
     <style>
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
-        
         body { background-color: #141414; }
 
-        /* FIX SIDEBAR MINI: Đảm bảo ẩn chữ khi thu nhỏ */
+        /* FIX SIDEBAR MINI */
         .mini-sidebar #sidebar-content { width: 88px !important; }
         .mini-sidebar .sidebar-text, .mini-sidebar h3 { display: none !important; opacity: 0; }
-        .mini-sidebar .sidebar-divider { display: block !important; width: 24px; margin: 10px auto; }
 
         .cinema-title { text-transform: uppercase; letter-spacing: -0.02em; }
         .content-text { line-height: 1.8; letter-spacing: 0.01em; }
@@ -36,219 +30,185 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .delay-200 { transition-delay: 0.2s; }
-        .delay-400 { transition-delay: 0.4s; }
-        .delay-600 { transition-delay: 0.6s; }
-
-        .btn-shine {
-            position: relative;
-            overflow: hidden;
+        /* Animation cho Banner */
+        @keyframes slow-zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
-        .btn-shine::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-            transform: rotate(30deg);
-            transition: all 0.5s;
-            opacity: 0;
-        }
-        .btn-shine:hover::after { left: 100%; opacity: 1; transition: all 0.7s; }
+        .animate-slow-zoom { animation: slow-zoom 20s infinite alternate linear; }
 
-        /* Đảm bảo toàn bộ chữ thẳng (Straight) theo phong cách hiện đại */
+        /* Chữ thẳng (Straight) hiện đại */
         body, h1, h2, h3, h4, p, span, a, button { font-style: normal !important; }
     </style>
 </head>
 
 <body class="bg-bgMain text-white font-sans h-screen flex overflow-hidden">
-    <!-- Phần Sidebar -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[99] hidden backdrop-blur-sm transition-opacity"></div>
 
     <aside id="sidebar-container" class="fixed inset-y-0 left-0 z-[100] h-full transform -translate-x-full xl:translate-x-0 xl:relative transition-all duration-300 w-72 flex-shrink-0 bg-[#0f0f0f] border-r border-white/5"></aside>
 
     <main class="flex-1 flex flex-col h-screen relative min-w-0 bg-bgMain transition-all duration-300 overflow-hidden">
-        <!-- Navbar -->
         <header id="navbar-container" class="z-40 w-full"></header>
         
-        <div class="flex-1 overflow-y-auto px-4 md:px-10 scroll-smooth custom-scrollbar">
+        <div class="flex-1 overflow-y-auto px-4 sm:px-6 md:px-10 scroll-smooth custom-scrollbar pb-10">
 
-            <!-- Section Hero -->
-            <section class="reveal relative py-32 md:py-40 overflow-hidden rounded-[3rem] mt-6 mb-12 border border-white/5 shadow-2xl">
+            <section class="reveal relative py-20 sm:py-32 md:py-40 overflow-hidden rounded-[2rem] sm:rounded-[3rem] mt-6 mb-12 border border-white/5 shadow-2xl">
                 <div class="absolute inset-0 -z-20">
                     <img src="https://cdn-media.sforum.vn/storage/app/media/anh-dep-68.jpg" 
-                         class="w-full h-full object-cover blur-[3px] opacity-25 animate-slow-zoom">
+                         class="w-full h-full object-cover blur-[2px] opacity-25 animate-slow-zoom">
                 </div>
-                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#141414] via-[#141414]/60 to-transparent"></div>
-                <div class="absolute inset-0 -z-10 bg-gradient-to-r from-[#141414]/80 via-transparent to-[#141414]/80"></div>
+                <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#141414] via-[#141414]/40 to-transparent"></div>
 
-                <div class="max-w-4xl mx-auto text-center space-y-8 relative z-10">
-                    <h1 class="cinema-title text-6xl md:text-8xl font-black leading-none text-white drop-shadow-2xl">
+                <div class="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10 px-4">
+                    <h1 class="cinema-title text-4xl sm:text-6xl md:text-8xl font-black leading-tight text-white drop-shadow-2xl">
                         KHÁM PHÁ <br> 
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 animate-pulse-slow">AuraFilm</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400">AuraFilm</span>
                     </h1>
-                    <p class="content-text text-gray-300 text-lg md:text-xl max-w-2xl mx-auto font-light">
+                    <p class="content-text text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-light">
                         Kiến tạo không gian điện ảnh đỉnh cao, đem đến trải nghiệm tuyệt đối cho mỗi thượng khách.
                     </p>
                 </div>
             </section>
 
-            <!-- Section Sứ Mệnh - Tầm Nhìn - Giá Trị Cốt Lõi -->
-            <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-                <div class="reveal delay-200 group relative p-12 rounded-[3rem] glass-card hover:bg-white/[0.06] transition-all flex flex-col items-center text-center overflow-hidden border border-white/10">
-                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/10 blur-[80px]"></div>
-                    <h3 class="cinema-title text-3xl font-black mb-6 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">Sứ mệnh</h3>
-                    <div class="w-12 h-[2px] bg-purple-500 mb-6 group-hover:w-20 transition-all"></div>
-                    <p class="content-text text-gray-400 text-base">Xóa bỏ rào cản giữa rạp chiếu và ngôi nhà của bạn bằng công nghệ tiên tiến nhất.</p>
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-24">
+                <div class="reveal delay-200 group relative p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] glass-card hover:bg-white/[0.06] transition-all flex flex-col items-center text-center overflow-hidden border border-white/10">
+                    <h3 class="cinema-title text-2xl sm:text-3xl font-black mb-4 sm:mb-6 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">Sứ mệnh</h3>
+                    <div class="w-12 h-[2px] bg-purple-500 mb-6"></div>
+                    <p class="content-text text-gray-400 text-sm sm:text-base">Xóa bỏ rào cản giữa rạp chiếu và ngôi nhà của bạn bằng công nghệ tiên tiến nhất.</p>
                 </div>
 
-                <div class="reveal delay-400 group relative p-12 rounded-[3rem] glass-card hover:bg-white/[0.06] transition-all flex flex-col items-center text-center overflow-hidden border border-white/10">
-                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-pink-500/10 blur-[80px]"></div>
-                    <h3 class="cinema-title text-3xl font-black mb-6 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">Tầm nhìn</h3>
-                    <div class="w-12 h-[2px] bg-pink-500 mb-6 group-hover:w-20 transition-all"></div>
-                    <p class="content-text text-gray-400 text-base">Trở thành biểu tượng văn hóa số, nơi cộng đồng yêu phim Việt Nam hội tụ đam mê.</p>
+                <div class="reveal delay-400 group relative p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] glass-card hover:bg-white/[0.06] transition-all flex flex-col items-center text-center overflow-hidden border border-white/10">
+                    <h3 class="cinema-title text-2xl sm:text-3xl font-black mb-4 sm:mb-6 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">Tầm nhìn</h3>
+                    <div class="w-12 h-[2px] bg-pink-500 mb-6"></div>
+                    <p class="content-text text-gray-400 text-sm sm:text-base">Trở thành biểu tượng văn hóa số, nơi cộng đồng yêu phim Việt Nam hội tụ đam mê.</p>
                 </div>
 
-                <div class="reveal delay-600 group relative p-12 rounded-[3rem] glass-card hover:bg-white/[0.06] transition-all flex flex-col items-center text-center overflow-hidden border border-white/10">
-                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-[80px]"></div>
-                    <h3 class="cinema-title text-3xl font-black mb-6 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">Giá trị</h3>
-                    <div class="w-12 h-[2px] bg-blue-500 mb-6 group-hover:w-20 transition-all"></div>
-                    <p class="content-text text-gray-400 text-base">Chất lượng là danh dự. Sáng tạo là động lực. Trải nghiệm người dùng là kim chỉ nam.</p>
+                <div class="reveal delay-600 group relative p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] glass-card hover:bg-white/[0.06] transition-all flex flex-col items-center text-center overflow-hidden border border-white/10">
+                    <h3 class="cinema-title text-2xl sm:text-3xl font-black mb-4 sm:mb-6 bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">Giá trị</h3>
+                    <div class="w-12 h-[2px] bg-blue-500 mb-6"></div>
+                    <p class="content-text text-gray-400 text-sm sm:text-base">Chất lượng là danh dự. Sáng tạo là động lực. Trải nghiệm người dùng là kim chỉ nam.</p>
                 </div>
             </section>
 
-            <!-- Section Dịch Vụ Trải Nghiệm -->
             <section class="mb-32">
-                <div class="reveal flex flex-col items-center mb-16">
-                    <h2 class="cinema-title text-4xl md:text-5xl font-bold mb-4">Trải Nghiệm Đẳng Cấp</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+                <div class="reveal flex flex-col items-center mb-12 sm:mb-16 text-center">
+                    <h2 class="cinema-title text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-2">Trải Nghiệm Đẳng Cấp</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto">
-                    <div class="reveal delay-200 md:col-span-8 group relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-purple-900/20 to-transparent border border-white/10 p-12 hover:border-purple-500/50 transition-all">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <div class="reveal delay-200 md:col-span-8 group relative overflow-hidden rounded-[2rem] sm:rounded-[3rem] bg-gradient-to-br from-purple-900/20 to-transparent border border-white/10 p-8 sm:p-12 hover:border-purple-500/50 transition-all">
                         <div class="relative z-10">
-                            <span class="text-purple-400 font-mono text-sm uppercase mb-4 block">Ultra HD Cinema</span>
-                            <h3 class="text-4xl font-bold mb-6">Độ phân giải 4K HDR</h3>
-                            <p class="text-gray-400 max-w-md text-lg">Hình ảnh sắc nét, tương phản cực cao mang lại sự chân thực trong từng điểm ảnh.</p>
+                            <span class="text-purple-400 font-mono text-xs sm:text-sm uppercase mb-4 block">Ultra HD Cinema</span>
+                            <h3 class="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">Độ phân giải 4K HDR</h3>
+                            <p class="text-gray-400 max-w-md text-base sm:text-lg">Hình ảnh sắc nét, tương phản cực cao mang lại sự chân thực trong từng điểm ảnh.</p>
                         </div>
-                        <div class="absolute right-[-5%] bottom-[-5%] opacity-10 text-[15rem] animate-float"><i class="fa-solid fa-clapperboard"></i></div>
+                        <div class="absolute right-[-10%] bottom-[-10%] opacity-5 text-[10rem] sm:text-[15rem] hidden sm:block"><i class="fa-solid fa-clapperboard"></i></div>
                     </div>
 
-                    <div class="reveal delay-400 md:col-span-4 glass-card rounded-[3rem] p-10 flex flex-col justify-end hover:bg-white/[0.05] transition-all border border-white/10">
-                        <div class="mb-8 w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-2xl"><i class="fa-solid fa-volume-high"></i></div>
-                        <h3 class="text-2xl font-bold mb-4">Âm Thanh Vòm</h3>
-                        <p class="text-gray-400 text-sm">Chuẩn Dolby Atmos, không gian âm thanh 3D bao trùm mọi giác quan.</p>
+                    <div class="reveal delay-400 md:col-span-4 glass-card rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-10 flex flex-col justify-end hover:bg-white/[0.05] transition-all border border-white/10">
+                        <div class="mb-6 sm:mb-8 w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl"><i class="fa-solid fa-volume-high"></i></div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">Âm Thanh Vòm</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm">Chuẩn Dolby Atmos, không gian âm thanh 3D bao trùm mọi giác quan.</p>
                     </div>
 
-                    <div class="reveal delay-400 md:col-span-4 glass-card rounded-[3rem] p-10 hover:bg-white/[0.05] transition-all border border-white/10">
-                        <div class="mb-8 w-16 h-16 rounded-2xl bg-pink-500/20 flex items-center justify-center text-pink-400 text-2xl"><i class="fa-solid fa-mobile-screen"></i></div>
-                        <h3 class="text-2xl font-bold mb-4">Đa nền tảng</h3>
-                        <p class="text-gray-400 text-sm">Xem mượt mà trên TV, Smartphone, Laptop và Máy tính bảng.</p>
+                    <div class="reveal delay-400 md:col-span-4 glass-card rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-10 hover:bg-white/[0.05] transition-all border border-white/10">
+                        <div class="mb-6 sm:mb-8 w-14 h-14 rounded-2xl bg-pink-500/20 flex items-center justify-center text-pink-400 text-xl"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">Đa nền tảng</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm">Xem mượt mà trên TV, Smartphone, Laptop và Máy tính bảng.</p>
                     </div>
 
-                    <div class="reveal delay-600 md:col-span-8 group relative overflow-hidden rounded-[3rem] bg-gradient-to-bl from-blue-900/20 to-transparent border border-white/10 p-12 hover:border-blue-500/50 transition-all">
+                    <div class="reveal delay-600 md:col-span-8 group relative overflow-hidden rounded-[2rem] sm:rounded-[3rem] bg-gradient-to-bl from-blue-900/20 to-transparent border border-white/10 p-8 sm:p-12 hover:border-blue-500/50 transition-all">
                         <div class="relative z-10 flex flex-col h-full justify-center">
-                            <h3 class="text-3xl font-bold mb-4">Xem ngoại tuyến</h3>
-                            <p class="text-gray-400 max-w-sm text-lg">Tải phim yêu thích và thưởng thức bất cứ lúc nào không cần internet.</p>
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Xem ngoại tuyến</h3>
+                            <p class="text-gray-400 max-w-sm text-base sm:text-lg">Tải phim yêu thích và thưởng thức bất cứ lúc nào không cần internet.</p>
                         </div>
-                        <div class="absolute right-10 top-1/2 -translate-y-1/2 opacity-20 text-[8rem] animate-float"><i class="fa-solid fa-cloud-arrow-down"></i></div>
                     </div>
                 </div>
             </section>
 
-            <!-- Section Thống Kê Lượng Truy Cập -->
-            <section class="reveal py-20 bg-white/[0.02] border-y border-white/5 mb-32 rounded-[4rem]">
-                <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <section class="reveal py-16 sm:py-20 bg-white/[0.02] border-y border-white/5 mb-32 rounded-[2.5rem] sm:rounded-[4rem]">
+                <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 text-center">
                     <div>
-                        <div class="text-5xl font-black text-white mb-2">5,000+</div>
-                        <div class="text-gray-500 uppercase text-[10px] font-bold">Phim & Show</div>
+                        <div class="text-3xl sm:text-5xl font-black text-white mb-2">5,000+</div>
+                        <div class="text-gray-500 uppercase text-[8px] sm:text-[10px] font-bold">Phim & Show</div>
                     </div>
                     <div>
-                        <div class="text-5xl font-black text-primary bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-2">1.2M</div>
-                        <div class="text-gray-500 uppercase text-[10px] font-bold">Người dùng</div>
+                        <div class="text-3xl sm:text-5xl font-black text-primary bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-2">1.2M</div>
+                        <div class="text-gray-500 uppercase text-[8px] sm:text-[10px] font-bold">Người dùng</div>
                     </div>
                     <div>
-                        <div class="text-5xl font-black text-white mb-2">4.9/5</div>
-                        <div class="text-gray-500 uppercase text-[10px] font-bold">Đánh giá</div>
+                        <div class="text-3xl sm:text-5xl font-black text-white mb-2">4.9/5</div>
+                        <div class="text-gray-500 uppercase text-[8px] sm:text-[10px] font-bold">Đánh giá</div>
                     </div>
                     <div>
-                        <div class="text-5xl font-black text-white mb-2">24/7</div>
-                        <div class="text-gray-500 uppercase text-[10px] font-bold">Hỗ trợ</div>
+                        <div class="text-3xl sm:text-5xl font-black text-white mb-2">24/7</div>
+                        <div class="text-gray-500 uppercase text-[8px] sm:text-[10px] font-bold">Hỗ trợ</div>
                     </div>
                 </div>
             </section>
 
-            <!-- Section Founder -->
-            <section class="pb-32">
-                <div class="reveal flex flex-col items-center mb-20">
-                    <h2 class="cinema-title text-4xl font-bold mb-4">Đội Ngũ Founder</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
-                </div>
+            <section class="pb-32 px-4 sm:px-6">
+    <div class="reveal flex flex-col items-center mb-16">
+        <h2 class="cinema-title text-3xl sm:text-4xl font-bold mb-4">Đội Ngũ Founder</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+    </div>
 
-                
-                <div class="grid grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto px-2">
-                    <div class="reveal delay-200 group text-center">
-                        <div class="relative w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden mb-4 border-2 border-white/10 group-hover:border-primary transition-all duration-500 shadow-xl">
-                            <img src="assets/Founder/KhanhVu.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
-                        </div>
-                        <h4 class="cinema-title text-[10px] sm:text-sm md:text-base font-bold group-hover:text-primary transition-colors truncate px-1">VŨ LÊ HIỂU KHANH</h4>
-                        <p class="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest">CO FOUNDER</p>
-                    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
+        
+        <div class="reveal delay-200 group text-center">
+            <div class="relative aspect-[3/2] w-full max-w-[280px] mx-auto rounded-full overflow-hidden mb-6 border-2 border-white/10 group-hover:border-primary transition-all duration-500 shadow-2xl bg-[#1a1a1a]">
+                <img src="assets/Founder/KhanhVu.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
+            </div>
+            <h4 class="cinema-title text-base sm:text-lg font-black group-hover:text-primary transition-colors tracking-tight uppercase">VŨ LÊ HIỂU KHANH</h4>
+            <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-bold">CO FOUNDER</p>
+        </div>
 
-                    <div class="reveal delay-400 group text-center">
-                        <div class="relative w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden mb-4 border-2 border-white/10 group-hover:border-primary transition-all duration-500 shadow-xl">
-                            <img src="assets/Founder/MinhKhoa.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
-                        </div>
-                        <h4 class="cinema-title text-[10px] sm:text-sm md:text-base font-bold group-hover:text-primary transition-colors truncate px-1">ĐỖ MINH KHOA</h4>
-                        <p class="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest">CO FOUNDER</p>
-                    </div>
+        <div class="reveal delay-400 group text-center">
+            <div class="relative aspect-[3/2] w-full max-w-[280px] mx-auto rounded-full overflow-hidden mb-6 border-2 border-white/10 group-hover:border-primary transition-all duration-500 shadow-2xl bg-[#1a1a1a]">
+                <img src="assets/Founder/MinhKhoa.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
+            </div>
+            <h4 class="cinema-title text-base sm:text-lg font-black group-hover:text-primary transition-colors tracking-tight uppercase">ĐỔ MINH KHOA</h4>
+            <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-bold">CO FOUNDER</p>
+        </div>
 
-                    <div class="reveal delay-600 group text-center">
-                        <div class="relative w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden mb-4 border-2 border-white/10 group-hover:border-primary transition-all duration-500 shadow-xl">
-                            <img src="assets/Founder/TrangAnh.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
-                        </div>
-                        <h4 class="cinema-title text-[10px] sm:text-sm md:text-base font-bold group-hover:text-primary transition-colors truncate px-1">ĐOÀN THỊ TRANG ANH</h4>
-                        <p class="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest">CO FOUNDER</p>
-                    </div>
+        <div class="reveal delay-600 group text-center">
+            <div class="relative aspect-[3/2] w-full max-w-[280px] mx-auto rounded-full overflow-hidden mb-6 border-2 border-white/10 group-hover:border-primary transition-all duration-500 shadow-2xl bg-[#1a1a1a]">
+                <img src="assets/Founder/TrangAnh.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
+            </div>
+            <h4 class="cinema-title text-base sm:text-lg font-black group-hover:text-primary transition-colors tracking-tight uppercase">ĐOÀN THỊ TRANG ANH</h4>
+            <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-bold">CO FOUNDER</p>
+        </div>
 
-                    <div class="reveal delay-200 group text-center">
-                        <div class="relative w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden mb-4 border-2 border-white/10 group-hover:border-primary transition-all duration-500 shadow-xl">
-                            <img src="assets/Founder/HoangPhuc.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
-                        </div>
-                        <h4 class="cinema-title text-[10px] sm:text-sm md:text-base font-bold group-hover:text-primary transition-colors truncate px-1">NGUYỄN HOÀNG PHÚC</h4>
-                        <p class="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest">CO FOUNDER</p>
-                    </div>
-                </div>
-            </section>
+        <div class="reveal delay-200 group text-center">
+            <div class="relative aspect-[3/2] w-full max-w-[280px] mx-auto rounded-full overflow-hidden mb-6 border-2 border-white/10 group-hover:border-primary transition-all duration-500 shadow-2xl bg-[#1a1a1a]">
+                <img src="assets/Founder/HoangPhuc.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
+            </div>
+            <h4 class="cinema-title text-base sm:text-lg font-black group-hover:text-primary transition-colors tracking-tight uppercase">NGUYỄN HOÀNG PHÚC</h4>
+            <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-bold">CO FOUNDER</p>
+        </div>
 
-            <!-- Section CTA -->
+        </div>
+    </section>
+
             <section class="reveal relative mb-32">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="relative rounded-[4rem] p-12 md:p-24 overflow-hidden border border-white/10 bg-gradient-to-br from-purple-600/20 to-blue-600/20 text-center">
-                        <div class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
-                            <div class="absolute w-2 h-2 bg-white rounded-full top-10 left-10 animate-ping"></div>
-                            <div class="absolute w-1 h-1 bg-white rounded-full bottom-20 right-1/4 animate-pulse"></div>
-                        </div>
-
-                        <h2 class="cinema-title text-3xl md:text-6xl font-black mb-8 leading-tight">Sẵn sàng đắm chìm trong <br> thế giới điện ảnh?</h2>
-                        <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-12">Đăng ký ngay hôm nay để nhận ưu đãi 7 ngày trải nghiệm Premium miễn phí.</p>
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
-                            <a href="#" class="btn-shine px-10 py-5 bg-white text-black font-bold rounded-full hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1 shadow-xl">Bắt đầu ngay</a>
-                            <a href="#" class="px-10 py-5 bg-white/5 text-white font-bold rounded-full border border-white/10 hover:bg-white/10 transition-all">Tìm hiểu thêm</a>
+                <div class="max-w-6xl mx-auto px-2 sm:px-4">
+                    <div class="relative rounded-[2.5rem] sm:rounded-[4rem] p-10 sm:p-24 overflow-hidden border border-white/10 bg-gradient-to-br from-purple-600/20 to-blue-600/20 text-center">
+                        <h2 class="cinema-title text-2xl sm:text-4xl md:text-6xl font-black mb-6 sm:mb-8 leading-tight">Sẵn sàng đắm chìm?</h2>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 relative z-10">
+                            <a href="register.html" class="w-full sm:w-auto px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1 shadow-xl text-sm">Bắt đầu ngay</a>
+                            <a href="services.html" class="w-full sm:w-auto px-10 py-4 bg-white/5 text-white font-bold rounded-full border border-white/10 hover:bg-white/10 transition-all text-sm">Tìm hiểu thêm</a>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Footer -->
-            <footer id="footer-container" class="mb-4"></footer>
+            <footer id="footer-container" class="mt-10"></footer>
         </div>
     </main>
 
@@ -256,7 +216,6 @@
     <script src="scripts/load_header_footer.js"></script>
     <script src="scripts/login_register.js"></script>
 
-    <!-- Script để hiển thị các phần tử khi cuộn -->
     <script>
         function reveal() {
             const reveals = document.querySelectorAll(".reveal");
@@ -265,16 +224,12 @@
 
             reveals.forEach(el => {
                 const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
+                if (elementTop < windowHeight - 80) {
                     el.classList.add("active");
                 }
             });
         }
-
-        const scrollArea = document.querySelector('.overflow-y-auto');
-        if(scrollArea) {
-            scrollArea.addEventListener("scroll", reveal);
-        }
+        document.querySelector('.overflow-y-auto').addEventListener("scroll", reveal);
         window.addEventListener("load", reveal);
     </script>
 </body>
