@@ -54,82 +54,43 @@ actors.json: Lưu trữ thông tin chi tiết và danh sách phim của diễn v
 
 👥 THÀNH VIÊN NHÓM 6
 
-<table align="center">
-  <tr>
-    <td align="center" width="220">
-      <a href="https://github.com/minhkhoado24">
-        <img src="assets/Founder/MinhKhoa.jpg" width="100" height="100" style="border-radius: 50%; border: 3px solid #8b5cf6; object-fit: cover;" alt="Đỗ Minh Khoa"/>
-        <br />
-        <br />
-        <sub style="font-size: 15px;"><b>Đỗ Minh Khoa</b></sub>
-      </a>
-      <br />
-      <code style="color: #8b5cf6;">Lead Developer</code>
-      <br />
-      <br />
-      <a href="https://facebook.com/your-profile" target="_blank">
-        <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" width="80" height="20" />
-      </a>
-      <a href="https://linkedin.com/in/your-profile" target="_blank">
-        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" width="80" height="20" />
-      </a>
-    </td>
-    <td align="center" width="220">
-      <a href="#">
-        <img src="assets/Founder/KhanhVu.jpg" width="100" height="100" style="border-radius: 50%; border: 3px solid #d946ef; object-fit: cover;" alt="Vũ Lê Hiểu Khanh"/>
-        <br />
-        <br />
-        <sub style="font-size: 15px;"><b>Vũ Lê Hiểu Khanh</b></sub>
-      </a>
-      <br />
-      <code>UI/UX Designer</code>
-      <br />
-      <br />
-      <a href="https://facebook.com/your-profile" target="_blank">
-        <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" width="80" height="20" />
-      </a>
-      <a href="https://linkedin.com/in/your-profile" target="_blank">
-        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" width="80" height="20" />
-      </a>
-    </td>
-    <td align="center" width="220">
-      <a href="#">
-        <img src="assets/Founder/TrangAnh.jpg" width="100" height="100" style="border-radius: 50%; border: 3px solid #d946ef; object-fit: cover;" alt="Đoàn Thị Trang Anh"/>
-        <br />
-        <br />
-        <sub style="font-size: 15px;"><b>Đoàn Thị Trang Anh</b></sub>
-      </a>
-      <br />
-      <code>Content Manager</code>
-      <br />
-      <br />
-      <a href="https://facebook.com/your-profile" target="_blank">
-        <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" width="80" height="20" />
-      </a>
-      <a href="https://linkedin.com/in/your-profile" target="_blank">
-        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" width="80" height="20" />
-      </a>
-    </td>
-    <td align="center" width="220">
-      <a href="#">
-        <img src="assets/Founder/HoangPhuc.jpg" width="100" height="100" style="border-radius: 50%; border: 3px solid #d946ef; object-fit: cover;" alt="Nguyễn Hoàng Phúc"/>
-        <br />
-        <br />
-        <sub style="font-size: 15px;"><b>Nguyễn Hoàng Phúc</b></sub>
-      </a>
-      <br />
-      <code>Backend Logic</code>
-      <br />
-      <br />
-      <a href="https://facebook.com/your-profile" target="_blank">
-        <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" width="80" height="20" />
-      </a>
-      <a href="https://linkedin.com/in/your-profile" target="_blank">
-        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" width="80" height="20" />
-      </a>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <a href="https://github.com/minhkhoado24" style="text-decoration: none;">
+    <img src="assets/Founder/MinhKhoa.jpg" width="120" height="120" style="border-radius: 50%; border: 4px solid #8b5cf6; object-fit: cover; margin: 10px;" alt="Đỗ Minh Khoa"/>
+    <br />
+    <sub style="font-size: 15px;"><b>Đỗ Minh Khoa</b></sub><br />
+    <code style="color: #8b5cf6;">Lead Developer</code><br />
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white" height="18" />
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" height="18" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="#" style="text-decoration: none;">
+    <img src="assets/Founder/KhanhVu.jpg" width="120" height="120" style="border-radius: 50%; border: 4px solid #d946ef; object-fit: cover; margin: 10px;" alt="Vũ Lê Hiểu Khanh"/>
+    <br />
+    <sub style="font-size: 15px;"><b>Vũ Lê Hiểu Khanh</b></sub><br />
+    <code>UI/UX Designer</code><br />
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white" height="18" />
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" height="18" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="#" style="text-decoration: none;">
+    <img src="assets/Founder/TrangAnh.jpg" width="120" height="120" style="border-radius: 50%; border: 4px solid #d946ef; object-fit: cover; margin: 10px;" alt="Đoàn Thị Trang Anh"/>
+    <br />
+    <sub style="font-size: 15px;"><b>Đoàn Thị Trang Anh</b></sub><br />
+    <code>Content Manager</code><br />
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white" height="18" />
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" height="18" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="#" style="text-decoration: none;">
+    <img src="assets/Founder/HoangPhuc.jpg" width="120" height="120" style="border-radius: 50%; border: 4px solid #d946ef; object-fit: cover; margin: 10px;" alt="Nguyễn Hoàng Phúc"/>
+    <br />
+    <sub style="font-size: 15px;"><b>Nguyễn Hoàng Phúc</b></sub><br />
+    <code>Backend Logic</code><br />
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white" height="18" />
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" height="18" />
+  </a>
+</p>
 
 
 
