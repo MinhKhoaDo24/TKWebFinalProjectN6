@@ -49,7 +49,7 @@
             flex-shrink: 0;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: #121212;
-            z-index: 50; /* Cao nhất để không bị đè */
+            z-index: 50; 
         }
 
         /* Khi mở sidebar trên điện thoại */
@@ -150,6 +150,8 @@
                 <div class="w-full md:w-80">
                     <div class="relative group">
                         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary"></i>
+                        
+                        <!-- ô tìm kiếm phim trong lịch sử -->
                         <input id="history-search" type="text" 
                                class="w-full bg-bgInput border border-white/5 rounded-xl py-2.5 pl-11 pr-4 outline-none focus:border-primary/50 transition-all text-sm"
                                placeholder="Tìm kiếm phim đã xem...">
@@ -157,9 +159,12 @@
                 </div>
             </div>
 
+            <!-- section chứa toàn bộ lịch sử xem (JS render vào đây) -->
             <section class="list-container">
                 <div class="flex items-center justify-between mb-6">
                     <span class="text-xs uppercase tracking-widest font-bold text-gray-500">Phim vừa xem</span>
+                    
+                <!-- hiển thị số phim đã xem + nút xóa toàn bộ -->
                     <div class="flex items-center gap-4">
                         <span class="text-sm text-gray-400"><span id="history-count" class="text-white font-bold">0</span> phim</span>
                         <button id="btn-clear" class="text-xs font-bold text-red-400 hover:text-red-300 transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20">
@@ -167,15 +172,18 @@
                         </button>
                     </div>
                 </div>
-
+                
+                <!-- vùng JS đổ các item phim đã xem -->
                 <div id="history-list" class="space-y-2"></div>
 
+                <!-- hiện khi lịch sử trống-->
                 <div id="history-empty" class="hidden py-24 text-center">
                     <div class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 border border-white/5">
                         <i class="fa-solid fa-film text-3xl text-gray-700"></i>
                     </div>
                     <h3 class="text-lg font-medium text-gray-300">Lịch sử trống</h3>
                     <p class="text-gray-500 text-sm mb-6">Bạn chưa xem bộ phim nào.</p>
+                    <!--link đến trang chủ để người dùng chọn phim xem-->
                     <a href="index.html" class="inline-block px-8 py-3 bg-primary hover:bg-purple-500 rounded-full transition-all text-sm font-bold shadow-lg shadow-purple-500/25">
                         Khám phá ngay
                     </a>
@@ -187,12 +195,15 @@
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- load sidebar + header + footer -->
     <script src="scripts/loadheaderfooter.js"></script>
+    <!-- kiểm tra trạng thái đăng nhập người dùng -->
     <script src="scripts/login_register.js"></script>
+    <!-- logic xử lý lịch sử xem: render, search, xóa -->
     <script src="scripts/history.js"></script>
 
     <script>
-        // Logic bổ sung để đóng/mở sidebar trên Mobile (đảm bảo đồng bộ với nút menu trên Navbar)
+        // logic bổ sung để đóng/mở sidebar trên Mobile (đảm bảo đồng bộ với nút menu trên Navbar)
         $(document).on('click', '#btn-menu-mobile', function() {
             $('#sidebar-container').addClass('sidebar-open');
             $('#sidebar-overlay').removeClass('hidden').addClass('opacity-100');
