@@ -82,14 +82,20 @@
             <h2 class="text-[13px] font-bold uppercase tracking-[0.2em] text-gray-400 flex items-center gap-2">
               <i class="fa-solid fa-users text-primary"></i> Tất cả diễn viên
             </h2>
+
+            <!-- Số lượng diễn viên được JS cập nhật -->
             <div class="text-gray-400 text-sm bg-white/5 px-3 py-1 rounded-full border border-white/5">
               <!-- Số lượng diễn viên -->
               <span id="actor-count" class="text-white font-bold">0</span> người
             </div>
           </div>
 
-          <div id="actors-grid"
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+          <!-- Grid hiển thị card diễn viên (JS render động) -->
+          <div
+            id="actors-grid"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6"
+          >
+
             <div class="col-span-full text-center py-20 text-gray-500">Đang tải dữ liệu...</div>
           </div>
           
@@ -98,6 +104,8 @@
             <div class="text-sm text-gray-400">
               Hiển thị <span id="actor-range" class="text-white font-medium">0–0</span> / <span id="total-actors" class="text-white font-medium">0</span>
             </div>
+
+            <!-- Nút phân trang (JS render) -->
             <div id="pagination" class="flex items-center gap-2 flex-wrap justify-center"></div>
           </div>
         </section>
