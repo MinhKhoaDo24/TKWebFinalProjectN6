@@ -1,59 +1,87 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Logic login của bạn đang dùng 2 key này
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const username = localStorage.getItem("username");
+    // 1. Kiểm tra trạng thái đăng nhập
+    const currentUsername = localStorage.getItem("username");
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
-  // Nếu chưa đăng nhập -> đá về login
-  if (!isLoggedIn || !username) {
-    alert("Bạn cần đăng nhập để xem hồ sơ.");
-    window.location.href = "login.html";
-    return;
-  }
+    if (!isLoggedIn || !currentUsername) {
+        window.location.href = "login.html";
+        return;
+    }
 
-  // Lấy user từ cine_users (mảng user bạn lưu)
-  let users = [];
-  try {
-    users = JSON.parse(localStorage.getItem("cine_users")) || [];
-  } catch (e) {
-    users = [];
-  }
-  const user = users.find((u) => u && u.username === username);
+    // 2. Hàm cập nhật giao diện (Header + Profile)
+    const syncUI = (userData) => {
+        // Cập nhật tất cả các vị trí có Avatar
+        const avatarPath = userData.avatar || `https://placehold.co/400x400/6366f1/ffffff?text=${userData.username.charAt(0).toUpperCase()}`;
+        const avatars = document.querySelectorAll("#avatar-btn, .header-avatar-img, #pf-avatar");
+        avatars.forEach(img => { if(img) img.src = avatarPath; });
 
-  // Fill thông tin
-  const pfName = document.getElementById("pf-name");
-  const pfUsername = document.getElementById("pf-username");
-  const pfEmail = document.getElementById("pf-email");
-  const pfStatus = document.getElementById("pf-status");
-  const pfAvatar = document.getElementById("pf-avatar");
+        // Cập nhật tên và thông tin
+        const name = userData.fullName || userData.username;
+        const nameFields = document.querySelectorAll("#pf-name, #username-display");
+        nameFields.forEach(f => { if(f) f.textContent = name; });
 
-  pfName.textContent = user?.fullName || username;
-  pfUsername.textContent = username;
-  pfEmail.textContent = user?.email || "—";
-  pfStatus.textContent = "Đã đăng nhập";
+        if(document.getElementById("pf-email")) document.getElementById("pf-email").textContent = userData.email || "Chưa cập nhật";
+        if(document.getElementById("pf-username")) document.getElementById("pf-username").textContent = "@" + userData.username;
 
-  // Avatar: dùng chữ cái đầu username
-  const firstChar = (username || "U").trim().charAt(0).toUpperCase();
-  pfAvatar.src = `https://placehold.co/240x240/111/FFF?text=${encodeURIComponent(firstChar)}`;
+        // Xử lý hiện User profile trên Header, ẩn nút Guest
+        const guestBox = document.getElementById("guest-action-container");
+        const userBox = document.getElementById("user-profile");
+        if (guestBox) guestBox.classList.add("hidden");
+        if (userBox) userBox.classList.remove("hidden");
+    };
 
-  // Lấy lịch sử xem (nếu bạn đang lưu KEY watch_history_v1)
-  const KEY = "watch_history_v1";
-  let history = [];
-  try {
-    history = JSON.parse(localStorage.getItem(KEY)) || [];
-  } catch (e) {
-    history = [];
-  }
+    // 3. Lấy dữ liệu user từ cine_users
+    const refreshData = () => {
+        const users = JSON.parse(localStorage.getItem("cine_users")) || [];
+        const userObj = users.find(u => u.username === currentUsername);
+        if (userObj) syncUI(userObj);
+    };
 
-  document.getElementById("pf-watched").textContent = String(history.length);
+    // Chạy lần đầu
+    refreshData();
 
-  const recent = history[0];
-  document.getElementById("pf-recent").textContent =
-    recent?.title ? recent.title : "Chưa có lịch sử xem";
+    // 4. Xử lý up ảnh từ máy tính (FileReader)
+    const fileInput = document.getElementById("avatar-input");
+    if (fileInput) {
+        fileInput.addEventListener("change", function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
 
-  // Logout
-  document.getElementById("btn-logout").addEventListener("click", () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("username");
-    window.location.href = "login.html";
-  });
+            // Giới hạn 2MB để tránh lỗi bộ nhớ LocalStorage
+            if (file.size > 2 * 1024 * 1024) {
+                alert("Ảnh quá nặng (tối đa 2MB). Vui lòng chọn ảnh khác.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const base64String = event.target.result;
+
+                // Lưu vào mảng users
+                let users = JSON.parse(localStorage.getItem("cine_users")) || [];
+                const idx = users.findIndex(u => u.username === currentUsername);
+
+                if (idx !== -1) {
+                    users[idx].avatar = base64String;
+                    localStorage.setItem("cine_users", JSON.stringify(users));
+                    
+                    // Cập nhật UI ngay lập tức
+                    syncUI(users[idx]);
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // 5. Logic Đăng xuất (Cả nút ở profile và header)
+    const handleLogout = () => {
+        if(confirm("Bạn có chắc muốn đăng xuất?")) {
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("username");
+            window.location.href = "index.html";
+        }
+    };
+
+    document.getElementById("btn-logout")?.addEventListener("click", handleLogout);
+    document.getElementById("btn-logout-header")?.addEventListener("click", handleLogout);
 });

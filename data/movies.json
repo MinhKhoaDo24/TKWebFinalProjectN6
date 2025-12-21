@@ -11,7 +11,7 @@
     "embed_url": "https://player.phimapi.com/player/?url=https://s2.phim1280.tv/20231021/ZqoA6aFh/index.m3u8",
     "genres": ["Hành Động", "Tâm lý"],
     "release_date": "2021-10-01",
-    "status": ["Thịnh Hành", "Sắp Chiếu"],
+    "status": "Đang Chiếu",
     "vote_average": 9.0,
     "details": {
       "duration_minutes": 163,
@@ -111,10 +111,9 @@
     "poster_url": "https://phimimg.com/upload/vod/20250722-1/3aa1d9ae03093b2b972a4680630e1998.jpg",
     "landscape_poster_url": "https://phimimg.com/upload/vod/20250722-1/82858bae822793c7e013b6efcbd9d182.jpg",
     "trailer_url": "https://www.youtube.com/watch?v=4A_kmjtsJ7c",
-    "embed_url": "https://player.phimapi.com/player/?url=https://s6.kkphimplayer6.com/20250722/bS6Guidy/index.m3u8",
     "genres": ["Lãng Mạn"],
     "release_date": "2025-06-01",
-    "status": "Đang Chiếu",
+    "status": "Sắp Chiếu",
     "vote_average": 8,
     "details": {
       "duration_minutes": 117,
@@ -466,7 +465,7 @@
     "genres": ["Chiến Tranh", "Hành Động"],
     "release_date": "2025-04-30",
     "status": "Sắp Chiếu",
-    "vote_average": 0,
+    "vote_average": 9.2,
     "details": {
       "duration_minutes": 124,
       "age_rating": "13+",

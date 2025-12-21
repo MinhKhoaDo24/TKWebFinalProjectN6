@@ -25,44 +25,54 @@ $(document).ready(function () {
         .then(data => {
             let titleText = "Tất Cả Phim";
             
-            // Lọc theo Thể Loại
+            // 1. Lọc theo Thể Loại
             if (genre) {
-                allFilteredMovies = data.filter(m => m.genres.includes(genre));
+                allFilteredMovies = data.filter(m => m.genres && m.genres.includes(genre));
                 titleText = `Thể Loại: ${genre}`;
             } 
-            // Lọc theo Quốc Gia
+            // 2. Lọc theo Quốc Gia
             else if (country) {
                 allFilteredMovies = data.filter(m => m.details?.country?.includes(country));
                 titleText = `Quốc Gia: ${country}`;
             } 
-            // Lọc theo Tìm Kiếm
+            // 3. Xử lý Tìm kiếm
             else if (search) {
                 allFilteredMovies = data.filter(m => m.title.toLowerCase().includes(search.toLowerCase()));
                 titleText = `Kết quả cho: "${search}"`;
             } 
-            // Xử lý các mục từ Sidebar (type)
+            // 4. LOGIC THỊNH HÀNH: Giữ lại phim nếu có nhãn "Thịnh Hành"
             else if (type === 'trending') {
-                // Sắp xếp theo điểm đánh giá và lấy những phim hot nhất
-                // allFilteredMovies = data.sort((a, b) => b.vote_average - a.vote_average).slice(0, 30);
+                // allFilteredMovies = data.filter(m => {
+                //     const statusList = m.status || [];
+                //     // Chỉ cần chứa nhãn "Thịnh Hành" là được chọn, không quan tâm các nhãn khác
+                //     return statusList.includes('Thịnh Hành');
+                // }).sort((a, b) => b.vote_average - a.vote_average);
+                
                 // titleText = "Phim Thịnh Hành";
-                allFilteredMovies = data.filter(m => m.status === 'Thịnh Hành'  || m.status === 'Đang Chiếu');
+                allFilteredMovies = data.sort((a, b) => b.vote_average - a.vote_average).slice(0, 30);
                 titleText = "Phim Thịnh Hành";
             } 
+            // 5. LOGIC ĐANG CHIẾU: Giữ lại phim nếu có nhãn "Đang Chiếu"
             else if (type === 'now-showing') {
-                // Lọc phim có trạng thái Đang Chiếu
-                allFilteredMovies = data.filter(m => m.status === 'Đang Chiếu');
+                allFilteredMovies = data.filter(m => {
+                    const statusList = m.status || [];
+                    return statusList.includes('Đang Chiếu');
+                });
                 titleText = "Phim Đang Chiếu";
             } 
+            // 6. Lọc Phim Sắp Ra Mắt
             else if (type === 'coming-soon') {
-                // Lọc phim có trạng thái Sắp Chiếu
-                allFilteredMovies = data.filter(m => m.status === 'Sắp Chiếu');
+                allFilteredMovies = data.filter(m => {
+                    const statusList = m.status || [];
+                    return statusList.includes('Sắp Chiếu');
+                });
                 titleText = "Phim Sắp Ra Mắt";
             } 
             else {
                 allFilteredMovies = data;
             }
 
-            // Hiển thị tiêu đề và tổng số lượng tìm thấy
+            // Cập nhật giao diện tiêu đề và số lượng
             listTitle.html(`<span class="w-1.5 h-8 bg-purple-500 rounded-full mr-4"></span>${titleText}`);
             listCount.text(`Tìm thấy ${allFilteredMovies.length} bộ phim phù hợp`);
 

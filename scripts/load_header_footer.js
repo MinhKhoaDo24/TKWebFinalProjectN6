@@ -105,45 +105,57 @@ $(document).ready(function () {
 });
 
     $("#navbar-container").load("components/header.html", function() {
+    // --- BẮT ĐẦU LOGIC ĐỒNG BỘ AVATAR & USER INFO ---
+    const username = localStorage.getItem("username");
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (isLoggedIn && username) {
+        // Lấy dữ liệu user mới nhất từ cine_users
+        const users = JSON.parse(localStorage.getItem("cine_users")) || [];
+        const currentUser = users.find(u => u && u.username === username);
+
+        // Hiển thị khung Profile và ẩn nút Thành viên
+        $("#user-profile").removeClass("hidden").addClass("flex");
+        $("#guest-action-container").addClass("hidden");
+        $("#username-display").text(username);
+
+        // Kiểm tra và đổ ảnh đại diện vào #avatar-btn
+        const headerAvatar = document.getElementById("avatar-btn");
+        if (headerAvatar) {
+            if (currentUser && currentUser.avatar) {
+                headerAvatar.src = currentUser.avatar; // Lấy ảnh Base64 đã lưu
+            } else {
+                // Nếu chưa có ảnh, dùng ảnh placeholder
+                const firstChar = username.trim().charAt(0).toUpperCase();
+                headerAvatar.src = `https://placehold.co/100x100/111/FFF?text=${encodeURIComponent(firstChar)}`;
+            }
+        }
+    }
+    // --- KẾT THÚC LOGIC ĐỒNG BỘ ---
+
+    // GIỮ NGUYÊN TOÀN BỘ LOGIC ACTIVE STATE CŨ CỦA BẠN
     const currentFile = window.location.pathname.split('/').pop() || "index.html";
     const urlParams = new URLSearchParams(window.location.search);
-
-    // Tìm tất cả các link (<a>) và nút (button) trong Header
+    
     $("#navbar-container a, #navbar-container button").each(function() {
         const $el = $(this);
         const href = $el.attr('href');
         const text = $el.text().trim();
-
-        // Xóa các class active mặc định nếu có
         $el.removeClass('header-active text-white bg-[#2a2a2a]');
 
-        // 1. Kiểm tra nếu href của link khớp với tên file hiện tại
-        if (href) {
-            const linkFile = href.split('/').pop();
-            if (currentFile === linkFile) {
-                $el.addClass('header-active');
-            }
+        if (href && href.split('/').pop() === currentFile) {
+            $el.addClass('header-active');
         }
 
-        // 2. Logic đặc biệt cho các Dropdown (Thể loại / Quốc gia)
-        // Nếu đang ở trang movie_list.html và có tham số lọc tương ứng
         if (currentFile === 'movie_list.html') {
-            if (urlParams.has('genre') && text.includes('Thể loại')) {
-                $el.addClass('header-active');
-            }
-            if (urlParams.has('country') && text.includes('Quốc gia')) {
-                $el.addClass('header-active');
-            }
+            if (urlParams.has('genre') && text.includes('Thể loại')) $el.addClass('header-active');
+            if (urlParams.has('country') && text.includes('Quốc gia')) $el.addClass('header-active');
         }
-
-        
     });
 
-    // Giữ nguyên logic kiểm tra đăng nhập cũ của bạn
     if (typeof window.checkLoginStatus === 'function') {
         window.checkLoginStatus();
     }
-    // ... các logic profile/logout khác ...
 });
 
     $("#footer-container").load("components/footer.html");
@@ -217,9 +229,10 @@ $(document).ready(function () {
         if ($("#hero-section").length > 0) {
             renderHeroSlider(data.slice(0, 5));
             renderCarouselRow("#section-trending", "Thịnh Hành", data.slice(0, 20));
-            renderCarouselRow("#section-now-showing", "Đang Chiếu", data.filter(m => m.status === 'Đang Chiếu'));
-            renderCarouselRow("#section-coming-soon", "Sắp Chiếu", data.filter(m => m.status === 'Sắp Chiếu'));
-            
+            // renderCarouselRow("#section-trending", "Thịnh Hành", data.filter(m => m.status.includes('Thịnh Hành')));
+            renderCarouselRow("#section-now-showing", "Đang Chiếu", data.filter(m => m.status.includes('Đang Chiếu')));
+            renderCarouselRow("#section-coming-soon", "Sắp Chiếu", data.filter(m => m.status.includes('Sắp Chiếu')));
+            // Các danh mục quốc gia
             const filterCountry = (kw) => data.filter(m => m.details?.country?.toLowerCase().includes(kw.toLowerCase()));
             renderCarouselRow("#section-vietnam", "Phim Việt Nam", filterCountry("Việt Nam"));
             renderCarouselRow("#section-us", "Phim Âu Mỹ", filterCountry("Mỹ"));
