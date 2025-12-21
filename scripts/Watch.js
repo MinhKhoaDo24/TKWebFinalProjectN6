@@ -47,7 +47,7 @@
                                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors leading-tight">
-                            <a href="actor_detail.html?slug=${actors.find(a => a.name.toLowerCase().trim === name.toLowerCase().trim)?.slug || ''}" class="text-gray-300 hover:text-white transition-colors">${name}</a>
+                            <a href="actor_detail.html?slug=${actors.find(a => a.name.toLowerCase().trim() === name.toLowerCase().trim())?.slug || ''}" class="text-gray-300 hover:text-white transition-colors">${name}</a>
                         </div>
                     </div>
                 `).join('');
